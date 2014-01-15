@@ -19,7 +19,6 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-#
 
 
 
@@ -30,14 +29,21 @@
 # 2. Functions
 
 # Functions are used to operate on objects, usually to create a new object
-# or transform the original object
+# or transform the original object.
 
 # Let's make a matrix to demonstrate how to use a function.
 # The function c() is a basic function that groups together numbers 
 # or character strings. 
+
 # The "<-" sign ("less than" sign, minus sign) will assign our group
 # of numbers to an object name. An object name is used to 
 # succinctly refer to data. We'll call this "mat.input.v"
+
+# NOTE: To run a single line in RStudio, put cursor on that line and press 
+# Command + Enter (Mac) or Ctrl + Enter (Windows/Linux). To run multiple lines, 
+# highlight the lines and press Command + Enter (Mac) or Ctrl + Enter (Windows/Linux).
+# If you get lost, Command + Option + B (Mac) or Ctrl + Alt + B (Windows/Linux) 
+# will get you back on track since it runs code from start of the file to the current line.
 
 mat.input.v <- c(9, 56, 72, 4, 862, 263, 93, 49, 152)
 
@@ -48,7 +54,6 @@ mat.input.v
 # The matrix() function is used to form a matrix. Let's look at its help file.
 
 ?matrix
-
 
 
 sample.data.mat <- matrix(data=mat.input.v, nrow=3)
@@ -92,11 +97,11 @@ one.hundred.v
 
 # Let's look at a way to extract a vector from a dataset. 
 # The read.csv() function is going to be your primary way to get
-# A dataset into your R workspace
+# a dataset into your R workspace
 
 net.worth.df<-read.csv("http://www.opensecrets.org/db2dl/?q=PFDsWorth&cycle=2008&output=CSV", stringsAsFactors=FALSE)
-# Data on net worth of Congresspeople, Supreme Court Justices,
-# and certain executive branch officials
+# We have just created a "data frame" containing data on the net worth of
+# Congresspeople, Supreme Court Justices, and certain executive branch officials
 
 ?read.csv
 
@@ -280,6 +285,11 @@ as.logical(c(1, 0, 0, 1, 0))
 
 as.numeric(c("2", "4", "90", "junk", "24"))
 
+# 7. The main difference between matrices and data frames is that
+# all data within a matrix must be of a single type (numeric,
+# character, logical), while each column of a data frame can
+# be a different data type
+
 
 # Flow control features
 
@@ -330,7 +340,7 @@ plot(n.sequence, VV.line, type="l", col="red", ylim=c(0,.4))
 # We have covered matrices, dataframes, and vectors.
 # There is a fourth basic data type: Lists
 
-# Lists are the most foreign idea for STATA and MATLAB users
+# Lists are the most foreign idea for Stata and MATLAB users
 
 # A list is a structured, possibly hierarchical, collection of objects
 # Don't think of list as in shopping list
@@ -399,6 +409,7 @@ co2.lm$coefficients
 # Access the coeficient values with the list syntax
 coef(co2.lm)
 # Or through the coef() function for convenience
+resid(co2.lm)
 
 # Let's tabulate things
 table(co2.df$year)
@@ -476,6 +487,9 @@ ls()
 
 # At the console, press the up arrow to get commands previously entered.
 
+# Unlike in Matlab, * is element-by-element multiplication, corresponding to .* in Matlab.
+# In R, %*% is standard matrix multiplication.
+
 with(co2.df, fertility + life.exp * internet.users / log(gdp))
 # Easier-to-read syntax if you have lots of operations with a single data frame
 
@@ -483,7 +497,7 @@ write.csv(co2.df, "CO2 imputed.csv")
 
 save(co2.df, file="CO2 imputed.RData")
 
-# Use the "foreign" package to read data from STATA, MATLAB, and SPSS formats
+# Use the "foreign" package to read data from Stata, MATLAB, and SPSS formats
 
 # To get data from an xls, just save it as a csv in Excel
 
@@ -501,6 +515,7 @@ save(co2.df, file="CO2 imputed.RData")
 # stringr
 # plyr
 # ggplot2
+# RColorBrewer
 
 # Further resources:
 
@@ -511,7 +526,7 @@ save(co2.df, file="CO2 imputed.RData")
 # http://www.statmethods.net/
 
 # UCLA has good mini-tutorials:
-# http://www.ats.ucla.edu/stat/r/
+# http://www.ats.ucla.edu/stat/r/faq/
 
 # To ask a question about R:
 # http://stackoverflow.com/questions/tagged/r
@@ -519,7 +534,7 @@ save(co2.df, file="CO2 imputed.RData")
 # Frequently used functions on a few reference cards:
 # http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf
 
-# Google's video R intros (not much that we didn't cover today, but may be a good review): 
+# Google's video R intros (not much that we didn't cover today, but may be a good review from a different perspective): 
 # http://www.youtube.com/watch?v=iffR3fWv4xw&list=PLOU2XLYxmsIK9qQfztXeybpHvru-TrqAP
 
 # Data Manipulation with R
@@ -528,15 +543,15 @@ save(co2.df, file="CO2 imputed.RData")
 # See what others are using R for:
 # http://www.r-bloggers.com/
 
-# Books:
+# List of books:
 # http://stackoverflow.com/questions/192369/books-for-learning-the-r-language/2270793#2270793
 
-# An easier way to view package documentation
-# http://www.rdocumentation.org
+# Guide to econometrics with R
+# http://cran.r-project.org/doc/contrib/Farnsworth-EconometricsInR.pdf
 
-# STATA-to-R help
+# Stata-to-R help
 # http://dss.princeton.edu/training/RStata.pdf
-# https://patron.library.wisc.edu/authn/ezproxyiaa.html?url=http://library.books24x7.com/library.asp?%5EB&bookid=35268#default
+# Downlodable PDF of R for Stata Users: http://madcat.library.wisc.edu/cgi-bin/Pwebrecon.cgi?BBID=8698344
 
 # MATLAB-to-R help 
 # http://www.math.umaine.edu/~hiebeler/comp/matlabR.pdf
@@ -547,9 +562,19 @@ save(co2.df, file="CO2 imputed.RData")
 # A formal intro to R manual:
 # http://cran.r-project.org/doc/manuals/R-intro.pdf
 
+# Google's R code style guide:
+# http://google-styleguide.googlecode.com/svn/trunk/Rguide.xml
+
+# Code running slow? Take a look at:
+# http://www.burns-stat.com/pages/Tutor/R_inferno.pdf
+
+# Debugging tools in RStudio:
+# http://www.rstudio.com/ide/docs/debugging/overview
+
 
 
 # YOUR HOMEWORK:
+
 # 1. With the dataset we have been working with, find country with 
 # lowest fertility rate in 2003 and calculate its total CO2 
 # emissions (CO2 per cap times population) for every year.
@@ -558,25 +583,11 @@ save(co2.df, file="CO2 imputed.RData")
 # co2.emissions.per.cap ~ gdp + log(gdp) + military.exp
   
 
+# Slides available at http://tdmcarthur.github.io/slidify-presentations/r-intro/index.html
 
 
 
 
 
-co2.df
 
-
-
-test.plm<-plm(co2.emissions.per.cap ~ gdp + log(gdp) + military.exp, data=co2.df, index=c("country", "year"), model="random")
-
-
-plot(test.plm)
-
-plot(aggregate(co2.df$population, list(co2.df$year), FUN=sum, na.rm=T))
-
-
-co2.df[co2.df$year==2003, ][which.min(co2.df$fertility[co2.df$year==2003]),]
-
-co2.df[co2.df$country=="Hong Kong, China", "co2.emissions.per.cap"] * 
-  co2.df[co2.df$country=="Hong Kong, China", "population"]
 

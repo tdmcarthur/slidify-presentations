@@ -58,7 +58,7 @@ mode        : selfcontained # {standalone, draft}
 
 ## Advantages of R (Graphics)
 
-<img src="http://robjhyndman.com/Rfiles/animation/animation.gif" alt=", width="870" height="600"">
+<img src="http://robjhyndman.com/Rfiles/animation/animation.gif" alt=" width="870" height="600"">
 
 ---
 
@@ -93,6 +93,19 @@ mode        : selfcontained # {standalone, draft}
 <img src="http://revolution-computing.typepad.com/.a/6a010534b1db25970b010536ae5052970b-800wi" alt="">
 
 ---
+
+## Advantages of R (Graphics)
+
+- The famous Facebook connections map: made with R
+
+<img src="http://scontent-b.xx.fbcdn.net/hphotos-frc3/163413_479288597199_8388607_n.jpg?lvh=1" alt="" width="785" height="391" ">
+
+---
+
+
+
+
+
 
 ## Advantages of R (Graphics)
 
@@ -229,32 +242,36 @@ writeWebGL_split(dir=getwd(), filename ="knitted_webGL_first.html", template = "
 
 ## Advantages of R (vs. MATLAB)
 
-- In R, you can name everything, so you access by name or position number
+- In R, you can name everything, so you access by name or position number.
 
 - In MATLAB, you have to remmeber if $\gamma$ was the 3rd or 4th element in the vector, since you access stuff by position number.
 
-- R was designed for statistics and has many more stats packages than MATLAB
+- R was designed for statistics and has many more stats packages than MATLAB.
 
-- MATLAB is geared toward engineering
+- MATLAB is geared toward engineering.
 
 - In MATLAB, no natural way to set function argument defaults or allow an arbitrary number of arguments, whereas this is simple in R.
 
+- In MATLAB, using functions within functions can tempt you to create global variables (this is bad).
+
+- In R, the scoping rules allow you to easily pass arguments from the top-level functions to any function nested within it.
+
 ---
 
-## Advantages of R (vs. STATA)
+## Advantages of R (vs. Stata)
 
-- STATA allows only one dataset at a time in the workspace
+- Stata allows only one dataset at a time in the workspace
 
-- It's often easier to write your own statistical routines or tweak existing ones in R than STATA.
+- It's often easier to write your own statistical routines or tweak existing ones in R than Stata.
 
 ---
 
 
 ## Drawbacks of R
 
-- Small network in econ still. STATA is dominant. 
+- Small network in econ still. Stata is dominant. 
 
-- Accuracy of add-on packages is verifiable but not necessarily verified.   Closed source is unverifiable but assumed to be verified. Note that commercial packages can also [get the wrong answer](http://politicalsciencereplication.wordpress.com/2013/09/11/guest-blog-how-to-persuade-journals-to-accept-your-replication-paper/). Also consider that no one trusted open source Linux initially and now about 70% of servers worldwide use it.
+- Accuracy of add-on packages is verifiable but not necessarily verified.   Closed source is unverifiable but assumed to be verified. Note that commercial packages can also [get the wrong answer](http://politicalsciencereplication.wordpress.com/2013/09/11/guest-blog-how-to-persuade-journals-to-accept-your-replication-paper/). Also consider that no one trusted open source Linux initially and now about 70% of website servers worldwide use it.
 
 <!-- [show lm - expose source] --> 
 
@@ -271,7 +288,7 @@ writeWebGL_split(dir=getwd(), filename ="knitted_webGL_first.html", template = "
 - The development of R is chaotic
  - Little central organization
  - Duplication of functionality
- - Hard to kill outmoded ways of doing things because current code relies on it
+ - Hard to kill outmoded ways of doing things because current code relies on it (backward compatibility)
  - On the bright side, the open nature of the R ecosystem encourages competition
 
 ---
@@ -282,7 +299,7 @@ writeWebGL_split(dir=getwd(), filename ="knitted_webGL_first.html", template = "
 
 <img src="http://images.springer.com/sgw/books/raw/9781441913173.tif" alt="" height="220", width="160">
 
-- STATA-to-R help [here](http://dss.princeton.edu/training/RStata.pdf) and [here](https://patron.library.wisc.edu/authn/ezproxyiaa.html?url=http://library.books24x7.com/library.asp?%5EB&bookid=35268#default).
+- Stata-to-R help [here](http://dss.princeton.edu/training/RStata.pdf) and [here](https://patron.library.wisc.edu/authn/ezproxyiaa.html?url=http://library.books24x7.com/library.asp?%5EB&bookid=35268#default).
 - MATLAB-to-R help [here](http://www.math.umaine.edu/~hiebeler/comp/matlabR.pdf).
 
 
