@@ -1,126 +1,16 @@
----
-title       : R
-subtitle    : 
-author      : 
-job         : 
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
-widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
-mode        : selfcontained # {standalone, draft}
----
-
-## History of R
-
-<!-- nonvisible comment --> 
-
-- 1980: Closed-source predecessor S came out of Bell Labs
-
-- 1990’s: Development of open source implementation of S named “R”
-
-- 2000: First production-ready release of R
-
-- R is written in R itself, C, and Fortran
-
----
-
-## Advantages of R 
-
-- R excels at handling and analyzing non-rectangular data like geographic, network, webscraped, and xml data. Lists are natural containers for this data.
-
-- R is very popular in statistics departments, and cutting-edge techniques often appear in R first. 
-<!-- Now, this is distinct from being popular in econ departments. --> 
-
-- R code is published with the [journal articles](http://public.econ.duke.edu/~ap172/ppw.R.txt)  [describing](http://www.economics.mcmaster.ca/faculty/racinej) the technique or as add-on packages.
-
----
-
-## Advantages of R 
-
-- Over 5,000 packages on the Comprehensive R Archive Network (CRAN),
-
-- Exponential growth in number of packages over time. 
-<!-- [Image from http://www.stat.tugraz.at/AJS/ausg121/121Hornik.pdf] --> 
-
-<img src="cran-exponential.png" alt="" width="600" height="400">
-
----
-
-## Advantages of R
-
-- Excellent graphics
-
-<img src="http://www.sr.bham.ac.uk/~ajrs/R/gallery/CC-vs_nCC_kT_prof.png" alt="">
-
----
-
-
-
-## Advantages of R (Graphics)
-
-<img src="http://robjhyndman.com/Rfiles/animation/animation.gif" alt=" width="870" height="600"">
-
----
-
-## Advantages of R (Graphics)
-
-<img src="http://www.sr.bham.ac.uk/~ajrs/R/gallery/midday_weather_profiles.jpg" alt="">
-
----
-
-## Advantages of R (Graphics)
-
-<img src="dendogram.png" alt="">
-
----
-
-
-
-## Advantages of R (Graphics)
-
-<img src="http://revolution-computing.typepad.com/.a/6a010534b1db25970b0120a63e9936970b-500wi" alt="">
-
----
-
-## Advantages of R (Graphics)
-
-<img src="http://nrelecopress1.files.wordpress.com/2013/05/rplot012.jpeg" alt="">
-
----
-
-## Advantages of R (Graphics)
-
-<img src="http://revolution-computing.typepad.com/.a/6a010534b1db25970b010536ae5052970b-800wi" alt="">
-
----
-
-## Advantages of R (Graphics)
-
-- The famous Facebook connections map: made with R
-
-<img src="http://scontent-b.xx.fbcdn.net/hphotos-frc3/163413_479288597199_8388607_n.jpg?lvh=1" alt="" width="785" height="391" ">
-
----
-
-
-
-
-
-
-## Advantages of R (Graphics)
-
-
-
-
-
-
-
-<script src="CanvasMatrix.js" type="text/javascript"></script>
-<canvas id="textureCanvas" style="display: none;" width="256" height="256">
-<img src="snapshot.png" alt="snapshot" width=505/><br>
+	<html><head>
+	<TITLE>RGL model</TITLE>
+    </head>
+	<body onload="webGLStart();"> 
+    
+    <div align="center">
+	<script src="CanvasMatrix.js" type="text/javascript"></script>
+	<canvas id="textureCanvas" style="display: none;" width="256" height="256">
+        <img src="snapshot.png" alt="snapshot" width=500/><br>
 	Your browser does not support the HTML5 canvas element.</canvas>
-<!-- ****** triangles object 74 ****** -->
-<script id="vshader74" type="x-shader/x-vertex">
+
+	<!-- ****** triangles object 74 ****** -->
+	<script id="vshader74" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -136,8 +26,9 @@ mode        : selfcontained # {standalone, draft}
 	  vCol = aCol;
 	  vNormal = normalize((normMatrix * vec4(aNorm, 1.)).xyz);
 	}
-</script>
-<script id="fshader74" type="x-shader/x-fragment"> 
+	</script>
+
+	<script id="fshader74" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -163,9 +54,10 @@ mode        : selfcontained # {standalone, draft}
 	  lighteffect = lighteffect + vec4(col1, colDiff1.a);
 	  gl_FragColor = lighteffect;
 	}
-</script> 
-<!-- ****** lines object 75 ****** -->
-<script id="vshader75" type="x-shader/x-vertex">
+	</script> 
+
+	<!-- ****** lines object 75 ****** -->
+	<script id="vshader75" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -177,8 +69,9 @@ mode        : selfcontained # {standalone, draft}
 	  gl_Position = prMatrix * vPosition;
 	  vCol = aCol;
 	}
-</script>
-<script id="fshader75" type="x-shader/x-fragment"> 
+	</script>
+
+	<script id="fshader75" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -189,9 +82,10 @@ mode        : selfcontained # {standalone, draft}
 	  vec4 lighteffect = colDiff;
 	  gl_FragColor = lighteffect;
 	}
-</script> 
-<!-- ****** points object 76 ****** -->
-<script id="vshader76" type="x-shader/x-vertex">
+	</script> 
+
+	<!-- ****** points object 76 ****** -->
+	<script id="vshader76" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -204,8 +98,9 @@ mode        : selfcontained # {standalone, draft}
 	  gl_PointSize = 3.;
 	  vCol = aCol;
 	}
-</script>
-<script id="fshader76" type="x-shader/x-fragment"> 
+	</script>
+
+	<script id="fshader76" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -216,9 +111,10 @@ mode        : selfcontained # {standalone, draft}
 	  vec4 lighteffect = colDiff;
 	  gl_FragColor = lighteffect;
 	}
-</script> 
-<!-- ****** lines object 78 ****** -->
-<script id="vshader78" type="x-shader/x-vertex">
+	</script> 
+
+	<!-- ****** lines object 78 ****** -->
+	<script id="vshader78" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -230,8 +126,9 @@ mode        : selfcontained # {standalone, draft}
 	  gl_Position = prMatrix * vPosition;
 	  vCol = aCol;
 	}
-</script>
-<script id="fshader78" type="x-shader/x-fragment"> 
+	</script>
+
+	<script id="fshader78" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -242,9 +139,10 @@ mode        : selfcontained # {standalone, draft}
 	  vec4 lighteffect = colDiff;
 	  gl_FragColor = lighteffect;
 	}
-</script> 
-<!-- ****** text object 79 ****** -->
-<script id="vshader79" type="x-shader/x-vertex">
+	</script> 
+
+	<!-- ****** text object 79 ****** -->
+	<script id="vshader79" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -261,8 +159,9 @@ mode        : selfcontained # {standalone, draft}
 	  pos = pos/pos.w;
 	  gl_Position = pos + vec4(aOfs, 0.,0.);
 	}
-</script>
-<script id="fshader79" type="x-shader/x-fragment"> 
+	</script>
+
+	<script id="fshader79" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -279,9 +178,10 @@ mode        : selfcontained # {standalone, draft}
 	  else
 	    gl_FragColor = textureColor;
 	}
-</script> 
-<!-- ****** lines object 80 ****** -->
-<script id="vshader80" type="x-shader/x-vertex">
+	</script> 
+
+	<!-- ****** lines object 80 ****** -->
+	<script id="vshader80" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -293,8 +193,9 @@ mode        : selfcontained # {standalone, draft}
 	  gl_Position = prMatrix * vPosition;
 	  vCol = aCol;
 	}
-</script>
-<script id="fshader80" type="x-shader/x-fragment"> 
+	</script>
+
+	<script id="fshader80" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -305,9 +206,10 @@ mode        : selfcontained # {standalone, draft}
 	  vec4 lighteffect = colDiff;
 	  gl_FragColor = lighteffect;
 	}
-</script> 
-<!-- ****** text object 81 ****** -->
-<script id="vshader81" type="x-shader/x-vertex">
+	</script> 
+
+	<!-- ****** text object 81 ****** -->
+	<script id="vshader81" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -324,8 +226,9 @@ mode        : selfcontained # {standalone, draft}
 	  pos = pos/pos.w;
 	  gl_Position = pos + vec4(aOfs, 0.,0.);
 	}
-</script>
-<script id="fshader81" type="x-shader/x-fragment"> 
+	</script>
+
+	<script id="fshader81" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -342,9 +245,10 @@ mode        : selfcontained # {standalone, draft}
 	  else
 	    gl_FragColor = textureColor;
 	}
-</script> 
-<!-- ****** lines object 82 ****** -->
-<script id="vshader82" type="x-shader/x-vertex">
+	</script> 
+
+	<!-- ****** lines object 82 ****** -->
+	<script id="vshader82" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -356,8 +260,9 @@ mode        : selfcontained # {standalone, draft}
 	  gl_Position = prMatrix * vPosition;
 	  vCol = aCol;
 	}
-</script>
-<script id="fshader82" type="x-shader/x-fragment"> 
+	</script>
+
+	<script id="fshader82" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -368,9 +273,10 @@ mode        : selfcontained # {standalone, draft}
 	  vec4 lighteffect = colDiff;
 	  gl_FragColor = lighteffect;
 	}
-</script> 
-<!-- ****** text object 83 ****** -->
-<script id="vshader83" type="x-shader/x-vertex">
+	</script> 
+
+	<!-- ****** text object 83 ****** -->
+	<script id="vshader83" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -387,8 +293,9 @@ mode        : selfcontained # {standalone, draft}
 	  pos = pos/pos.w;
 	  gl_Position = pos + vec4(aOfs, 0.,0.);
 	}
-</script>
-<script id="fshader83" type="x-shader/x-fragment"> 
+	</script>
+
+	<script id="fshader83" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -405,9 +312,10 @@ mode        : selfcontained # {standalone, draft}
 	  else
 	    gl_FragColor = textureColor;
 	}
-</script> 
-<!-- ****** text object 84 ****** -->
-<script id="vshader84" type="x-shader/x-vertex">
+	</script> 
+
+	<!-- ****** text object 84 ****** -->
+	<script id="vshader84" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -424,8 +332,9 @@ mode        : selfcontained # {standalone, draft}
 	  pos = pos/pos.w;
 	  gl_Position = pos + vec4(aOfs, 0.,0.);
 	}
-</script>
-<script id="fshader84" type="x-shader/x-fragment"> 
+	</script>
+
+	<script id="fshader84" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -442,9 +351,10 @@ mode        : selfcontained # {standalone, draft}
 	  else
 	    gl_FragColor = textureColor;
 	}
-</script> 
-<!-- ****** text object 85 ****** -->
-<script id="vshader85" type="x-shader/x-vertex">
+	</script> 
+
+	<!-- ****** text object 85 ****** -->
+	<script id="vshader85" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -461,8 +371,9 @@ mode        : selfcontained # {standalone, draft}
 	  pos = pos/pos.w;
 	  gl_Position = pos + vec4(aOfs, 0.,0.);
 	}
-</script>
-<script id="fshader85" type="x-shader/x-fragment"> 
+	</script>
+
+	<script id="fshader85" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -479,9 +390,10 @@ mode        : selfcontained # {standalone, draft}
 	  else
 	    gl_FragColor = textureColor;
 	}
-</script> 
-<!-- ****** text object 86 ****** -->
-<script id="vshader86" type="x-shader/x-vertex">
+	</script> 
+
+	<!-- ****** text object 86 ****** -->
+	<script id="vshader86" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -498,8 +410,9 @@ mode        : selfcontained # {standalone, draft}
 	  pos = pos/pos.w;
 	  gl_Position = pos + vec4(aOfs, 0.,0.);
 	}
-</script>
-<script id="fshader86" type="x-shader/x-fragment"> 
+	</script>
+
+	<script id="fshader86" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -516,8 +429,11 @@ mode        : selfcontained # {standalone, draft}
 	  else
 	    gl_FragColor = textureColor;
 	}
-</script> 
-<script type="text/javascript"> 
+	</script> 
+
+
+	<script type="text/javascript"> 
+
 	function getShader ( gl, id ){
 	   var shaderScript = document.getElementById ( id );
 	   var str = "";
@@ -538,6 +454,7 @@ mode        : selfcontained # {standalone, draft}
 	     alert(gl.getShaderInfoLog(shader));
 	   return shader;
 	}
+
 	var min = Math.min;
 	var max = Math.max;
 	var sqrt = Math.sqrt;
@@ -548,14 +465,16 @@ mode        : selfcontained # {standalone, draft}
 	var PI = Math.PI;
 	var log = Math.log;
 	var exp = Math.exp;
+
 	function webGLStart() {
 	   var debug = function(msg) {
 	     document.getElementById("debug").innerHTML = msg;
 	   }
 	   debug("");
+
 	   var canvas = document.getElementById("canvas");
 	   if (!window.WebGLRenderingContext){
-	     debug("<img src=\"snapshot.png\" alt=\"snapshot\" width=505/><br> Your browser does not support WebGL. See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
+	     debug("<img src=\"snapshot.png\" alt=\"snapshot\" width=500/><br> Your browser does not support WebGL. See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
 	     return;
 	   }
 	   var gl;
@@ -566,10 +485,10 @@ mode        : selfcontained # {standalone, draft}
 	   }
 	   catch(e) {}
 	   if ( !gl ) {
-	     debug("<img src=\"snapshot.png\" alt=\"snapshot\" width=505/><br> Your browser appears to support WebGL, but did not create a WebGL context.  See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
+	     debug("<img src=\"snapshot.png\" alt=\"snapshot\" width=500/><br> Your browser appears to support WebGL, but did not create a WebGL context.  See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
 	     return;
 	   }
-	   var width = 505;  var height = 505;
+	   var width = 500;  var height = 500;
 	   canvas.width = width;   canvas.height = height;
 	   gl.viewport(0, 0, width, height);
 	   var prMatrix = new CanvasMatrix4();
@@ -580,6 +499,7 @@ mode        : selfcontained # {standalone, draft}
 	   var distance;
 	   var posLoc = 0;
 	   var colLoc = 1;
+
 	   var zoom = 1;
 	   var fov = 60;
 	   var userMatrix = new CanvasMatrix4();
@@ -596,19 +516,24 @@ mode        : selfcontained # {standalone, draft}
 	     }
 	     return pow;
 	   }
+
 	   function handleLoadedTexture(texture, textureCanvas) {
 	     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+
 	     gl.bindTexture(gl.TEXTURE_2D, texture);
 	     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, textureCanvas);
 	     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
 	     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_NEAREST);
 	     gl.generateMipmap(gl.TEXTURE_2D);
+
 	     gl.bindTexture(gl.TEXTURE_2D, null);
 	   }
+	   
 	   function loadImageToTexture(filename, texture) {   
 	     var canvas = document.getElementById("textureCanvas");
 	     var ctx = canvas.getContext("2d");
 	     var image = new Image();
+	     
 	     image.onload = function() {
 	       var w = image.width;
 	       var h = image.height;
@@ -623,16 +548,22 @@ mode        : selfcontained # {standalone, draft}
 	     }
 	     image.src = filename;
 	   }  	   
+
 	   function drawTextToCanvas(text, cex) {
 	     var canvasX, canvasY;
 	     var textX, textY;
+
 	     var textHeight = 20 * cex;
 	     var textColour = "white";
 	     var fontFamily = "Arial";
+
 	     var backgroundColour = "rgba(0,0,0,0)";
+
 	     var canvas = document.getElementById("textureCanvas");
 	     var ctx = canvas.getContext("2d");
+
 	     ctx.font = textHeight+"px "+fontFamily;
+
              canvasX = 1;
              var widths = [];
 	     for (var i = 0; i < text.length; i++)  {
@@ -640,17 +571,23 @@ mode        : selfcontained # {standalone, draft}
 	       canvasX = (widths[i] > canvasX) ? widths[i] : canvasX;
 	     }	  
 	     canvasX = getPowerOfTwo(canvasX);
+
 	     var offset = 2*textHeight; // offset to first baseline
 	     var skip = 2*textHeight;   // skip between baselines	  
 	     canvasY = getPowerOfTwo(offset + text.length*skip);
+	     
 	     canvas.width = canvasX;
 	     canvas.height = canvasY;
+
 	     ctx.fillStyle = backgroundColour;
 	     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
 	     ctx.fillStyle = textColour;
 	     ctx.textAlign = "left";
+
 	     ctx.textBaseline = "alphabetic";
 	     ctx.font = textHeight+"px "+fontFamily;
+
 	     for(var i = 0; i < text.length; i++) {
 	       textY = i*skip + offset;
 	       ctx.fillText(text[i], 0,  textY);
@@ -659,6 +596,8 @@ mode        : selfcontained # {standalone, draft}
 	             widths:widths, textHeight:textHeight,
 	             offset:offset, skip:skip};
 	   }
+
+
 	   // ****** triangles object 74 ******
 	   var prog74  = gl.createProgram();
 	   gl.attachShader(prog74, getShader( gl, "vshader74" ));
@@ -36877,6 +36816,8 @@ mode        : selfcontained # {standalone, draft}
 	   var mvMatLoc74 = gl.getUniformLocation(prog74,"mvMatrix");
 	   var prMatLoc74 = gl.getUniformLocation(prog74,"prMatrix");
 	   var normMatLoc74 = gl.getUniformLocation(prog74,"normMatrix");
+
+
 	   // ****** lines object 75 ******
 	   var prog75  = gl.createProgram();
 	   gl.attachShader(prog75, getShader( gl, "vshader75" ));
@@ -72368,6 +72309,8 @@ mode        : selfcontained # {standalone, draft}
 	   gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
 	   var mvMatLoc75 = gl.getUniformLocation(prog75,"mvMatrix");
 	   var prMatLoc75 = gl.getUniformLocation(prog75,"prMatrix");
+
+
 	   // ****** points object 76 ******
 	   var prog76  = gl.createProgram();
 	   gl.attachShader(prog76, getShader( gl, "vshader76" ));
@@ -79941,6 +79884,8 @@ mode        : selfcontained # {standalone, draft}
 	   gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
 	   var mvMatLoc76 = gl.getUniformLocation(prog76,"mvMatrix");
 	   var prMatLoc76 = gl.getUniformLocation(prog76,"prMatrix");
+
+
 	   // ****** lines object 78 ******
 	   var prog78  = gl.createProgram();
 	   gl.attachShader(prog78, getShader( gl, "vshader78" ));
@@ -79978,6 +79923,8 @@ mode        : selfcontained # {standalone, draft}
 	   gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
 	   var mvMatLoc78 = gl.getUniformLocation(prog78,"mvMatrix");
 	   var prMatLoc78 = gl.getUniformLocation(prog78,"prMatrix");
+
+
 	   // ****** text object 79 ******
 	   var prog79  = gl.createProgram();
 	   gl.attachShader(prog79, getShader( gl, "vshader79" ));
@@ -80077,6 +80024,8 @@ mode        : selfcontained # {standalone, draft}
 	   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, f, gl.STATIC_DRAW);
 	   var mvMatLoc79 = gl.getUniformLocation(prog79,"mvMatrix");
 	   var prMatLoc79 = gl.getUniformLocation(prog79,"prMatrix");
+
+
 	   // ****** lines object 80 ******
 	   var prog80  = gl.createProgram();
 	   gl.attachShader(prog80, getShader( gl, "vshader80" ));
@@ -80114,6 +80063,8 @@ mode        : selfcontained # {standalone, draft}
 	   gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
 	   var mvMatLoc80 = gl.getUniformLocation(prog80,"mvMatrix");
 	   var prMatLoc80 = gl.getUniformLocation(prog80,"prMatrix");
+
+
 	   // ****** text object 81 ******
 	   var prog81  = gl.createProgram();
 	   gl.attachShader(prog81, getShader( gl, "vshader81" ));
@@ -80213,6 +80164,8 @@ mode        : selfcontained # {standalone, draft}
 	   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, f, gl.STATIC_DRAW);
 	   var mvMatLoc81 = gl.getUniformLocation(prog81,"mvMatrix");
 	   var prMatLoc81 = gl.getUniformLocation(prog81,"prMatrix");
+
+
 	   // ****** lines object 82 ******
 	   var prog82  = gl.createProgram();
 	   gl.attachShader(prog82, getShader( gl, "vshader82" ));
@@ -80250,6 +80203,8 @@ mode        : selfcontained # {standalone, draft}
 	   gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
 	   var mvMatLoc82 = gl.getUniformLocation(prog82,"mvMatrix");
 	   var prMatLoc82 = gl.getUniformLocation(prog82,"prMatrix");
+
+
 	   // ****** text object 83 ******
 	   var prog83  = gl.createProgram();
 	   gl.attachShader(prog83, getShader( gl, "vshader83" ));
@@ -80349,6 +80304,8 @@ mode        : selfcontained # {standalone, draft}
 	   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, f, gl.STATIC_DRAW);
 	   var mvMatLoc83 = gl.getUniformLocation(prog83,"mvMatrix");
 	   var prMatLoc83 = gl.getUniformLocation(prog83,"prMatrix");
+
+
 	   // ****** text object 84 ******
 	   var prog84  = gl.createProgram();
 	   gl.attachShader(prog84, getShader( gl, "vshader84" ));
@@ -80394,6 +80351,8 @@ mode        : selfcontained # {standalone, draft}
 	   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, f, gl.STATIC_DRAW);
 	   var mvMatLoc84 = gl.getUniformLocation(prog84,"mvMatrix");
 	   var prMatLoc84 = gl.getUniformLocation(prog84,"prMatrix");
+
+
 	   // ****** text object 85 ******
 	   var prog85  = gl.createProgram();
 	   gl.attachShader(prog85, getShader( gl, "vshader85" ));
@@ -80439,6 +80398,8 @@ mode        : selfcontained # {standalone, draft}
 	   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, f, gl.STATIC_DRAW);
 	   var mvMatLoc85 = gl.getUniformLocation(prog85,"mvMatrix");
 	   var prMatLoc85 = gl.getUniformLocation(prog85,"prMatrix");
+
+
 	   // ****** text object 86 ******
 	   var prog86  = gl.createProgram();
 	   gl.attachShader(prog86, getShader( gl, "vshader86" ));
@@ -80484,12 +80445,14 @@ mode        : selfcontained # {standalone, draft}
 	   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, f, gl.STATIC_DRAW);
 	   var mvMatLoc86 = gl.getUniformLocation(prog86,"mvMatrix");
 	   var prMatLoc86 = gl.getUniformLocation(prog86,"prMatrix");
+
 	   gl.enable(gl.DEPTH_TEST);
 	   gl.depthFunc(gl.LEQUAL);
 	   gl.clearDepth(1.0);
 	   gl.clearColor(1, 1, 1, 1);
 	   var xOffs = yOffs = 0,  drag  = 0;
 	   drawScene();
+
 	   function drawScene(){
 	     gl.depthMask(true);
 	     gl.disable(gl.BLEND);
@@ -80518,6 +80481,8 @@ mode        : selfcontained # {standalone, draft}
 	     normMatrix.scale( 1, 1, 1 );   
 	     normMatrix.multRight( userMatrix );
 	     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+
 	     // ****** triangles object 74 *******
 	     gl.useProgram(prog74);
 	     gl.bindBuffer(gl.ARRAY_BUFFER, buf74);
@@ -80531,6 +80496,7 @@ mode        : selfcontained # {standalone, draft}
 	     gl.vertexAttribPointer(normLoc74, 3, gl.FLOAT, false, 24, 12);
 	     gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 24,  0);
 	     gl.drawArrays(gl.TRIANGLES, 0, 36201);
+
 	     // ****** lines object 75 *******
 	     gl.useProgram(prog75);
 	     gl.bindBuffer(gl.ARRAY_BUFFER, buf75);
@@ -80542,6 +80508,7 @@ mode        : selfcontained # {standalone, draft}
 	     gl.lineWidth( 1 );
 	     gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 12,  0);
 	     gl.drawArrays(gl.LINES, 0, 35476);
+
 	     // ****** points object 76 *******
 	     gl.useProgram(prog76);
 	     gl.bindBuffer(gl.ARRAY_BUFFER, buf76);
@@ -80552,6 +80519,7 @@ mode        : selfcontained # {standalone, draft}
 	     gl.vertexAttrib4f( colLoc, 1, 1, 1, 1 );
 	     gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 12,  0);
 	     gl.drawArrays(gl.POINTS, 0, 7558);
+
 	     // ****** lines object 78 *******
 	     gl.useProgram(prog78);
 	     gl.bindBuffer(gl.ARRAY_BUFFER, buf78);
@@ -80563,6 +80531,7 @@ mode        : selfcontained # {standalone, draft}
 	     gl.lineWidth( 1 );
 	     gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 12,  0);
 	     gl.drawArrays(gl.LINES, 0, 22);
+
 	     // ****** text object 79 *******
 	     gl.useProgram(prog79);
 	     gl.bindBuffer(gl.ARRAY_BUFFER, buf79);
@@ -80581,6 +80550,7 @@ mode        : selfcontained # {standalone, draft}
 	     gl.vertexAttribPointer(ofsLoc79, 2, gl.FLOAT, false, 28, 20);
 	     gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 28,  0);
 	     gl.drawElements(gl.TRIANGLES, 60, gl.UNSIGNED_SHORT, 0);
+
 	     // ****** lines object 80 *******
 	     gl.useProgram(prog80);
 	     gl.bindBuffer(gl.ARRAY_BUFFER, buf80);
@@ -80592,6 +80562,7 @@ mode        : selfcontained # {standalone, draft}
 	     gl.lineWidth( 1 );
 	     gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 12,  0);
 	     gl.drawArrays(gl.LINES, 0, 22);
+
 	     // ****** text object 81 *******
 	     gl.useProgram(prog81);
 	     gl.bindBuffer(gl.ARRAY_BUFFER, buf81);
@@ -80610,6 +80581,7 @@ mode        : selfcontained # {standalone, draft}
 	     gl.vertexAttribPointer(ofsLoc81, 2, gl.FLOAT, false, 28, 20);
 	     gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 28,  0);
 	     gl.drawElements(gl.TRIANGLES, 60, gl.UNSIGNED_SHORT, 0);
+
 	     // ****** lines object 82 *******
 	     gl.useProgram(prog82);
 	     gl.bindBuffer(gl.ARRAY_BUFFER, buf82);
@@ -80621,6 +80593,7 @@ mode        : selfcontained # {standalone, draft}
 	     gl.lineWidth( 1 );
 	     gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 12,  0);
 	     gl.drawArrays(gl.LINES, 0, 22);
+
 	     // ****** text object 83 *******
 	     gl.useProgram(prog83);
 	     gl.bindBuffer(gl.ARRAY_BUFFER, buf83);
@@ -80639,6 +80612,7 @@ mode        : selfcontained # {standalone, draft}
 	     gl.vertexAttribPointer(ofsLoc83, 2, gl.FLOAT, false, 28, 20);
 	     gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 28,  0);
 	     gl.drawElements(gl.TRIANGLES, 60, gl.UNSIGNED_SHORT, 0);
+
 	     // ****** text object 84 *******
 	     gl.useProgram(prog84);
 	     gl.bindBuffer(gl.ARRAY_BUFFER, buf84);
@@ -80657,6 +80631,7 @@ mode        : selfcontained # {standalone, draft}
 	     gl.vertexAttribPointer(ofsLoc84, 2, gl.FLOAT, false, 28, 20);
 	     gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 28,  0);
 	     gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
+
 	     // ****** text object 85 *******
 	     gl.useProgram(prog85);
 	     gl.bindBuffer(gl.ARRAY_BUFFER, buf85);
@@ -80675,6 +80650,7 @@ mode        : selfcontained # {standalone, draft}
 	     gl.vertexAttribPointer(ofsLoc85, 2, gl.FLOAT, false, 28, 20);
 	     gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 28,  0);
 	     gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
+
 	     // ****** text object 86 *******
 	     gl.useProgram(prog86);
 	     gl.bindBuffer(gl.ARRAY_BUFFER, buf86);
@@ -80693,16 +80669,20 @@ mode        : selfcontained # {standalone, draft}
 	     gl.vertexAttribPointer(ofsLoc86, 2, gl.FLOAT, false, 28, 20);
 	     gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 28,  0);
 	     gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
+
 	     gl.flush ();
 	   }
+
 	   var vlen = function(v) {
 	     return sqrt(v[0]*v[0] + v[1]*v[1] + v[2]*v[2])
 	   }
+	   
 	   var xprod = function(a, b) {
 	     return [a[1]*b[2] - a[2]*b[1],
 	             a[2]*b[0] - a[0]*b[2],
 	             a[0]*b[1] - a[1]*b[0]];
 	   }
+
 	   var screenToVector = function(x, y) {
 	     var radius = max(width, height)/2.0;
 	     var cx = width/2.0;
@@ -80714,6 +80694,7 @@ mode        : selfcontained # {standalone, draft}
 	       px = px/plen;
 	       py = py/plen;
 	     }
+
 	     var angle = (SQRT2 - plen)/SQRT2*PI/2;
 	     var z = sin(angle);
 	     var zlen = sqrt(1.0 - z*z);
@@ -80721,11 +80702,14 @@ mode        : selfcontained # {standalone, draft}
 	     py = py * zlen;
 	     return [px, py, z];
 	   }
+
 	   var rotBase;
+
 	   var trackballdown = function(x,y) {
 	     rotBase = screenToVector(x, y);
 	     saveMat.load(userMatrix);
 	   }
+	   
 	   var trackballmove = function(x,y) {
 	     var rotCurrent = screenToVector(x,y);
 	     var dot = rotBase[0]*rotCurrent[0] + 
@@ -80737,41 +80721,51 @@ mode        : selfcontained # {standalone, draft}
 	     userMatrix.rotate(angle, axis[0], axis[1], axis[2]);
 	     drawScene();
 	   }
+
 	   var y0zoom = 0;
 	   var zoom0 = 1;
 	   var zoomdown = function(x, y) {
 	     y0zoom = y;
 	     zoom0 = log(zoom);
 	   }
+
 	   var zoommove = function(x, y) {
 	     zoom = exp(zoom0 + (y-y0zoom)/height);
 	     drawScene();
 	   }
+
 	   var y0fov = 0;
 	   var fov0 = 1;
 	   var fovdown = function(x, y) {
 	     y0fov = y;
 	     fov0 = fov;
 	   }
+
 	   var fovmove = function(x, y) {
 	     fov = max(1, min(179, fov0 + 180*(y-y0fov)/height));
 	     drawScene();
 	   }
+
 	   var mousedown = [trackballdown, zoomdown, fovdown];
 	   var mousemove = [trackballmove, zoommove, fovmove];
+
 	   function relMouseCoords(event){
 	     var totalOffsetX = 0;
 	     var totalOffsetY = 0;
 	     var currentElement = canvas;
+	   
 	     do{
 	       totalOffsetX += currentElement.offsetLeft;
 	       totalOffsetY += currentElement.offsetTop;
 	     }
 	     while(currentElement = currentElement.offsetParent)
+	   
 	     var canvasX = event.pageX - totalOffsetX;
 	     var canvasY = event.pageY - totalOffsetY;
+	   
 	     return {x:canvasX, y:canvasY}
 	   }
+
 	   canvas.onmousedown = function ( ev ){
 	     if (!ev.which) // Use w3c defns in preference to MS
 	       switch (ev.button) {
@@ -80788,10 +80782,13 @@ mode        : selfcontained # {standalone, draft}
 	       ev.preventDefault();
 	     }
 	   }    
+
 	   canvas.onmouseup = function ( ev ){	
 	     drag = 0;
 	   }
+	   
 	   canvas.onmouseout = canvas.onmouseup;
+
 	   canvas.onmousemove = function ( ev ){
 	     if ( drag == 0 ) return;
 	     var f = mousemove[drag-1];
@@ -80800,6 +80797,7 @@ mode        : selfcontained # {standalone, draft}
 	       f(coords.x, height-coords.y);
 	     }
 	   }
+
 	   var wheelHandler = function(ev) {
 	     var del = 1.1;
 	     if (ev.shiftKey) del = 1.01;
@@ -80810,145 +80808,21 @@ mode        : selfcontained # {standalone, draft}
 	   };
 	   canvas.addEventListener("DOMMouseScroll", wheelHandler, false);
 	   canvas.addEventListener("mousewheel", wheelHandler, false);
+
 	}
-</script>
-<canvas id="canvas" width="1" height="1"></canvas> 
-<p id="debug">
-<img src="snapshot.png" alt="snapshot" width=505/><br>
+	</script>
+
+	<canvas id="canvas" width="1" height="1"></canvas> 
+        <p id="debug">
+	<img src="snapshot.png" alt="snapshot" width=500/><br>
 	You must enable Javascript to view this page properly.</p>
-<script>webGLStart();</script>
-
-
-<object data="knitted_webGL_first.html" width="800" height="600"> <embed src="knitted_webGL_first.html" width="800" height="600"> </embed> Error: Embedded data could not be displayed. </object>
-
----
-
-
-## Advantages of R 
-
-- Large and rapidly growing user base
-
-- Use of R on Kaggle, a platform for data prediction competitions:
-
-<img src="http://blog.kaggle.com/wp-content/uploads/2011/11/kaggle-tools1.png" alt="">
-
-<!-- [2011 data] --> 
-
-
-
----
-
-
-## Advantages of R (vs. MATLAB)
-
-- In R, you can name everything, so you access by name or position number.
-
-- In MATLAB, you have to remmeber if $\gamma$ was the 3rd or 4th element in the vector, since you access stuff by position number.
-
-- R was designed for statistics and has many more stats packages than MATLAB.
-
-- MATLAB is geared toward engineering.
-
-- In MATLAB, no natural way to set function argument defaults or allow an arbitrary number of arguments, whereas this is simple in R.
-
-- In MATLAB, using functions within functions can tempt you to create global variables (this is bad).
-
-- In R, the scoping rules allow you to easily pass arguments from the top-level functions to any function nested within it.
-
----
-
-## Advantages of R (vs. Stata)
-
-- Stata allows only one dataset at a time in the workspace
-
-- It's often easier to write your own statistical routines or tweak existing ones in R than Stata.
-
----
-
-
-## Drawbacks of R
-
-- Small network in econ still. Stata is dominant. 
-
-- Accuracy of add-on packages is verifiable but not necessarily verified.   Closed source is unverifiable but assumed to be verified. Note that commercial packages can also [get the wrong answer](http://politicalsciencereplication.wordpress.com/2013/09/11/guest-blog-how-to-persuade-journals-to-accept-your-replication-paper/). Also consider that no one trusted open source Linux initially and now about 70% of website servers worldwide use it.
-
-<!-- [show lm - expose source] --> 
-
-<!-- [if you want to modify a function, just expose the source, copy-paste to a script file and make your edits] --> 
-
-<!-- [Evaluate reputation of package author, and note any tests. Does it do what it says it will do? Although sometimes the author was the person who developed the technique.] --> 
-
-- Documentation is less detailed than commercial packages.
-
----
-
-## Drawbacks of R, II
-
-- The development of R is chaotic
- - Little central organization
- - Duplication of functionality
- - Hard to kill outmoded ways of doing things because current code relies on it (backward compatibility)
- - On the bright side, the open nature of the R ecosystem encourages competition
-
----
-
-## Drawbacks of R, III
-
-- Need to learn a new language
-
-<img src="r-for-stata-users.png" alt="" height="220", width="160">
-
-- Stata-to-R help [here](http://dss.princeton.edu/training/RStata.pdf) and [here](https://patron.library.wisc.edu/authn/ezproxyiaa.html?url=http://library.books24x7.com/library.asp?%5EB&bookid=35268#default).
-- MATLAB-to-R help [here](http://www.math.umaine.edu/~hiebeler/comp/matlabR.pdf).
-
-
----
-
-## Drawbacks of R, IV
-
-Sometimes “unexpected” behavior 
-
-
-```r
-1:length(c())
-```
-
-```
-[1] 1 0
-```
-
-```r
-x <- 1:8
-x[x < 5] <- 1:2
-x
-```
-
-```
-[1] 1 2 1 2 5 6 7 8
-```
-
-
-[More](http://www.computerworld.com/s/article/9239757/Beginner_s_guide_to_R_Syntax_quirks_you_ll_want_to_know) [info](https://github.com/tdsmith/aRrgh#!) on [quirks](http://www.burns-stat.com/pages/Tutor/R_inferno.pdf)
-
----
-
-## Finding & accessing packages
-
-- [rseek.org](rseek.org)
-
-- [CRAN Taskviews](http://cran.r-project.org/web/views/)
-
-
-```r
-# install.packages('quantreg')
-library("quantreg")
-```
-
-
-Often it's not obvious how the different functions and object types within a package fit together, so look at the vignette if available.
-
-<!-- http://spark.rstudio.com/nsturaro/pyramid0/ --> 
-
-
-
-
+    </div>
+    
+	<br>Drag mouse to rotate model. Use mouse wheel or middle button
+	to zoom it.
+	<hr>
+	<br>
+	Object written from rgl 0.93.963 by writeWebGL.
+
+	</body>
+	</html>

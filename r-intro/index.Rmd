@@ -42,7 +42,7 @@ mode        : selfcontained # {standalone, draft}
 - Exponential growth in number of packages over time. 
 <!-- [Image from http://www.stat.tugraz.at/AJS/ausg121/121Hornik.pdf] --> 
 
-<img src="cran-exponential.tiff" alt="" width="600" height="400">
+<img src="cran-exponential.png" alt="" width="600" height="400">
 
 ---
 
@@ -70,7 +70,7 @@ mode        : selfcontained # {standalone, draft}
 
 ## Advantages of R (Graphics)
 
-<img src="dendogram.tiff" alt="">
+<img src="dendogram.png" alt="">
 
 ---
 
@@ -162,8 +162,8 @@ opts_chunk$set(echo=FALSE, prompt=FALSE, messages=FALSE, warning=FALSE)
 #require(ggplot2)
 #qplot(wt, mpg, data = mtcars)
 
-library("alphashape3d")
-library("rgl")
+#library("alphashape3d")
+#library("rgl")
 
 
 grid.size <- 50
@@ -214,7 +214,8 @@ title3d(xlab ="sigma", ylab = "alpha", zlab = "a", color="black")
 
 source('/Users/travismcarthur/Downloads/RGL_Export-master-2/writeWebGL_split.R', chdir = FALSE)
 
-writeWebGL_split(dir=getwd(), filename ="knitted_webGL_first.html", template = "/my_template.html", width=500)
+writeWebGL_split(dir=getwd(), filename ="knitted_webGL_first.html",  width=500)
+# template = "/my_template.html",
 # /Users/travismcarthur/Downloads/RGL_Export-master-2/
 #rgl.quit()
 
@@ -297,7 +298,7 @@ writeWebGL_split(dir=getwd(), filename ="knitted_webGL_first.html", template = "
 
 - Need to learn a new language
 
-<img src="http://images.springer.com/sgw/books/raw/9781441913173.tif" alt="" height="220", width="160">
+<img src="r-for-stata-users.png" alt="" height="220", width="160">
 
 - Stata-to-R help [here](http://dss.princeton.edu/training/RStata.pdf) and [here](https://patron.library.wisc.edu/authn/ezproxyiaa.html?url=http://library.books24x7.com/library.asp?%5EB&bookid=35268#default).
 - MATLAB-to-R help [here](http://www.math.umaine.edu/~hiebeler/comp/matlabR.pdf).
@@ -328,7 +329,7 @@ x
 - [CRAN Taskviews](http://cran.r-project.org/web/views/)
 
 ```{r chunkx2, comment = NA, echo=TRUE}
-#install.packages("quantreg") TODO: remove the #
+#install.packages("quantreg")
 library("quantreg")
 ```
 
