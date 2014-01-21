@@ -245,7 +245,7 @@ writeWebGL_split(dir=getwd(), filename ="knitted_webGL_first.html",  width=500)
 
 - In R, you can name everything, so you access by name or position number.
 
-- In MATLAB, you have to remmeber if $\gamma$ was the 3rd or 4th element in the vector, since you access stuff by position number.
+- In MATLAB, you have to remember if $\gamma$ was the 3rd or 4th element in the vector, since you access stuff by position number.
 
 - R was designed for statistics and has many more stats packages than MATLAB.
 
@@ -318,13 +318,13 @@ x
 
 ```
 
-[More](http://www.computerworld.com/s/article/9239757/Beginner_s_guide_to_R_Syntax_quirks_you_ll_want_to_know) [info](https://github.com/tdsmith/aRrgh#!) on [quirks](http://www.burns-stat.com/pages/Tutor/R_inferno.pdf)
+[More](http://www.computerworld.com/s/article/9239757/Beginner_s_guide_to_R_Syntax_quirks_you_ll_want_to_know) [info](http://tim-smith.us/arrgh/) on [quirks](http://www.burns-stat.com/pages/Tutor/R_inferno.pdf)
 
 ---
 
 ## Finding & accessing packages
 
-- [rseek.org](rseek.org)
+- [rseek.org](http://rseek.org/)
 
 - [CRAN Taskviews](http://cran.r-project.org/web/views/)
 
