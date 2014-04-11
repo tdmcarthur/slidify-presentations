@@ -119,7 +119,7 @@ where
 
 $$\mathbb{E}_{n}\left[m_{i}\left(\theta\right)\right]\equiv\dfrac{1}{n}\underset{t=1}{\overset{n}{\sum}}m_{t}\left(\theta\right)$$
 
-$W_{n}$ is some diagonal weight matrix, possibly just an identity matrix,
+$W_{n}\left(\theta\right)\right\$ is some diagonal weight matrix, possibly just an identity matrix,
 
 and the norm $\left\Vert \cdot\right\Vert _{+}$ is defined as:
 

@@ -119,7 +119,7 @@ where
 
 $$\mathbb{E}_{n}\left[m_{i}\left(\theta\right)\right]\equiv\dfrac{1}{n}\underset{t=1}{\overset{n}{\sum}}m_{t}\left(\theta\right)$$
 
-$W_{n}$ is some diagonal weight matrix, possibly just an identity matrix,
+$W_{n}\left(\theta\right)\right\$ is some diagonal weight matrix, possibly just an identity matrix,
 
 and the norm $\left\Vert \cdot\right\Vert _{+}$ is defined as:
 
@@ -184,7 +184,7 @@ $$\left\Vert \mathbf{x}\right\Vert _{+}\equiv\sqrt{\left(\max\left\{ x_{1},0\rig
 ## Low use of intermediate inputs
 
 <!-- html table generated in R 3.0.2 by xtable 1.7-1 package -->
-<!-- Fri Apr 11 18:12:20 2014 -->
+<!-- Fri Apr 11 18:28:14 2014 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> In the last year, purchased </TH> <TH> Percentage of farmers </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD> Chemical fertilizer </TD> <TD> 26 </TD> </TR>
