@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The adoption of network goods: evidence from the spread of mobile phones in Rwanda</title>
+  <meta charset="utf-8">
+  <meta name="description" content="The adoption of network goods: evidence from the spread of mobile phones in Rwanda">
+  <meta name="author" content="Travis McArthur">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+    <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+    <!-- END LOGO SLIDE -->
+    
+
+    <!-- TITLE SLIDE -->
+    <!-- Should I move this to a Local Layout File? -->
+    <slide class="title-slide segue nobackground">
+      <hgroup class="auto-fadein">
+        <h1>The adoption of network goods: evidence from the spread of mobile phones in Rwanda</h1>
+        <h2>Daniel Bjorkegren, Harvard University</h2>
+        <p>Travis McArthur<br/></p>
+      </hgroup>
+          </slide>
+
+    <!-- SLIDES -->
+      <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>intro intro</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><p>point 1</p></li>
+<li><p>point 2</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Setup</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>In the \(t\)-th month, \(i\) individual can contact \(j\) person who is a subscriber</li>
+<li>Each month, \(i\) receives a shock to the desire to communicate with \(j\) of \(\epsilon_{ijt}\)</li>
+<li>\(\epsilon_{ijt}\) is assumed to have a lognormal distribution with an additional mass point at negative infinity.</li>
+<li>The mass point is used to represent the cases where \(i\) would not call \(j\) regardless of cost.</li>
+<li>\(i\)&#39;s problem is to maximize utility by choosing non-negative \(d\), the total duration of calls for that month to the \(j\) person, i.e. maximize</li>
+</ul>
+
+<p>\[u_{ijt}=\underset{d\geq0}{\max}\: v_{ij}\left(d,\epsilon_{ijt}\right)-c_{ijt}d\]</p>
+
+<ul>
+<li>\(v_{ij}\left(d,\epsilon_{ijt}\right)\) is the benefit of making the call.</li>
+<li>\(c_{ijt}\) is the per-second cost of the call and is modeled by [TODO}.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Adoption decision</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><p>The decision to adopt a phone at any given time is governed by the expected value of the future discounted \(u_{ijt}\) minus the cost of a handset at the time of adoption.</p></li>
+<li><p>Naturally, this is a function of the expected number of people within \(i\)&#39;s social network that have become subscribers.</p></li>
+<li><p>Therefore, we have a game with many players where there may be many equilibria.</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>TODO: IV slide(s)</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><p>point 1</p></li>
+<li><p>point 2</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Estimation details</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><p>Maximum likelihood approach</p></li>
+<li><p>Mean of \(\epsilon_{ijt}\), the “call shock”, is specific to each link within the network.</p></li>
+<li><p>Standard deviation of \(\epsilon_{ijt}\) and the “censoring” level (negative infinity mass point) is specific to the individual.</p></li>
+<li><p>In total, there are 127.6 million parameters that are specific to a link or individual, resulting in a median of 41 observations per parameter.</p></li>
+<li><p>The parameters for cost of call and the utility function are common across all observations.</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Estimation of adoption decision</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><p>From the value of these parameters, we can obtain the expected utility value of adopting the phone at any time period for each individual.</p></li>
+<li><p>We also know what month each individual person adopted.</p></li>
+<li><p>Putting these two facts together with the price changes of handsets in each month, we can recover the sensitivity to price, \(\beta^{handset}\)</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Adoption conditions are formed by a &quot;window&quot;</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><p>Set window length to \(K=2\) months</p></li>
+<li><p>Condition for &quot;don&#39;t adopt too soon&quot;:</p></li>
+</ul>
+
+<p>\[\underset{k=0}{\overset{K}{\sum}}\delta^{K-k}u_{i\tau_{i}-k}\leq\beta^{handset}\left(p_{\tau_{i}-K}-\delta^{K}\cdot p_{\tau_{i}}\right)\]</p>
+
+<ul>
+<li>Condition for &quot;don&#39;t adopt too late&quot;:</li>
+</ul>
+
+<p>\[\underset{k=0}{\overset{K-1}{\sum}}\delta^{k}u_{i\tau_{i}+k}\geq\beta^{handset}\left(p_{\tau_{i}}-\delta^{K}\cdot p_{\tau_{i}+K}\right)\]</p>
+
+<ul>
+<li><p>The goal is to correctly guess each person&#39;s window of adoption by adjusting \(\beta^{handset}\)</p></li>
+<li><p>Estimation through moment inequality approach</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Moment inequality approach</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><p>Set up inequalities as \(m_{i}(\theta)\leq0\)</p></li>
+<li><p>Objective is to choose parameter(s) \(\theta\) so as to minimize</p></li>
+</ul>
+
+<p>\[Q_{n}\left(\theta\right)\equiv\left\Vert \mathbb{E}_{n}\left[m_{i}\left(\theta\right)\right]^{'}W_{n}^{1/2}\left(\theta\right)\right\Vert _{+}^{2}\]</p>
+
+<p>where</p>
+
+<p>\[\mathbb{E}_{n}\left[m_{i}\left(\theta\right)\right]\equiv\dfrac{1}{n}\underset{t=1}{\overset{n}{\sum}}m_{t}\left(\theta\right)\]</p>
+
+<p>\(W_{n}\) is some diagonal weight matrix, possibly just an identity matrix,</p>
+
+<p>and the norm \(\left\Vert \cdot\right\Vert _{+}\) is defined as:</p>
+
+<p>\[\left\Vert \mathbf{x}\right\Vert _{+}\equiv\sqrt{\left(\max\left\{ x_{1},0\right\} \right)^{2}+\cdots+\left(\max\left\{ x_{n},0\right\} \right)^{2}}\]</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Predict adoption pattern under counterfactuals</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><p>point 1</p></li>
+<li><p>point 2</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Title</h2>
+  </hgroup>
+  <article>
+    <p>Use an iterated best response algorithm:</p>
+
+<ol>
+<li><p>Propose a candidate adoption path</p></li>
+<li><p>“Allow each individual to optimize their decision, holding fixed the adoption path of others”</p></li>
+<li><p>“Iterate, using the path from the previous step τk to form the next”</p></li>
+<li><p>Stop when the equilibrium converges, i.e. no one wants to deviate from the proposed path</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>junk</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>One homogenous consumption good (food) </li>
+<li>Production function:</li>
+<li>\[C=F(X,H)=\underset{X_{1},X_{2},H_{1},H_{2}\geq0}{\max}\left\{ X_{1}^{\alpha}H_{1}^{1-\alpha}+X_{1}^{1-\alpha}H_{1}^{\alpha}\mid X_{1}+X_{2}\leq X,H_{1}+H_{2}\leq H\right\}\]</li>
+<li>X is a composite intermediate good. H is labor. \(\alpha \in (0,0.5)\)</li>
+</ul>
+
+<ul class = "build">
+<li>\(P=\) Price of X </li>
+<li>\(w=\) Price of H</li>
+<li>\[P>w \implies F(X,H)=X_{1}^{\alpha}H_{1}^{1-\alpha}\] </li>
+<li>\[P < w\implies F(X,H)=X_{1}^{1-\alpha}H_{1}^{\alpha}\]</li>
+</ul>
+
+<!-- Make sure to say that it is numeraire --> 
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Low use of intermediate inputs</h2>
+  </hgroup>
+  <article>
+    <!-- html table generated in R 3.0.2 by xtable 1.7-1 package -->
+
+<!-- Fri Apr 11 14:37:32 2014 -->
+
+<TABLE border=1>
+<TR> <TH>  </TH> <TH> In the last year, purchased </TH> <TH> Percentage of farmers </TH>  </TR>
+  <TR> <TD align="right"> 1 </TD> <TD> Chemical fertilizer </TD> <TD> 26 </TD> </TR>
+  <TR> <TD align="right"> 2 </TD> <TD> Organic fertilizer (manure) </TD> <TD> 20 </TD> </TR>
+  <TR> <TD align="right"> 3 </TD> <TD> Seeds </TD> <TD> 47 </TD> </TR>
+  <TR> <TD align="right"> 4 </TD> <TD> Pesticides </TD> <TD> 26 </TD> </TR>
+  <TR> <TD align="right"> 5 </TD> <TD> Rented ag. machinery </TD> <TD> 15 </TD> </TR>
+  <TR> <TD align="right"> 6 </TD> <TD> Rented draft animal </TD> <TD> 13 </TD> </TR>
+  <TR> <TD align="right"> 7 </TD> <TD> Technical assistance </TD> <TD> 1 </TD> </TR>
+   </TABLE>
+
+<h2>Title</h2>
+
+<ul>
+<li><p>point 1</p></li>
+<li><p>point 2</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Title</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><p>point 1</p></li>
+<li><p>point 2</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Title</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><p>point 1</p></li>
+<li><p>point 2</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Title</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><p>point 1</p></li>
+<li><p>point 2</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Title</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><p>point 1</p></li>
+<li><p>point 2</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+
+  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+<!-- Grab CDN jQuery, fall back to local if offline -->
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery-1.7.min.js"><\/script>')</script>
+<!-- Load Javascripts for Widgets -->
+<!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script> -->
+<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+</html>
