@@ -84,15 +84,28 @@ $x_{1,0} < x_{1,1}$ $\implies$  present bias
 
 - Laibson et al. (2011): Large proportion of people in U.S. chose a savings account with penalties for withdrawal before maturity date.
 
+- Ashraf,  Karlan, Yin (2006): Evidence for sophisticates among women.
+
 - Duflo, Kremer, & Robinson (2011): Little support for existence of sophisticates since small uptake of option to deliver fertilizer at planting time.
 
 ---
+
+## Financing input purchases
+
+- In the absence of credit markets, farmers must hold onto money from harvest time to purchase inputs at planting time.
+
+- Between harvest and planting, present-biased individuals may consume funds even though they planned to purchase inputs at planting.
+
+---
+
 
 ## Necessary setting
 
 - Need an area where agricultural cooperatives for a certain crop engage in both marketing and input supply as a joint package
 
 - Having cooperatives that also separately market goods or supply inputs could help remove confounding factors.
+
+- Weak credit markets.
 
 ---
 
@@ -111,6 +124,21 @@ $x_{1,0} < x_{1,1}$ $\implies$  present bias
 
 ---
 
+## Estimation: probit
+
+$$P(y=1|\mathbf{x})=\Phi\left(\alpha+\beta_{1}x_{1}+\overset{m}{\underset{j=1}{\sum}}\theta_{k}x_{j+1}\right)$$
+
+- $y$ is membership in a cooperative
+
+- $x_{1}$ is proportion of funds placed in account (2)
+
+- Other variables are demographic controls
+
+- $\beta_{1}>0$ implies sophisticates seek out co-ops as commitment devices
+ 
+
+---
+
 
 ## Weaknesses
 
@@ -118,33 +146,14 @@ $x_{1,0} < x_{1,1}$ $\implies$  present bias
 
 - Cooperatives are least costly commitment device?
 
----
+- People join cooperatives for all sorts of reasons - confounding factors?
 
-
-## Slide title
-
-- point 1
-
-- point 2
+- I don't do anything with naifs, although I may be able to identify them.
 
 ---
 
 
-
-
-
-
-
-
-## Read-And-Delete
-
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
-
---- .class #id 
-
-## Slide 2
+## END
 
 
 
