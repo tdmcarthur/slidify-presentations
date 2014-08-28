@@ -388,7 +388,7 @@ summary_stats(rnorm(500))
 
 # EXAMPLE ANALYSIS
 
-co2.df<-read.csv("http://hci.stanford.edu/jheer/workshop/data/worldbank/worldbank.csv", stringsAsFactors=FALSE)
+co2.df<-read.csv("https://raw.githubusercontent.com/tdmcarthur/slidify-presentations/gh-pages/r-intro/worldbank.csv", stringsAsFactors=FALSE)
 
 colnames(co2.df)<-c("country", "year", "co2.emissions.per.cap", "electric.consumption", "total.energy.use", "fertility", "gdp", "internet.users", "life.exp", "military.exp.perc.gdp", "population", "hiv.rate")
 # Rename column names to make them shorter
@@ -473,6 +473,7 @@ str(imputed.co2.ls)
 imputed.co2.ls[["Belarus"]]
 
 imputed.co2.df <- do.call(rbind, imputed.co2.ls)
+# NOTE: rbindlist() from the data.table package is much faster if you have lots of data
 
 
 # Last things:
