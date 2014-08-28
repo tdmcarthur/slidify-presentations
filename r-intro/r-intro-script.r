@@ -388,7 +388,7 @@ summary_stats(rnorm(500))
 
 # EXAMPLE ANALYSIS
 
-co2.df<-read.csv("https://raw.githubusercontent.com/tdmcarthur/slidify-presentations/gh-pages/r-intro/worldbank.csv", stringsAsFactors=FALSE)
+co2.df<-read.csv("http://tdmcarthur.github.io/slidify-presentations/r-intro/worldbank.csv", stringsAsFactors=FALSE)
 
 colnames(co2.df)<-c("country", "year", "co2.emissions.per.cap", "electric.consumption", "total.energy.use", "fertility", "gdp", "internet.users", "life.exp", "military.exp.perc.gdp", "population", "hiv.rate")
 # Rename column names to make them shorter
@@ -411,6 +411,15 @@ coef(co2.lm)
 # Or through the coef() function for convenience
 resid(co2.lm)
 
+if ( !require("lmtest") ) { install.packages("lmtest") }
+if ( !require("sandwich") ) { install.packages("sandwich") }
+library("lmtest")
+library("sandwich")
+
+coeftest(co2.lm, vcov=vcovHC(co2.lm))
+# Heteroskedasticity correction
+
+
 # Let's tabulate things
 table(co2.df$year)
 
@@ -418,14 +427,11 @@ table(co2.df$year)
 # Let's just tabulate the number of countries with GDP > 3000 by country.
 table(co2.df$year, co2.df$gdp>3000)
 
-aggregate(co2.df$co2.emissions.per.cap, by=list(co2.df$year), FUN=sum, na.rm=TRUE)
+aggregate(co2.emissions.per.cap ~ year, data=co2.df, FUN=sum, na.rm=TRUE)
 
-# NOTE: The "by" argument must be a list, not just a vector
 # Why do we write na.rm=TRUE when aggregate() has no such argument named na.rm?
 
-aggregate(co2.df[, c("co2.emissions.per.cap", "gdp")], 
-  by=list(co2.df$year, round(co2.df$fertility)), 
-  FUN=sum, na.rm=TRUE)
+aggregate( cbind(co2.emissions.per.cap, gdp) ~ year + round(fertility) , data=co2.df, FUN=sum, na.rm=TRUE)
 
 # aggregate() is actually quite general, and any function, not just sum(), can be applied to a group of observations
 
@@ -544,6 +550,9 @@ save(co2.df, file="CO2 imputed.RData")
 # See what others are using R for:
 # http://www.r-bloggers.com/
 
+# 4-page R FAQ:
+# http://www.econ.uiuc.edu/~roger/courses/LSE/outline/yaRfaq.pdf
+
 # List of books:
 # http://stackoverflow.com/questions/192369/books-for-learning-the-r-language/2270793#2270793
 
@@ -581,14 +590,10 @@ save(co2.df, file="CO2 imputed.RData")
 # emissions (CO2 per cap times population) for every year.
   
 # 2. Fit a panel data random effects model of the form:
-# co2.emissions.per.cap ~ gdp + log(gdp) + military.exp
+# co2.emissions.per.cap ~ gdp + log(gdp) + military.exp.perc.gdp
   
 
 # Slides available at http://tdmcarthur.github.io/slidify-presentations/r-intro/index.html
-
-
-
-
 
 
 

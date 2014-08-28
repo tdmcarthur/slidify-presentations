@@ -129,25 +129,28 @@ mode        : selfcontained # {standalone, draft}
 ## install_github("knitr", username="yihui")
 #################
 
-hook_split_webgl <- function(before, options, envir) {
+library(knitr)
+
+#hook_split_webgl <- function(before, options, envir) {
 ##   library(rgl)
   ## after a chunk has been evaluated
-  if (before || rgl.cur() == 0) return()  # no active device
-  name = tempfile('rgl', '.', '.html'); on.exit(unlink(name))
-  par3d(windowRect = 100 + options$dpi * c(0, 0, options$fig.width, options$fig.height))
-  Sys.sleep(.05) # need time to respond to window size change
+#  if (before || rgl.cur() == 0) return()  # no active device
+#  name = tempfile('rgl', '.', '.html'); on.exit(unlink(name))
+#  par3d(windowRect = 100 + options$dpi * c(0, 0, options$fig.width, options$fig.height))
+#  Sys.sleep(.05) # need time to respond to window size change
 
-  writeLines(c('%WebGL%', '<script>webGLStart();</script>'), tpl <- tempfile())
-  warning("writing webGL to knitted doc")
-  writeWebGL_split(dir = dirname(name), filename = name, template = tpl)
-  res = readLines(name)
-  res = res[!grepl('^\\s*$', res)] # remove blank lines
-  paste(gsub('^\\s*<', '<', res), collapse = '\n') # no spaces before HTML tags
-}
+#  writeLines(c('%WebGL%', '<script>webGLStart();</script>'), tpl <- tempfile())
+#  warning("writing webGL to knitted doc")
+#  writeWebGL_split(dir = dirname(name), filename = name, template = tpl)
+#  res = readLines(name)
+#  res = res[!grepl('^\\s*$', res)] # remove blank lines
+#  paste(gsub('^\\s*<', '<', res), collapse = '\n') # no spaces before HTML tags
+#}
 
 ### setting hooks and options - can change options obviously 
-knit_hooks$set(webgl = hook_split_webgl)
-opts_chunk$set(echo=FALSE, prompt=FALSE, messages=FALSE, warning=FALSE)
+#knit_hooks$set(webgl = hook_split_webgl)
+#opts_chunk$set(echo=FALSE, prompt=FALSE, messages=FALSE, warning=FALSE)
+knit_hooks$set(webgl = hook_webgl)
 
 
 ### writeWebGL_split - has add on for splitting triangles to maximum number of vertices
@@ -158,12 +161,13 @@ opts_chunk$set(echo=FALSE, prompt=FALSE, messages=FALSE, warning=FALSE)
 
 
 
-```{r makegll, webgl=TRUE, results='hide', warning=FALSE}
+```{r makegll, webgl=TRUE,  warning=FALSE}
 #require(ggplot2)
 #qplot(wt, mpg, data = mtcars)
+# results='hide',
 
-#library("alphashape3d")
-#library("rgl")
+library("alphashape3d")
+library("rgl")
 
 
 grid.size <- 50
@@ -212,16 +216,18 @@ axis3d("z",  at = seq(0, 1, length.out=10), labels = signif(seq(0, z.max, length
 title3d(xlab ="sigma", ylab = "alpha", zlab = "a", color="black") 
 
 
-source('/Users/travismcarthur/Downloads/RGL_Export-master-2/writeWebGL_split.R', chdir = FALSE)
+#source('/Users/travismcarthur/Downloads/RGL_Export-master-2/writeWebGL_split.R', chdir = FALSE)
 
-writeWebGL_split(dir=getwd(), filename ="knitted_webGL_first.html",  width=500)
+#writeWebGL_split(dir=getwd(), filename ="knitted_webGL_first.html",  width=500)
 # template = "/my_template.html",
 # /Users/travismcarthur/Downloads/RGL_Export-master-2/
 #rgl.quit()
 
+# <object data="knitted_webGL_first.html" width="800" height="600"> <embed src="knitted_webGL_first.html" width="800" height="600"> </embed> Error: Embedded data could not be displayed. </object>
+
 ```
 
-<object data="knitted_webGL_first.html" width="800" height="600"> <embed src="knitted_webGL_first.html" width="800" height="600"> </embed> Error: Embedded data could not be displayed. </object>
+
 
 ---
 
@@ -288,7 +294,7 @@ writeWebGL_split(dir=getwd(), filename ="knitted_webGL_first.html",  width=500)
 
 - The development of R is chaotic
  - Little central organization
- - Duplication of functionality
+ - Duplication of functionality (good illustration: [R-to-Latex coverage](http://conjugateprior.org/2013/03/r-to-latex-packages-coverage/))
  - Hard to kill outmoded ways of doing things because current code relies on it (backward compatibility)
  - On the bright side, the open nature of the R ecosystem encourages competition
 
