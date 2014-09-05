@@ -17,12 +17,12 @@ co2.df[co2.df$country==low.fert.country, "co2.emissions.per.cap"] *
 
 
 # 2. Fit a panel data random effects model of the form:
-# co2.emissions.per.cap ~ gdp + log(gdp) + military.exp
+# co2.emissions.per.cap ~ gdp.per.cap + log(gdp.per.cap) + military.exp
 
 install.packages("plm")
 library("plm")
 
-test.plm <- plm(co2.emissions.per.cap ~ gdp + log(gdp) + military.exp.perc.gdp, data=co2.df, index=c("country", "year"), model="random")
+test.plm <- plm(co2.emissions.per.cap ~ gdp.per.cap + log(gdp.per.cap) + military.exp.perc.gdp, data=co2.df, index=c("country", "year"), model="random")
       
 summary(test.plm)
 
