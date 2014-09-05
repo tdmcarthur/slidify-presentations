@@ -79,8 +79,8 @@ matrix(mat.input.v, 3)
 # You have already seen two of them: a vector and a matrix.
 # Let's explore the vector in more detail.
 
-# Much of the terminology is R is based on linear algebra concepts
-# So an ordered set of numbers or character strings is called a vector
+# Much of the terminology is R is based on linear algebra concepts.
+# So an ordered set of numbers or character strings is called a vector.
 # It's better to think of vector as an ordered set rather than a
 # matrix with one column or one row since vectors in R have only one dimension.
 # There are many ways to create a vector or extract a vector from 
@@ -171,7 +171,7 @@ net.worth.df[net.worth.df$AvgValue>100000000, ]
 net.worth.df$AvgValue>100000000
 
 net.worth.df[net.worth.df$chamber %in% c("E", "J"), ]
-# Only get the people who are in the execuitive or judicial branches
+# Only get the people who are in the executive or judicial branches
 # The %in% function asks: 
 # "Which elements of net.worth.df$chamber are in the set c("E", "J")?"
 
@@ -250,10 +250,10 @@ One.Hundred.V
 # 3. Adding ".df", ".mat", or ".v" is unnecessary. This is my personal
 # style. I find it useful since you often have the same data in different
 #	forms and keeping track of what all your objects are can be hard without
-# these identifiers
+# these identifiers.
 
 # 4. Spaces between object names and operators are ignored. Spaces
-# are useful for making your code clear and readable to others and yourself
+# are useful for making your code clear and readable to others and yourself.
 
 matrix(data=mat.input.v, nrow=3)
 # is the same as
@@ -340,10 +340,10 @@ plot(n.sequence, VV.line, type="l", col="red", ylim=c(0,.4))
 # We have covered matrices, dataframes, and vectors.
 # There is a fourth basic data type: Lists
 
-# Lists are the most foreign idea for Stata and MATLAB users
+# Lists are the most foreign idea for Stata and MATLAB users.
 
-# A list is a structured, possibly hierarchical, collection of objects
-# Don't think of list as in shopping list
+# A list is a structured, possibly hierarchical, collection of objects.
+# Don't think of list as in shopping list.
 
 kitchen.sink.ls <- list(sample.data.mat, one.hundred.v, net.worth.df[1:5, ])
 
@@ -357,7 +357,7 @@ kitchen.sink.ls[1:2]
 # Makes a list containing the 1st and 2nd element of this list
 
 
-# Unlike in MATLAB, function always return a single object in R
+# Unlike in MATLAB, functions always return a single object in R
 
 # In MATLAB:
 # function[average, st_dev] =  summary_stats(x)
@@ -390,23 +390,23 @@ summary_stats(rnorm(500))
 
 co2.df<-read.csv("http://tdmcarthur.github.io/slidify-presentations/r-intro/worldbank.csv", stringsAsFactors=FALSE)
 
-colnames(co2.df)<-c("country", "year", "co2.emissions.per.cap", "electric.consumption", "total.energy.use", "fertility", "gdp", "internet.users", "life.exp", "military.exp.perc.gdp", "population", "hiv.rate")
+colnames(co2.df)<-c("country", "year", "co2.emissions.per.cap", "electric.consumption", "total.energy.use", "fertility", "gdp.per.cap", "internet.users", "life.exp", "military.exp.perc.gdp", "population", "hiv.rate")
 # Rename column names to make them shorter
 
-lm(co2.emissions.per.cap ~ gdp + log(gdp) + military.exp.perc.gdp + internet.users,  data=co2.df)
+lm(co2.emissions.per.cap ~ gdp.per.cap + log(gdp.per.cap) + military.exp.perc.gdp + internet.users,  data=co2.df)
 
 # Is that all R knows about this model?
 
-summary( lm(co2.emissions.per.cap ~ gdp + log(gdp) + military.exp.perc.gdp + internet.users,  data=co2.df))
+summary( lm(co2.emissions.per.cap ~ gdp.per.cap + log(gdp.per.cap) + military.exp.perc.gdp + internet.users,  data=co2.df))
 
-co2.lm <- lm(co2.emissions.per.cap ~ gdp + log(gdp) + military.exp.perc.gdp + internet.users,  data=co2.df)
+co2.lm <- lm(co2.emissions.per.cap ~ gdp.per.cap + log(gdp.per.cap) + military.exp.perc.gdp + internet.users,  data=co2.df)
 
 # The co2.lm object is a list
 
 str(co2.lm)
 
 co2.lm$coefficients
-# Access the coeficient values with the list syntax
+# Access the coefficient values with the list syntax
 coef(co2.lm)
 # Or through the coef() function for convenience
 resid(co2.lm)
@@ -424,24 +424,24 @@ coeftest(co2.lm, vcov=vcovHC(co2.lm))
 table(co2.df$year)
 
 # Since our data is continuous, it's hard to have sensible cross tabulations.
-# Let's just tabulate the number of countries with GDP > 3000 by country.
-table(co2.df$year, co2.df$gdp>3000)
+# Let's just tabulate the number of countries with GDP per capita > 3000 by country.
+table(co2.df$year, co2.df$gdp.per.cap > 3000)
 
 aggregate(co2.emissions.per.cap ~ year, data=co2.df, FUN=sum, na.rm=TRUE)
 
 # Why do we write na.rm=TRUE when aggregate() has no such argument named na.rm?
 
-aggregate( cbind(co2.emissions.per.cap, gdp) ~ year + round(fertility) , data=co2.df, FUN=sum, na.rm=TRUE)
+aggregate( cbind(co2.emissions.per.cap, gdp.per.cap) ~ year + round(fertility) , data=co2.df, FUN=sum, na.rm=TRUE)
 
 # aggregate() is actually quite general, and any function, not just sum(), can be applied to a group of observations
 
-plot(log(co2.df[co2.df$year==2000, "gdp"]), 
+plot(log(co2.df[co2.df$year==2000, "gdp.per.cap"]), 
   log(co2.df[co2.df$year==2000, "co2.emissions.per.cap"]), 
   col="transparent")
 # No points are actually plotted here, since color is set to "transparent".
 # This just sets up the plot area.
 
-text(log(co2.df[co2.df$year==2000, "gdp"]), 
+text(log(co2.df[co2.df$year==2000, "gdp.per.cap"]), 
   log(co2.df[co2.df$year==2000, "co2.emissions.per.cap"]), 
   labels=substr(co2.df[co2.df$year==2000, "country"], 1, 2), 
   cex=.7)
@@ -497,7 +497,7 @@ ls()
 # Unlike in Matlab, * is element-by-element multiplication, corresponding to .* in Matlab.
 # In R, %*% is standard matrix multiplication.
 
-with(co2.df, fertility + life.exp * internet.users / log(gdp))
+with(co2.df, fertility + life.exp * internet.users / log(gdp.per.cap))
 # Easier-to-read syntax if you have lots of operations with a single data frame
 
 write.csv(co2.df, "CO2 imputed.csv")
@@ -590,7 +590,10 @@ save(co2.df, file="CO2 imputed.RData")
 # emissions (CO2 per cap times population) for every year.
   
 # 2. Fit a panel data random effects model of the form:
-# co2.emissions.per.cap ~ gdp + log(gdp) + military.exp.perc.gdp
+# co2.emissions.per.cap ~ gdp.per.cap + log(gdp.per.cap) + military.exp.perc.gdp
+
+# Suggested solutions at: 
+# https://raw.githubusercontent.com/tdmcarthur/slidify-presentations/gh-pages/r-intro/r-intro-hw-solutions.r
   
 
 # Slides available at http://tdmcarthur.github.io/slidify-presentations/r-intro/index.html
