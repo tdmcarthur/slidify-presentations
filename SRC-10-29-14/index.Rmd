@@ -1,6 +1,6 @@
 ---
 title: Checking Reveal.js
-author: Ramnath Vaidyanathan
+author: Travis McArthur
 mode : selfcontained
 framework: revealjs
 hitheme : zenburn
@@ -11,23 +11,7 @@ revealjs:
 url: {lib: "."}
 bootstrap:
   theme: amelia
-navbar:
-  title: Slidify
-  items: 
-    - {item: Home, href: index,  icon: home}
-    - {item: "Start", href: start, icon: signin}
-    - {item: Author, href: about, icon: pencil}
-    - {item: Style, href: style, icon: hand-right, class: dropdown, 
-        dropdown: true, menu: [
-         {item: io2012, href: 'samples/intro'},
-         {item: deck.js, href: 'samples/deck.js'},
-         {item: shower, href: 'samples/shower'},
-         {item: landslide, href: 'samples/landslide'}
-        ]
-      }
-    - {item: Customize, href: customize, icon: gift}
-    - {item: Extend, href: extend, icon: cogs}
-    - {item: Publish, href: publish, icon: github}
+
 ---
 
 # Reveal.js
@@ -165,6 +149,8 @@ cat(paste(x, collapse = ' - '))
 ```
 
 --- #themes
+
+
 
 ## Themes
 
