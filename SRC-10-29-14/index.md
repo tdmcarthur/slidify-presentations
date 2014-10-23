@@ -1,17 +1,18 @@
 ---
 title: Checking Reveal.js
-author: Travis McArthur
+author: Ramnath Vaidyanathan
+width: 1920
+height: 1080
 mode : selfcontained
 framework: revealjs
-hitheme : zenburn
+hitheme : default
 revealjs:
-  theme: solarized
+  theme: simple
   transition: none
   center: "true"
 url: {lib: "."}
 bootstrap:
-  theme: amelia
-
+  theme: default
 ---
 
 # Reveal.js
@@ -143,26 +144,62 @@ You can select from different transitions, like:
 
 [Cube](?transition=cube#/transitions) - [Page](?transition=page#/transitions) - [Concave](?transition=concave#/transitions) - [Zoom](?transition=zoom#/transitions) - [Linear](?transition=linear#/transitions) - [Fade](?transition=fade#/transitions) - [None](?transition=none#/transitions) - [Default](?transition=default#/transitions)
 
---- #themes
 
-## test
-
-|  a  |  b  |
-|:---:|:---:|
-|  a  |  1  |
-|  b  |  2  |
-|  c  |  3  |
-|  d  |  4  |
-|  e  |  5  |
-|  f  |  6  |
-|  g  |  7  |
-|  h  |  8  |
-|  i  |  9  |
-|  j  | 10  |
-
-NULL
 
 --- #test
+
+
+
+## test
+<!-- html table generated in R 3.1.1 by xtable 1.7-4 package -->
+<!-- Wed Oct 22 22:53:43 2014 -->
+<table class=mytable>
+<tr> <th>  </th> <th> a </th> <th> b </th>  </tr>
+  <tr> <td align="right"> 1 </td> <td> a </td> <td align="right">   1 </td> </tr>
+  <tr> <td align="right"> 2 </td> <td> b </td> <td align="right">   2 </td> </tr>
+  <tr> <td align="right"> 3 </td> <td> c </td> <td align="right">   3 </td> </tr>
+  <tr> <td align="right"> 4 </td> <td> d </td> <td align="right">   4 </td> </tr>
+  <tr> <td align="right"> 5 </td> <td> e </td> <td align="right">   5 </td> </tr>
+  <tr> <td align="right"> 6 </td> <td> f </td> <td align="right">   6 </td> </tr>
+  <tr> <td align="right"> 7 </td> <td> g </td> <td align="right">   7 </td> </tr>
+  <tr> <td align="right"> 8 </td> <td> h </td> <td align="right">   8 </td> </tr>
+  <tr> <td align="right"> 9 </td> <td> i </td> <td align="right">   9 </td> </tr>
+  <tr> <td align="right"> 10 </td> <td> j </td> <td align="right">  10 </td> </tr>
+  <tr> <td align="right"> 11 </td> <td> k </td> <td align="right">  11 </td> </tr>
+  <tr> <td align="right"> 12 </td> <td> l </td> <td align="right">  12 </td> </tr>
+  <tr> <td align="right"> 13 </td> <td> m </td> <td align="right">  13 </td> </tr>
+  <tr> <td align="right"> 14 </td> <td> n </td> <td align="right">  14 </td> </tr>
+  <tr> <td align="right"> 15 </td> <td> o </td> <td align="right">  15 </td> </tr>
+  <tr> <td align="right"> 16 </td> <td> p </td> <td align="right">  16 </td> </tr>
+  <tr> <td align="right"> 17 </td> <td> q </td> <td align="right">  17 </td> </tr>
+  <tr> <td align="right"> 18 </td> <td> r </td> <td align="right">  18 </td> </tr>
+  <tr> <td align="right"> 19 </td> <td> s </td> <td align="right">  19 </td> </tr>
+  <tr> <td align="right"> 20 </td> <td> t </td> <td align="right">  20 </td> </tr>
+   </table>
+ 
+<style>
+table.mytable {
+  border: solid;
+  border-width: 1px 0;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 20px;
+  line-height: 22px;
+
+}
+ 
+table.mytable tr {
+  border: solid;
+  border-width: 1px 0;
+}
+</style>
+
+
+
+
+
+
+--- #themes
 
 ## Themes
 

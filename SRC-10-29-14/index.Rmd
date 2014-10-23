@@ -1,17 +1,19 @@
 ---
 title: Checking Reveal.js
-author: Travis McArthur
+author: Ramnath Vaidyanathan
+width: 1920
+height: 1080
 mode : selfcontained
 framework: revealjs
-hitheme : zenburn
+hitheme : default
+widgets : [mathjax]            # {mathjax, quiz, bootstrap}
 revealjs:
-  theme: solarized
+  theme: simple
   transition: none
   center: "true"
 url: {lib: "."}
 bootstrap:
-  theme: amelia
-
+  theme: default
 ---
 
 # Reveal.js
@@ -130,6 +132,86 @@ Try it out! You can swipe through the slides and pinch your way to the overview.
 
 ---
 
+## Marvolous Unordered List
+
+- No order here
+- Or here
+- Or here
+- Or here
+
+---
+
+## Marvolous Unordered List
+
+- No order here
+- Or here
+- Or here
+- Or here
+
+---
+
+## Marvolous Unordered List
+
+```{r echo = F, results = 'asis', comment = NA, out.width="1920px",height="1080px"}
+
+entropy.eval.fn <- function(x) {sum(-log(x)*x)}
+
+uniform.pmf.v <- c(1/3,  1/3, 1/3)
+skewed.pmf.v <- c(0.0993267, 0.2535319, 0.6471415)
+# This is from an actual estimated error term
+
+toy.support.vec <- c(-10, 0, 10)
+
+# THE FOLLOWING PUTS TWO GRAPHS ONE ON TOP OF THE OTHER ON EACH PAGE
+ 
+par(mfrow = c(1, 2))
+# NOW PLOT THE PMF. type="h" MEANS THAT THE PLOT IS VERTICAL LINES.
+# points ADDS CIRCLES. abline ADDS AXES.
+
+param.in.entropy <- c(round(toy.support.vec %*% uniform.pmf.v, digits=2))
+entropy <- round(entropy.eval.fn(uniform.pmf.v), digits=2)
+
+# Thanks to http://stackoverflow.com/questions/4423130/use-a-variable-within-a-plotmath-expression
+
+plot(toy.support.vec, uniform.pmf.v, type="h",col="blue",
+  main=bquote(atop(hat(epsilon)== .(param.in.entropy),
+    "Entropy" == .(entropy))),
+  xlab=expression(bold(v)), ylab="",
+  xlim=c(min(toy.support.vec)*1.5, max(toy.support.vec)*1.5),
+  ylim=c(0, 1.1*max(c(skewed.pmf.v, uniform.pmf.v))),
+  lwd=3,
+  xaxs="i", yaxs="i")
+mtext(expression(bold(w)), side=2, las=1, line=2.5)
+points(toy.support.vec, uniform.pmf.v, col="blue", pch=20 )
+
+
+param.in.entropy <- c(round(toy.support.vec %*% skewed.pmf.v, digits=2))
+entropy <- round(entropy.eval.fn(skewed.pmf.v), digits=2)
+
+plot(toy.support.vec, skewed.pmf.v, type="h",col="blue",
+  main=bquote(atop(hat(epsilon)== .(param.in.entropy),
+    "Entropy" == .(entropy))),
+  xlab=expression(bold(v)), ylab="",
+  xlim=c(min(toy.support.vec)*1.5, max(toy.support.vec)*1.5),
+  ylim=c(0, 1.1*max(c(skewed.pmf.v, uniform.pmf.v))),
+  lwd=3,
+  xaxs="i", yaxs="i")
+mtext(expression(bold(w)), side=2, las=1, line=2.5)
+points(toy.support.vec, skewed.pmf.v, col="blue", pch=20)
+
+par(mfrow = c(1, 1))
+
+
+
+
+
+```
+
+
+
+
+---
+
 ## Fantastic Ordered List
 
 1. One is smaller than...
@@ -141,23 +223,50 @@ Try it out! You can swipe through the slides and pinch your way to the overview.
 ## TRANSITION STYLES
 You can select from different transitions, like: 
 
-```{r echo = F, results = 'asis', comment = NA}
+```{r echo = F, results = 'asis', comment = NA, out.width="1920px",height="1080px"}
 transitions = c("cube", "page", "concave", "zoom", "linear", "fade", "none", "default")
 names(transitions) = gsub("^([a-z])", "\\U\\1", transitions, perl = TRUE)
 x = sprintf("[%s](?transition=%s#/transitions)", names(transitions), transitions)
 cat(paste(x, collapse = ' - '))
 ```
 
---- #themes
+
+
+--- #test
+
+
 
 ## test
 ```{r echo = F, results = 'asis', comment = NA}
 library(pander)
 library(xtable)
-print(pander(data.frame(a=letters[1:10], b=1:10), style = 'rmarkdown', split.cells = Inf), type = "html")
+#pander(data.frame(a=letters[1:10], b=1:10), style = 'rmarkdown', split.cells = Inf)
+  print(xtable(data.frame(a=letters[1:20], b=1:20)), type = "html", html.table.attributes='class=mytable')
 ```
+ 
+<style>
+table.mytable {
+  border: solid;
+  border-width: 1px 0;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 20px;
+  line-height: 22px;
 
---- #test
+}
+ 
+table.mytable tr {
+  border: solid;
+  border-width: 1px 0;
+}
+</style>
+
+
+
+
+
+
+--- #themes
 
 ## Themes
 
