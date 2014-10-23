@@ -150,7 +150,14 @@ cat(paste(x, collapse = ' - '))
 
 --- #themes
 
+## test
+```{r echo = F, results = 'asis', comment = NA}
+library(pander)
+library(xtable)
+print(pander(data.frame(a=letters[1:10], b=1:10), style = 'rmarkdown', split.cells = Inf), type = "html")
+```
 
+--- #test
 
 ## Themes
 
