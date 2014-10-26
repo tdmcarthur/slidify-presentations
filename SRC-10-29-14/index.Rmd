@@ -85,11 +85,7 @@ That's it, time to go back up.
 
 ## Vertical Slides
 
-Slides can be nested inside of other slides, try pressing <a href="#" class="navigate-down">down</a>
-
-<a href="#" class="image navigate-down">
-  <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-</a>
+Slides can be nested inside of other slides, try pressing
 
 ***
 
@@ -97,13 +93,7 @@ Slides can be nested inside of other slides, try pressing <a href="#" class="nav
 
 Press down or up to navigate.
 
-***
-
-## Basement Level 2
-
-Cornify
-
----
+--- &vertical
 
 ## Point of View
 
@@ -132,6 +122,130 @@ Try it out! You can swipe through the slides and pinch your way to the overview.
 
 ---
 
+## “Reduced Form” Determinants of Fertilizer Use: $$$$ Double Hurdle Model
+
+
+
+
+
+---
+
+## Data
+___
+___
+$$\vphantom{}$$
+
+
+- 2001 government survey
+
+
+- General household survey with an agriculture module
+
+
+- 1748 farmers in sample
+
+
+- 29% of them purchased any fertilizer
+
+
+--- &vertical
+
+## 
+
+
+
+```{r echo = F, results = 'asis', comment = NA}
+
+load("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/Rdata results files/double hurdle.Rdata")
+
+# SHould also load crop.wide.df since we need to get num of observations from that
+# ALso include the summary stats, which is unprocessed.summary.table
+
+library("stargazer")
+
+
+
+dhurdle.mfx.bootstrapped <- dhurdle.mfx.bootstrapped[
+  !grepl("[Dd]epartment", dhurdle.mfx.bootstrapped$param.names),  ]
+
+colnames(dhurdle.mfx.bootstrapped) <- c("Variable", "Point estimate", "Lower 95% CI", "Upper 95% CI", "", "", "", "", "")
+
+
+throwaway <- capture.output(table.captured <- stargazer( dhurdle.mfx.bootstrapped[, 1:5 ], type="html",
+  summary=FALSE, out.header = FALSE, align=TRUE,
+  rownames=FALSE, font.size="small",
+  column.sep.width="0pt",
+  title=paste0("Extensive margin decision: marginal effects. (n = ", nrow(crop.wide.df), ") <br> Dependent variable: Fertilizer Expenditure Per Hectare"),
+#  float.env = "sidewaystable",
+  notes="Signif codes: *** = 0.1\\%; ** = 1\\%; * = 5\\%; . = 10\\%. Reference level for Education: Primary. <br> Region variables omitted but are economically and statistically significant. <br> Indigenous proportion X Education interaction included in underlying specification"))
+
+
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+# for some reason it wants me to do it twice
+table.captured <- gsub("<table >", "<table class=mytable>", table.captured)
+
+source("/Users/travismcarthur/git/misc/authored-functions/authored-R-fns.R")
+
+replacement.var.names <- read.csv("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/tex building/MECOVI var name replacements.csv", stringsAsFactors=FALSE)
+
+table.captured <- replace.vars.string(replacement.matrix=replacement.var.names, 
+  input.table=table.captured, html=TRUE, table.only=FALSE )
+
+cat(table.captured, sep="\n")
+
+#"style=\".+?\"""
+
+#gsub("\".+?\"", "got it", " yui \" test n quote\"  hj \"another test in quote\"")
+# Number 2 here helped me: http://trentrichardson.com/2012/07/13/5-must-know-javascript-regex-tips/
+
+
+```
+
+***
+
+## 
+
+
+
+```{r echo = F, results = 'asis', comment = NA}
+
+
+load("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/Rdata results files/double hurdle.Rdata")
+
+# SHould also load crop.wide.df since we need to get num of observations from that
+# ALso include the summary stats, which is unprocessed.summary.table
+
+library("stargazer")
+
+unprocessed.summary.table <- unprocessed.summary.table[
+  !grepl("[Dd]epartment", rownames(unprocessed.summary.table)),  ]
+
+throwaway <- capture.output(table.captured <- stargazer(unprocessed.summary.table , summary=FALSE, type="html", out.header = FALSE,
+  rownames=TRUE,
+  title="Summary statistics of MECOVI data", align=TRUE,
+  notes="Drive time in hours. Rainfall in meters.  Remittances in hundreds of Bolivianos."))
+
+
+
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+# for some reason it wants me to do it twice
+table.captured <- gsub("<table >", "<table class=mytable>", table.captured)
+
+source("/Users/travismcarthur/git/misc/authored-functions/authored-R-fns.R")
+
+replacement.var.names <- read.csv("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/tex building/MECOVI var name replacements.csv", stringsAsFactors=FALSE)
+
+table.captured <- replace.vars.string(replacement.matrix=replacement.var.names, 
+  input.table=table.captured, html=TRUE, table.only=FALSE )
+
+cat(table.captured, sep="\n")
+
+```
+
+--- &vertical
+
 ## Marvolous Unordered List
 
 - No order here
@@ -152,7 +266,688 @@ Try it out! You can swipe through the slides and pinch your way to the overview.
 
 ## Marvolous Unordered List
 
-```{r echo = F, results = 'asis', comment = NA, out.width="1920px",height="1080px"}
+- No order here
+- Or here
+- Or here
+- Or here
+
+---
+
+## Marvolous Unordered List
+
+- No order here
+- Or here
+- Or here
+- Or here
+
+---
+
+## Marvolous Unordered List
+
+- No order here
+- Or here
+- Or here
+- Or here
+
+---
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+  var MML = MathJax.ElementJax.mml,
+      TEX = MathJax.InputJax.TeX;
+
+  TEX.Definitions.macros.bfrac = "myBevelFraction";
+
+  TEX.Parse.Augment({
+    myBevelFraction: function (name) {
+      var num = this.ParseArg(name),
+          den = this.ParseArg(name);
+      this.Push(MML.mfrac(num,den).With({bevelled: true}));
+    }
+  });
+});
+</script>
+<script type="text/javascript"
+  src="../MathJax/unpacked/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+
+## Shadow Price Approach
+___
+___
+$$\vphantom{}$$
+
+
+Cost minimization requires that:
+
+$$\vphantom{}$$
+
+$$\dfrac{\bfrac{\partial f}{\partial x_{i}}}{\bfrac{\partial f}{\partial x_{j}}}=\dfrac{w_{i}}{w_{j}},\forall i\neq j$$
+
+---
+
+
+
+
+
+## Shadow Price Approach
+___
+___
+$$\vphantom{}$$
+
+But say we have for some $i,j$ pair:
+
+$$\vphantom{}$$
+
+$\dfrac{\bfrac{\partial f}{\partial x_{i}}}{\bfrac{\partial f}{\partial x_{j}}}\neq\dfrac{w_{i}}{w_{j}}$
+
+---
+
+## Shadow Price Approach
+___
+___
+$$\vphantom{}$$
+
+We can restore equality between the two quantities by inserting a “shadow price” coefficient $\theta_{i}$:
+
+$$\vphantom{}$$
+
+$$\dfrac{\bfrac{\partial f}{\partial x_{i}}}{\bfrac{\partial f}{\partial x_{j}}}=\dfrac{w_{i}\theta_{i}}{w_{j}}$$
+
+---
+
+## Shadow Price Approach
+___
+___
+$$\vphantom{}$$
+
+$$\dfrac{\bfrac{\partial f}{\partial x_{i}}}{\bfrac{\partial f}{\partial x_{j}}}=\dfrac{w_{i}\theta_{i}}{w_{j}}$$
+
+$$\vphantom{}$$
+
+$\theta_{i}<1$ $\implies$ too much $x_{i}$ is used relative to $x_{j}$
+
+$$\vphantom{}$$
+
+$\theta_{i}>1$ $\implies$ too little $x_{i}$ is used relative to $x_{j}$
+ .
+
+---
+
+## Shadow Price Illustration
+
+```{r echo = F, comment = NA, fig.width=8, fig.height=8}
+
+# Note that the "beveled fractions" code above is due to:
+# https://github.com/mathjax/MathJax-docs/wiki/Beveled-fraction-like-sfrac,-nicefrac-bfrac
+
+# We got Shepard's Lemma discussion from:
+# http://www.banxico.org.mx/publicaciones-y-discursos/publicaciones/documentos-de-investigacion/banxico/%7B41245D5E-C969-419F-B0F7-EC2DB03F5E25%7D.pdf
+
+intended.cex <- 2
+
+par(cex=intended.cex)
+
+cobb.douglas.MRTS.x2 <- function(y, alpha, x1) {
+ (y/x1^alpha)^(1-alpha)
+}
+
+par(mar=c(1.5, 1.5, 1.5, 1.5) + 0.1)
+
+plot(seq(.1, 2, by=.01), y=cobb.douglas.MRTS.x2(20, .8, seq(.1, 2, by=.01)), type="l", yaxt="n", xaxt="n", lwd=2*intended.cex, ylab=expression(x[2]), xlab=expression(x[1]))
+#  , ylim=c(0, max(cobb.douglas.MRTS.x2(20, .8, seq(.1, 4, by=.01)))))
+
+mtext(expression(x[1]), side=1, las=1, line=0.5, cex=intended.cex)
+mtext(expression(x[2]), side=2, las=1, line=0.5, cex=intended.cex)
+
+points(x=0.6110329, y=1.962491, pch=20, cex=3, col="darkgreen", lwd=3)
+text(x=0.6110329+.16, y=1.962491+.06, labels=expression(list(x[1]^0, x[2]^0)))
+
+text(x=1.65, y=1.815,  labels=expression(f *phantom() *group("(", list(x[1], x[2]), ")") == bar(y)), col="black")
+#############################
+
+
+```
+
+---
+
+## Shadow Price Illustration
+
+```{r echo = F, comment = NA, fig.width=8, fig.height=8}
+
+
+intended.cex <- 2
+
+par(cex=intended.cex)
+
+cobb.douglas.MRTS.x2 <- function(y, alpha, x1) {
+ (y/x1^alpha)^(1-alpha)
+}
+
+par(mar=c(1.5, 1.5, 1.5, 1.5) + 0.1)
+
+plot(seq(.1, 2, by=.01), y=cobb.douglas.MRTS.x2(20, .8, seq(.1, 2, by=.01)), type="l", yaxt="n", xaxt="n", lwd=2*intended.cex, ylab=expression(x[2]), xlab=expression(x[1]))
+#  , ylim=c(0, max(cobb.douglas.MRTS.x2(20, .8, seq(.1, 4, by=.01)))))
+
+mtext(expression(x[1]), side=1, las=1, line=0.5, cex=intended.cex)
+mtext(expression(x[2]), side=2, las=1, line=0.5, cex=intended.cex)
+
+points(x=0.6110329, y=1.962491, pch=20, cex=3, col="darkgreen", lwd=3)
+text(x=0.6110329+.16, y=1.962491+.06, labels=expression(list(x[1]^0, x[2]^0)))
+
+text(x=1.65, y=1.815,  labels=expression(f *phantom() *group("(", list(x[1], x[2]), ")") == bar(y)), col="black")
+#############################
+
+my.intercept <- 3
+abline(a=my.intercept, b= (1.959660 - my.intercept)/0.6221856, col="red", lwd=2*intended.cex)
+
+
+text(x=0.52, y=2.5,  labels=expression(-Delta == frac(w[1], w[2])), col="red")
+
+#############################
+
+
+```
+
+---
+
+## Shadow Price Illustration
+
+```{r echo = F, comment = NA, fig.width=8, fig.height=8}
+
+intended.cex <- 2
+
+par(cex=intended.cex)
+
+cobb.douglas.MRTS.x2 <- function(y, alpha, x1) {
+ (y/x1^alpha)^(1-alpha)
+}
+
+par(mar=c(1.5, 1.5, 1.5, 1.5) + 0.1)
+
+plot(seq(.1, 2, by=.01), y=cobb.douglas.MRTS.x2(20, .8, seq(.1, 2, by=.01)), type="l", yaxt="n", xaxt="n", lwd=2*intended.cex, ylab=expression(x[2]), xlab=expression(x[1]))
+#  , ylim=c(0, max(cobb.douglas.MRTS.x2(20, .8, seq(.1, 4, by=.01)))))
+
+mtext(expression(x[1]), side=1, las=1, line=0.5, cex=intended.cex)
+mtext(expression(x[2]), side=2, las=1, line=0.5, cex=intended.cex)
+
+points(x=0.6110329, y=1.962491, pch=20, cex=3, col="darkgreen", lwd=3)
+text(x=0.6110329+.16, y=1.962491+.06, labels=expression(list(x[1]^0, x[2]^0)))
+
+text(x=1.65, y=1.815,  labels=expression(f *phantom() *group("(", list(x[1], x[2]), ")") == bar(y)), col="black")
+#############################
+
+my.intercept <- 3
+abline(a=my.intercept, b= (1.959660 - my.intercept)/0.6221856, col="red", lwd=2*intended.cex)
+
+
+text(x=0.52, y=2.5,  labels=expression(-Delta == frac(w[1], w[2])), col="red")
+
+#############################
+
+w2 <- 8
+w1 <- 4
+cost <- (w2 + w1)*1.515
+
+abline(a=cost/w2, b= -w1/w2, col="blue", lwd=2*intended.cex)
+
+# Take out phantom(0) for no space
+
+text(x=0.25, y=1.95,  labels=expression(-Delta == frac(w[1]*theta[1], w[2])), col="blue")
+
+
+
+
+
+```
+
+---
+
+
+
+## 
+
+$$\vphantom{}$$
+
+Translog functional form for cost function
+
+$$\vphantom{}$$
+
+Basically, take logs of all variables and interact them
+
+$$\vphantom{}$$
+
+Equivalent to a second-order Taylor series approximation around the point where all input prices are zero
+
+
+
+--- &vertical
+
+## Variables
+
+ - $y$ is the quantity of crop harvested;
+
+
+ - $w_{n}$ is the price of variable input $n$:
+     - Inorganic fertilizer
+     - Seed
+     - Organic fertilizer
+     - $Plaguicidas$ - catch-all for pesticides, herbicides, etc.
+     - Hired labor
+     - Tractor rental hours
+ 
+ 
+ - $q_{j}$ is the quantity of fixed input $j$:
+     - Land
+     - Family labor
+     - Irrigation (yes or no)
+
+
+***
+
+## 
+
+
+
+```{r echo = F, results = 'asis', comment = NA}
+
+
+load("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/Rdata results files/2008 summary stats.Rdata")
+
+# SHould also load crop.wide.df since we need to get num of observations from that
+# ALso include the summary stats, which is unprocessed.summary.table
+
+library("stargazer")
+
+which.crop <- 1
+
+
+throwaway <- capture.output(table.captured <- stargazer(
+  full.summary.stats.ls[[top.crops[which.crop]]] , 
+  summary=FALSE, type="html", out.header = FALSE,  
+  rownames=TRUE,
+  title=top.crops[which.crop], align=TRUE))
+
+#  notes="Drive time in hours. Rainfall in meters.  Remittances in hundreds of Bolivianos."))
+
+
+
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+# for some reason it wants me to do it twice
+table.captured <- gsub("<table >", "<table class=mytable>", table.captured)
+
+#source("/Users/travismcarthur/git/misc/authored-functions/authored-R-fns.R")
+
+#replacement.var.names <- read.csv("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/tex building/MECOVI var name replacements.csv", stringsAsFactors=FALSE)
+
+#table.captured <- replace.vars.string(replacement.matrix=replacement.var.names, 
+#  input.table=table.captured, html=TRUE, table.only=FALSE )
+
+cat(table.captured, sep="\n")
+
+```
+
+***
+
+## 
+
+
+
+```{r echo = F, results = 'asis', comment = NA}
+
+
+load("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/Rdata results files/2008 summary stats.Rdata")
+
+# SHould also load crop.wide.df since we need to get num of observations from that
+# ALso include the summary stats, which is unprocessed.summary.table
+
+library("stargazer")
+
+
+which.crop <- 2
+
+
+throwaway <- capture.output(table.captured <- stargazer(
+  full.summary.stats.ls[[top.crops[which.crop]]] , 
+  summary=FALSE, type="html", out.header = FALSE,  
+  rownames=TRUE,
+  title=top.crops[which.crop], align=TRUE))
+
+#  notes="Drive time in hours. Rainfall in meters.  Remittances in hundreds of Bolivianos."))
+
+
+
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+# for some reason it wants me to do it twice
+table.captured <- gsub("<table >", "<table class=mytable>", table.captured)
+
+#source("/Users/travismcarthur/git/misc/authored-functions/authored-R-fns.R")
+
+#replacement.var.names <- read.csv("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/tex building/MECOVI var name replacements.csv", stringsAsFactors=FALSE)
+
+#table.captured <- replace.vars.string(replacement.matrix=replacement.var.names, 
+#  input.table=table.captured, html=TRUE, table.only=FALSE )
+
+cat(table.captured, sep="\n")
+
+```
+
+
+***
+
+## 
+
+
+
+```{r echo = F, results = 'asis', comment = NA}
+
+
+load("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/Rdata results files/2008 summary stats.Rdata")
+
+# SHould also load crop.wide.df since we need to get num of observations from that
+# ALso include the summary stats, which is unprocessed.summary.table
+
+library("stargazer")
+
+
+which.crop <- 3
+
+
+throwaway <- capture.output(table.captured <- stargazer(
+  full.summary.stats.ls[[top.crops[which.crop]]] , 
+  summary=FALSE, type="html", out.header = FALSE,  
+  rownames=TRUE,
+  title=top.crops[which.crop], align=TRUE))
+
+#  notes="Drive time in hours. Rainfall in meters.  Remittances in hundreds of Bolivianos."))
+
+
+
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+# for some reason it wants me to do it twice
+table.captured <- gsub("<table >", "<table class=mytable>", table.captured)
+
+#source("/Users/travismcarthur/git/misc/authored-functions/authored-R-fns.R")
+
+#replacement.var.names <- read.csv("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/tex building/MECOVI var name replacements.csv", stringsAsFactors=FALSE)
+
+#table.captured <- replace.vars.string(replacement.matrix=replacement.var.names, 
+#  input.table=table.captured, html=TRUE, table.only=FALSE )
+
+cat(table.captured, sep="\n")
+
+```
+
+***
+
+## 
+
+
+
+```{r echo = F, results = 'asis', comment = NA}
+
+
+load("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/Rdata results files/2008 summary stats.Rdata")
+
+# SHould also load crop.wide.df since we need to get num of observations from that
+# ALso include the summary stats, which is unprocessed.summary.table
+
+library("stargazer")
+
+
+which.crop <- 4
+
+
+throwaway <- capture.output(table.captured <- stargazer(
+  full.summary.stats.ls[[top.crops[which.crop]]] , 
+  summary=FALSE, type="html", out.header = FALSE,  
+  rownames=TRUE,
+  title=top.crops[which.crop], align=TRUE))
+
+#  notes="Drive time in hours. Rainfall in meters.  Remittances in hundreds of Bolivianos."))
+
+
+
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+# for some reason it wants me to do it twice
+table.captured <- gsub("<table >", "<table class=mytable>", table.captured)
+
+#source("/Users/travismcarthur/git/misc/authored-functions/authored-R-fns.R")
+
+#replacement.var.names <- read.csv("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/tex building/MECOVI var name replacements.csv", stringsAsFactors=FALSE)
+
+#table.captured <- replace.vars.string(replacement.matrix=replacement.var.names, 
+#  input.table=table.captured, html=TRUE, table.only=FALSE )
+
+cat(table.captured, sep="\n")
+
+```
+
+
+***
+
+## 
+
+
+
+```{r echo = F, results = 'asis', comment = NA}
+
+
+load("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/Rdata results files/2008 summary stats.Rdata")
+
+# SHould also load crop.wide.df since we need to get num of observations from that
+# ALso include the summary stats, which is unprocessed.summary.table
+
+library("stargazer")
+
+
+which.crop <- 5
+
+
+throwaway <- capture.output(table.captured <- stargazer(
+  full.summary.stats.ls[[top.crops[which.crop]]] , 
+  summary=FALSE, type="html", out.header = FALSE,  
+  rownames=TRUE,
+  title=top.crops[which.crop], align=TRUE))
+
+#  notes="Drive time in hours. Rainfall in meters.  Remittances in hundreds of Bolivianos."))
+
+
+
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+# for some reason it wants me to do it twice
+table.captured <- gsub("<table >", "<table class=mytable>", table.captured)
+
+#source("/Users/travismcarthur/git/misc/authored-functions/authored-R-fns.R")
+
+#replacement.var.names <- read.csv("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/tex building/MECOVI var name replacements.csv", stringsAsFactors=FALSE)
+
+#table.captured <- replace.vars.string(replacement.matrix=replacement.var.names, 
+#  input.table=table.captured, html=TRUE, table.only=FALSE )
+
+cat(table.captured, sep="\n")
+
+```
+
+
+--- &vertical
+
+
+
+
+
+
+
+
+## Translog Cost Function
+___
+___
+
+$$\vphantom{}$$
+
+$$\tiny\ln\left(c\right)=\beta_{0}+\alpha_{1}\ln\left(y\right)+\sum_{n}^{N}\beta_{n}\ln\left(w_{n}\right)+\dfrac{1}{2}\alpha_{11}\left(\ln\left(y\right)\right)^{2}+\dfrac{1}{2}\sum_{n}^{N}\sum_{k}^{N}\beta_{nk}\ln\left(w_{n}\right)\ln\left(w_{k}\right)+\\\tiny\qquad\sum_{n}^{N}\gamma_{1n}\ln\left(y\right)\ln\left(w_{n}\right)+\sum_{j}^{J}\zeta_{j}\ln\left(q_{j}\right)+\dfrac{1}{2}\sum_{j}^{J}\sum_{h}^{J}\zeta_{jh}\ln\left(q_{j}\right)\ln\left(q_{h}\right)+\\\tiny\qquad\qquad\sum_{j}^{J}\sum_{n}^{N}\kappa_{jn}\ln\left(q_{j}\right)\ln\left(w_{n}\right)+\sum_{j}^{J}\delta_{1j}\ln\left(y\right)\ln\left(q_{j}\right)$$
+
+---
+
+
+## Adding shadow prices
+___
+___
+
+$$\vphantom{}$$
+
+Wherever $w_{n}$ appears, replace it with $w_{n}\theta_{n}$. Call this $\Lambda$.
+
+$$\vphantom{}$$
+
+Then the cost function that permits allocative inefficiency is:
+
+$$\vphantom{}$$
+
+$$\tiny\ln\left(c\right)=\Lambda+\ln\left(\sum_{n}^{N}\theta_{n}^{-1}\cdot\left[\beta_{n}+\sum_{k}^{N}\beta_{nk}\ln\left(w_{k}\theta_{k}\right)+\gamma_{1n}\ln\left(y\right)+\sum_{j}^{J}\kappa_{jn}\ln\left(q_{j}\right)\right]\right)-\sum_{g}^{G}\Delta_{g}D_{g}$$
+
+---
+
+## How to estimate?
+
+$$\vphantom{}$$
+
+- Nonlinear Least Squares (NLS) using cost function
+
+
+    - Consistent
+    
+    
+    - Inefficient
+    
+    
+    - Biased
+
+---
+
+## Cost Share Equations
+
+$$\vphantom{}$$
+
+- Shepard's Lemma yields 6 more equations to boost statistical efficiency:
+
+$$\vphantom{}$$
+$$\dfrac{\partial\ln c}{\partial\ln w_{n}}=\dfrac{w_{n}}{c}\cdot\dfrac{\partial c}{\partial w_{n}}=\dfrac{x_{n}w_{n}}{c}$$
+
+---
+
+## How to estimate?
+___
+___
+$$\vphantom{}$$
+
+- Iterated Seemingly Unrelated Nonlinear Regressions (ITSUR)
+$$\vphantom{}$$
+    - Efficient
+    $$\vphantom{}$$
+    - Biased
+    $$\vphantom{}$$
+- Cost share equations are badly censored
+$$\vphantom{}$$
+    - $\implies$ ITSUR is inconsistent
+
+---
+
+## Marvolous Unordered List
+
+- No order here
+- Or here
+- Or here
+- Or here
+
+---
+
+## Marvolous Unordered List
+
+- No order here
+- Or here
+- Or here
+- Or here
+
+---
+
+
+
+## Generalized Maximum Entropy
+___
+___
+
+  Support space vector: 
+  
+  
+  $\mathbf{z}=\left[z_{1},z_{2},\ldots,z_{D}\right]$
+  
+  
+  Unknown weights: 
+  
+  
+  $\mathbf{q}=\left[q_{1},q_{2},\ldots,q_{D}\right]\;$   s.t.   $\;\underset{d}{\sum}q_{d}=1$
+  
+  
+  and
+  
+  
+  $\mathbf{z}\cdot\mathbf{q}=\hat{\beta}$
+ 
+
+
+---
+
+## Generalized Maximum Entropy
+___
+___
+
+Same thing with error terms:
+
+
+$\mathbf{v}=\left[v_{1},v_{2},\ldots,v_{H}\right]$
+
+
+$\mathbf{w}=\left[w_{1},w_{2},\ldots,w_{H}\right]\;$   s.t.   $\;\underset{h}{\sum}w_{h}=1$
+
+
+$\mathbf{v}\cdot\mathbf{w}=\hat{\epsilon}$
+
+
+---
+
+## Generalized Maximum Entropy
+___
+___
+
+Constraint that estimates be consistent with the data:
+
+$y_{i}=f(x_{i},\hat{\beta})+\hat{\epsilon_{i}}\;$   for   $\;y_{i}>0$
+
+$0>f(x_{i},\hat{\beta})+\hat{\epsilon_{i}}\;$   for   $\;y_{i}=0$
+
+---
+
+## Generalized Maximum Entropy
+___
+___
+
+Objective function:
+
+$$\underset{\mathbf{q},\mathbf{w}}{\max}\left\{ -\underset{d}{\sum}q_{d}\cdot\ln q_{d}-\underset{h}{\sum}w_{h}\cdot\ln w_{h}\right\}$$
+
+---
+
+## 
+
+Entropy Illustration
+
+```{r echo = F, comment = NA, fig.width=12, fig.height=8}
 
 entropy.eval.fn <- function(x) {sum(-log(x)*x)}
 
@@ -164,7 +959,7 @@ toy.support.vec <- c(-10, 0, 10)
 
 # THE FOLLOWING PUTS TWO GRAPHS ONE ON TOP OF THE OTHER ON EACH PAGE
  
-par(mfrow = c(1, 2))
+par(mfrow = c(1, 2), cex=1.5)
 # NOW PLOT THE PMF. type="h" MEANS THAT THE PLOT IS VERTICAL LINES.
 # points ADDS CIRCLES. abline ADDS AXES.
 
@@ -179,7 +974,7 @@ plot(toy.support.vec, uniform.pmf.v, type="h",col="blue",
   xlab=expression(bold(v)), ylab="",
   xlim=c(min(toy.support.vec)*1.5, max(toy.support.vec)*1.5),
   ylim=c(0, 1.1*max(c(skewed.pmf.v, uniform.pmf.v))),
-  lwd=3,
+  lwd=5,
   xaxs="i", yaxs="i")
 mtext(expression(bold(w)), side=2, las=1, line=2.5)
 points(toy.support.vec, uniform.pmf.v, col="blue", pch=20 )
@@ -194,7 +989,7 @@ plot(toy.support.vec, skewed.pmf.v, type="h",col="blue",
   xlab=expression(bold(v)), ylab="",
   xlim=c(min(toy.support.vec)*1.5, max(toy.support.vec)*1.5),
   ylim=c(0, 1.1*max(c(skewed.pmf.v, uniform.pmf.v))),
-  lwd=3,
+  lwd=5,
   xaxs="i", yaxs="i")
 mtext(expression(bold(w)), side=2, las=1, line=2.5)
 points(toy.support.vec, skewed.pmf.v, col="blue", pch=20)
@@ -214,9 +1009,90 @@ par(mfrow = c(1, 1))
 
 ## Fantastic Ordered List
 
-1. One is smaller than...
-2. Two is smaller than...
-3. Three!
+
+---
+
+
+
+```{r echo = F, comment = NA, fig.width=12, fig.height=9}
+
+load("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/Rdata results files/thetas cost and share.Rdata")
+
+
+
+
+
+ggplot(theta.ci.df.final[nrow(theta.ci.df.final):1,], aes(x = Input)) +
+#  geom_point(size = 4) +
+  geom_errorbar(aes(ymax = Upper, ymin = Lower, size=alpha, width=0, colour=alpha)) +  # as.factor(size)
+  geom_hline(yintercept=1, colour="red") +
+  coord_trans(y="log2") +
+  scale_y_continuous(breaks=c( 1,5,10,15))  +
+  facet_grid(crop ~ . ) + # facet_grid(. ~ crop ) +
+  ggtitle(bquote(paste("Bootstrap CI's of ", over(theta[fertilizer], theta[j])))) +
+  theme(text = element_text(size = 20))
+# Thanks to http://stackoverflow.com/questions/15297814/include-text-control-characters-in-plotmath-expressions
+# Ah, I see: it's putting the inputs in alphabetical order
+
+
+
+
+
+
+
+
+
+
+```
+
+
+---
+
+
+## Fantastic Ordered List
+
+
+```{r echo = F, results = 'asis', comment = NA}
+
+load("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/Rdata results files/thetas cost and share.Rdata")
+
+throwaway <- capture.output(table.captured <- stargazer(share.ci.df.final, summary=FALSE,  
+rownames=TRUE,
+  title="", align=TRUE, type="html"
+  ))
+# notes="Drive time in hours. Rainfall in meters.  Remittances in hundreds of Bolivianos.")
+
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+table.captured <- gsub("<table >", "<table class=mytable>", table.captured)
+
+cat(table.captured, sep="\n")
+
+
+
+
+```
+
+
+
+
+---
+
+
+## Fantastic Ordered List
+
+
+---
+
+
+## Fantastic Ordered List
+
+
+---
+
+
+
+## Fantastic Ordered List
+
 
 --- #transitions
 

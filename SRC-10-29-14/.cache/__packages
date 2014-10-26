@@ -1,4 +1,6 @@
+AER
 base
+car
 foreign
 Formula
 ggplot2
@@ -6,6 +8,7 @@ lmtest
 pander
 plm
 plyr
+rdd
 rJava
 rjson
 rJython
@@ -14,5 +17,6 @@ Ryacas
 sandwich
 slidify
 stargazer
+survival
 xtable
 zoo
