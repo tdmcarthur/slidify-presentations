@@ -1,6 +1,6 @@
 ---
-title: Checking Reveal.js
-author: Ramnath Vaidyanathan
+title: Efficiency in Bolivian Agriculture
+author: Travis McArthur
 width: 1920
 height: 1080
 mode : selfcontained
@@ -122,7 +122,68 @@ Try it out! You can swipe through the slides and pinch your way to the overview.
 
 ---
 
-## “Reduced Form” Determinants of Fertilizer Use: $$$$ Double Hurdle Model
+## Marvolous Unordered List
+
+- No order here
+- Or here
+- Or here
+- Or here
+
+---
+
+## Marvolous Unordered List
+
+- No order here
+- Or here
+- Or here
+- Or here
+
+---
+
+## Marvolous Unordered List
+
+- No order here
+- Or here
+- Or here
+- Or here
+
+---
+
+## 
+
+
+```{r echo = F, comment = NA, fig.width=8, fig.height=8}
+
+country.fert.use.mat <- matrix(c(0.529284458,	0.307128365,	0.078209117,
+  12.38291415,	4.621909042,	5.327718043,
+  21.21944063,	5.106365952,	13.56069195,
+  10.40624127,	4.024732184,	2.613926409), byrow=TRUE, ncol=3)
+# From /Users/travismcarthur/Desktop/PUB AFFR 974/Policy memo/Charts for policy memo.xlsx
+  
+colnames(country.fert.use.mat) <- c("Nitrogen", "Phosphate", "Potash")
+rownames(country.fert.use.mat) <- c("Bolivia", "Colombia", "Ecuador", "Peru")
+  
+par(cex=1.5)
+
+barplot(t(country.fert.use.mat), beside=TRUE, col=terrain.colors(ncol(country.fert.use.mat)+1)[1:3],
+  main="Fertilizer Consumption in Tons Per\n1000 Agricultural Hectares, 2010")
+
+
+legend("topleft", colnames(country.fert.use.mat), cex=1,
+       fill=terrain.colors(ncol(country.fert.use.mat)+1)[1:3])
+
+
+
+
+
+```
+
+
+
+---
+
+
+## “Reduced Form” Determinants of Fertilizer Use: <br><br> Double Hurdle Model
 
 
 
@@ -246,50 +307,12 @@ cat(table.captured, sep="\n")
 
 --- &vertical
 
-## Marvolous Unordered List
+## “Structural Model”: <br><br>Allocative Inefficiency
 
-- No order here
-- Or here
-- Or here
-- Or here
+
 
 ---
 
-## Marvolous Unordered List
-
-- No order here
-- Or here
-- Or here
-- Or here
-
----
-
-## Marvolous Unordered List
-
-- No order here
-- Or here
-- Or here
-- Or here
-
----
-
-## Marvolous Unordered List
-
-- No order here
-- Or here
-- Or here
-- Or here
-
----
-
-## Marvolous Unordered List
-
-- No order here
-- Or here
-- Or here
-- Or here
-
----
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
@@ -521,7 +544,7 @@ Equivalent to a second-order Taylor series approximation around the point where 
 
 
 
---- &vertical
+--- 
 
 ## Variables
 
@@ -541,6 +564,301 @@ Equivalent to a second-order Taylor series approximation around the point where 
      - Land
      - Family labor
      - Irrigation (yes or no)
+
+
+
+
+
+--- &vertical
+
+
+## Translog Cost Function
+___
+___
+
+$$\vphantom{}$$
+
+$$\tiny\ln\left(c\right)=\beta_{0}+\alpha_{1}\ln\left(y\right)+\sum_{n}^{N}\beta_{n}\ln\left(w_{n}\right)+\dfrac{1}{2}\alpha_{11}\left(\ln\left(y\right)\right)^{2}+\dfrac{1}{2}\sum_{n}^{N}\sum_{k}^{N}\beta_{nk}\ln\left(w_{n}\right)\ln\left(w_{k}\right)+\\\tiny\qquad\sum_{n}^{N}\gamma_{1n}\ln\left(y\right)\ln\left(w_{n}\right)+\sum_{j}^{J}\zeta_{j}\ln\left(q_{j}\right)+\dfrac{1}{2}\sum_{j}^{J}\sum_{h}^{J}\zeta_{jh}\ln\left(q_{j}\right)\ln\left(q_{h}\right)+\\\tiny\qquad\qquad\sum_{j}^{J}\sum_{n}^{N}\kappa_{jn}\ln\left(q_{j}\right)\ln\left(w_{n}\right)+\sum_{j}^{J}\delta_{1j}\ln\left(y\right)\ln\left(q_{j}\right)$$
+
+***
+
+$$\vphantom{}$$
+
+- Symmetry in input prices and fixed inputs requires that $\beta_{nk}=\beta_{kn}$ and $\zeta_{jh}=\zeta_{hj}$
+  
+$$\vphantom{}$$
+
+- Homogeneity of degree 1 in input prices requires that: 
+    1. $\sum_{k}\beta_{nk}=0$ for $n=1,...,N$
+    2. $\sum_{n}\beta_{n}=1$
+    3. $\sum_{n}\gamma_{1n}=0$
+ 
+ 
+
+
+--- &vertical
+
+
+## Adding shadow prices
+___
+___
+
+$$\vphantom{}$$
+
+Wherever $w_{n}$ appears, replace it with $w_{n}\theta_{n}$. Call this $\Lambda$.
+
+$$\vphantom{}$$
+
+Then the cost function that permits allocative inefficiency is:
+
+$$\vphantom{}$$
+
+$$\tiny\ln\left(c\right)=\Lambda+\ln\left(\sum_{n}^{N}\theta_{n}^{-1}\cdot\left[\beta_{n}+\sum_{k}^{N}\beta_{nk}\ln\left(w_{k}\theta_{k}\right)+\gamma_{1n}\ln\left(y\right)+\sum_{j}^{J}\kappa_{jn}\ln\left(q_{j}\right)\right]\right)-\sum_{g}^{G}\Delta_{g}D_{g}$$
+
+---
+
+## How to estimate?
+___
+___
+
+$$\vphantom{}$$
+
+- Nonlinear Least Squares (NLS) using cost function
+$$\vphantom{}$$
+    - Consistent
+$$\vphantom{}$$
+    - Inefficient
+$$\vphantom{}$$
+    - Biased
+
+--- &vertical
+
+## Cost Share Equations
+
+$$\vphantom{}$$
+
+- Shepard's Lemma yields 6 more equations to boost statistical efficiency:
+
+$$\vphantom{}$$
+$$\dfrac{\partial\ln c}{\partial\ln w_{n}}=\dfrac{w_{n}}{c}\cdot\dfrac{\partial c}{\partial w_{n}}=\dfrac{x_{n}w_{n}}{c}$$
+
+***
+
+$$\tiny S_{n}=\beta_{n}+\sum_{k}^{N}\beta_{nk}\ln\left(w_{k}\right)+\gamma_{1n}\ln\left(y\right)+\sum_{j}^{J}\kappa_{jn}\ln\left(q_{j}\right)$$
+
+$$\vphantom{}$$
+
+$$\tiny S_{n}=\dfrac{\theta_{n}^{-1}\cdot\left[\beta_{n}+\sum_{k}^{N}\beta_{nk}\ln\left(w_{k}\theta_{k}\right)+\gamma_{1n}\ln\left(y\right)+\sum_{j}^{J}\kappa_{jn}\ln\left(q_{j}\right)\right]}{\sum_{r}^{N}\theta_{r}^{-1}\cdot\left[\beta_{r}+\sum_{k}^{N}\beta_{rk}\ln\left(w_{k}\theta_{k}\right)+\gamma_{1r}\ln\left(y\right)+\sum_{j}^{J}\kappa_{jr}\ln\left(q_{j}\right)\right]}$$
+
+$$\vphantom{}$$
+
+where $\tiny S_{n}=\dfrac{x_{n}\cdot w_{n}}{c}$
+ 
+
+
+--- &vertical
+
+## How to estimate?
+___
+___
+$$\vphantom{}$$
+
+- Iterated Nonlinear Seemingly Unrelated Regressions (ITSUR)
+$$\vphantom{}$$
+    - Efficient
+    $$\vphantom{}$$
+    - Biased
+    $$\vphantom{}$$
+- Cost share equations are badly censored
+$$\vphantom{}$$
+    - $\implies$ ITSUR is inconsistent
+
+---
+
+
+
+## Generalized Maximum Entropy
+___
+___
+$$\vphantom{}$$
+- Consistent
+- Efficient
+- Biased
+$$\vphantom{}$$
+- General framework: Golan, Judge, & Miller (1996)
+$$\vphantom{}$$
+- Censored system of nonlinear equations: Golan, Perloff, & Shen (2001)
+
+
+
+---
+
+
+
+## Generalized Maximum Entropy
+___
+___
+
+  Support space vector: 
+  
+  
+  $\mathbf{z}=\left[z_{1},z_{2},\ldots,z_{D}\right]$
+  
+  $$\vphantom{}$$
+  
+  Unknown weights: 
+  
+  
+  $\mathbf{q}=\left[q_{1},q_{2},\ldots,q_{D}\right]\;$   s.t.   $\;\underset{d}{\sum}q_{d}=1$
+  
+  $$\vphantom{}$$
+  
+  and
+  
+  
+  $\mathbf{z}\cdot\mathbf{q}=\hat{\beta}$
+ 
+
+
+---
+
+## Generalized Maximum Entropy
+___
+___
+
+Same thing with error terms:
+
+
+$\mathbf{v}=\left[v_{1},v_{2},\ldots,v_{H}\right]$
+$$\vphantom{}$$
+
+
+$\mathbf{w}=\left[w_{1},w_{2},\ldots,w_{H}\right]\;$   s.t.   $\;\underset{h}{\sum}w_{h}=1$
+
+$$\vphantom{}$$
+
+$\mathbf{v}\cdot\mathbf{w}=\hat{\epsilon}$
+
+
+---
+
+## Generalized Maximum Entropy
+___
+___
+
+Constraint that estimates be consistent with the data:
+
+$$\vphantom{}$$
+
+$y_{i}=f(x_{i},\hat{\beta})+\hat{\epsilon_{i}}\;$   for   $\;y_{i}>0$
+
+$$\vphantom{}$$
+
+$0>f(x_{i},\hat{\beta})+\hat{\epsilon_{i}}\;$   for   $\;y_{i}=0$
+
+---
+
+## Generalized Maximum Entropy
+___
+___
+
+$$\vphantom{}$$
+
+Objective function:
+
+$$\vphantom{}$$
+
+$$\underset{\mathbf{q},\mathbf{w}}{\max}\left\{ -\underset{d}{\sum}q_{d}\cdot\ln q_{d}-\underset{h}{\sum}w_{h}\cdot\ln w_{h}\right\}$$
+
+---
+
+## 
+
+Entropy Illustration
+
+```{r echo = F, comment = NA, fig.width=12, fig.height=8}
+
+entropy.eval.fn <- function(x) {sum(-log(x)*x)}
+
+uniform.pmf.v <- c(1/3,  1/3, 1/3)
+skewed.pmf.v <- c(0.0993267, 0.2535319, 0.6471415)
+# This is from an actual estimated error term
+
+toy.support.vec <- c(-10, 0, 10)
+
+# THE FOLLOWING PUTS TWO GRAPHS ONE ON TOP OF THE OTHER ON EACH PAGE
+ 
+par(mfrow = c(1, 2), cex=1.5)
+# NOW PLOT THE PMF. type="h" MEANS THAT THE PLOT IS VERTICAL LINES.
+# points ADDS CIRCLES. abline ADDS AXES.
+
+param.in.entropy <- c(round(toy.support.vec %*% uniform.pmf.v, digits=2))
+entropy <- round(entropy.eval.fn(uniform.pmf.v), digits=2)
+
+# Thanks to http://stackoverflow.com/questions/4423130/use-a-variable-within-a-plotmath-expression
+
+plot(toy.support.vec, uniform.pmf.v, type="h",col="blue",
+  main=bquote(atop(hat(epsilon)== .(param.in.entropy),
+    "Entropy" == .(entropy))),
+  xlab=expression(bold(v)), ylab="",
+  xlim=c(min(toy.support.vec)*1.5, max(toy.support.vec)*1.5),
+  ylim=c(0, 1.1*max(c(skewed.pmf.v, uniform.pmf.v))),
+  lwd=5,
+  xaxs="i", yaxs="i")
+mtext(expression(bold(w)), side=2, las=1, line=2.5)
+points(toy.support.vec, uniform.pmf.v, col="blue", pch=20 )
+
+
+param.in.entropy <- c(round(toy.support.vec %*% skewed.pmf.v, digits=2))
+entropy <- round(entropy.eval.fn(skewed.pmf.v), digits=2)
+
+plot(toy.support.vec, skewed.pmf.v, type="h",col="blue",
+  main=bquote(atop(hat(epsilon)== .(param.in.entropy),
+    "Entropy" == .(entropy))),
+  xlab=expression(bold(v)), ylab="",
+  xlim=c(min(toy.support.vec)*1.5, max(toy.support.vec)*1.5),
+  ylim=c(0, 1.1*max(c(skewed.pmf.v, uniform.pmf.v))),
+  lwd=5,
+  xaxs="i", yaxs="i")
+mtext(expression(bold(w)), side=2, las=1, line=2.5)
+points(toy.support.vec, skewed.pmf.v, col="blue", pch=20)
+
+par(mfrow = c(1, 1))
+
+
+
+
+
+```
+
+
+
+
+--- &vertical
+
+## Data
+
+```{r echo = F, comment = NA, warning=FALSE, message=FALSE}
+
+# Below trick is from https://support.rstudio.com/hc/en-us/articles/200488468-R-Markdown
+
+
+library("foreign")
+work.dir <- "/Users/travismcarthur/Desktop/Metrics (637)/Final paper/"
+
+inputs.df.full <- read.spss(paste0(work.dir, "bd68/2-AGRICOLA/Cultivos (Preg-19)/2.-ENA08_BOLIVIA_CULTIVOS_PRODUCCION_INSUMOS(preg_19).sav"), to.data.frame=TRUE)
+
+# We eliminated some of these obs from the get-go due to zero crop output
+
+```
+
+$$\vphantom{}$$
+- 2008 nationally representative agricultural survey
+$$\vphantom{}$$
+- `r format(length(unique(inputs.df.full$FOLIO)), big.mark = ",")` farmers
+$$\vphantom{}$$
+- `r format(nrow(inputs.df.full), big.mark = ",")` plots
+
 
 
 ***
@@ -778,226 +1096,68 @@ cat(table.captured, sep="\n")
 --- &vertical
 
 
-
-
-
-
-
-
-## Translog Cost Function
-___
-___
-
-$$\vphantom{}$$
-
-$$\tiny\ln\left(c\right)=\beta_{0}+\alpha_{1}\ln\left(y\right)+\sum_{n}^{N}\beta_{n}\ln\left(w_{n}\right)+\dfrac{1}{2}\alpha_{11}\left(\ln\left(y\right)\right)^{2}+\dfrac{1}{2}\sum_{n}^{N}\sum_{k}^{N}\beta_{nk}\ln\left(w_{n}\right)\ln\left(w_{k}\right)+\\\tiny\qquad\sum_{n}^{N}\gamma_{1n}\ln\left(y\right)\ln\left(w_{n}\right)+\sum_{j}^{J}\zeta_{j}\ln\left(q_{j}\right)+\dfrac{1}{2}\sum_{j}^{J}\sum_{h}^{J}\zeta_{jh}\ln\left(q_{j}\right)\ln\left(q_{h}\right)+\\\tiny\qquad\qquad\sum_{j}^{J}\sum_{n}^{N}\kappa_{jn}\ln\left(q_{j}\right)\ln\left(w_{n}\right)+\sum_{j}^{J}\delta_{1j}\ln\left(y\right)\ln\left(q_{j}\right)$$
-
----
-
-
-## Adding shadow prices
-___
-___
-
-$$\vphantom{}$$
-
-Wherever $w_{n}$ appears, replace it with $w_{n}\theta_{n}$. Call this $\Lambda$.
-
-$$\vphantom{}$$
-
-Then the cost function that permits allocative inefficiency is:
-
-$$\vphantom{}$$
-
-$$\tiny\ln\left(c\right)=\Lambda+\ln\left(\sum_{n}^{N}\theta_{n}^{-1}\cdot\left[\beta_{n}+\sum_{k}^{N}\beta_{nk}\ln\left(w_{k}\theta_{k}\right)+\gamma_{1n}\ln\left(y\right)+\sum_{j}^{J}\kappa_{jn}\ln\left(q_{j}\right)\right]\right)-\sum_{g}^{G}\Delta_{g}D_{g}$$
-
----
-
-## How to estimate?
-
-$$\vphantom{}$$
-
-- Nonlinear Least Squares (NLS) using cost function
-
-
-    - Consistent
-    
-    
-    - Inefficient
-    
-    
-    - Biased
-
----
-
-## Cost Share Equations
-
-$$\vphantom{}$$
-
-- Shepard's Lemma yields 6 more equations to boost statistical efficiency:
-
-$$\vphantom{}$$
-$$\dfrac{\partial\ln c}{\partial\ln w_{n}}=\dfrac{w_{n}}{c}\cdot\dfrac{\partial c}{\partial w_{n}}=\dfrac{x_{n}w_{n}}{c}$$
-
----
-
-## How to estimate?
-___
-___
-$$\vphantom{}$$
-
-- Iterated Seemingly Unrelated Nonlinear Regressions (ITSUR)
-$$\vphantom{}$$
-    - Efficient
-    $$\vphantom{}$$
-    - Biased
-    $$\vphantom{}$$
-- Cost share equations are badly censored
-$$\vphantom{}$$
-    - $\implies$ ITSUR is inconsistent
-
----
-
-## Marvolous Unordered List
-
-- No order here
-- Or here
-- Or here
-- Or here
-
----
-
-## Marvolous Unordered List
-
-- No order here
-- Or here
-- Or here
-- Or here
-
----
-
-
-
-## Generalized Maximum Entropy
-___
-___
-
-  Support space vector: 
-  
-  
-  $\mathbf{z}=\left[z_{1},z_{2},\ldots,z_{D}\right]$
-  
-  
-  Unknown weights: 
-  
-  
-  $\mathbf{q}=\left[q_{1},q_{2},\ldots,q_{D}\right]\;$   s.t.   $\;\underset{d}{\sum}q_{d}=1$
-  
-  
-  and
-  
-  
-  $\mathbf{z}\cdot\mathbf{q}=\hat{\beta}$
- 
-
-
----
-
-## Generalized Maximum Entropy
-___
-___
-
-Same thing with error terms:
-
-
-$\mathbf{v}=\left[v_{1},v_{2},\ldots,v_{H}\right]$
-
-
-$\mathbf{w}=\left[w_{1},w_{2},\ldots,w_{H}\right]\;$   s.t.   $\;\underset{h}{\sum}w_{h}=1$
-
-
-$\mathbf{v}\cdot\mathbf{w}=\hat{\epsilon}$
-
-
----
-
-## Generalized Maximum Entropy
-___
-___
-
-Constraint that estimates be consistent with the data:
-
-$y_{i}=f(x_{i},\hat{\beta})+\hat{\epsilon_{i}}\;$   for   $\;y_{i}>0$
-
-$0>f(x_{i},\hat{\beta})+\hat{\epsilon_{i}}\;$   for   $\;y_{i}=0$
-
----
-
-## Generalized Maximum Entropy
-___
-___
-
-Objective function:
-
-$$\underset{\mathbf{q},\mathbf{w}}{\max}\left\{ -\underset{d}{\sum}q_{d}\cdot\ln q_{d}-\underset{h}{\sum}w_{h}\cdot\ln w_{h}\right\}$$
-
----
-
 ## 
 
-Entropy Illustration
 
 ```{r echo = F, comment = NA, fig.width=12, fig.height=8}
 
-entropy.eval.fn <- function(x) {sum(-log(x)*x)}
+load("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/Rdata results files/2008 summary stats.Rdata")
 
-uniform.pmf.v <- c(1/3,  1/3, 1/3)
-skewed.pmf.v <- c(0.0993267, 0.2535319, 0.6471415)
-# This is from an actual estimated error term
+par(cex=1.5)
 
-toy.support.vec <- c(-10, 0, 10)
-
-# THE FOLLOWING PUTS TWO GRAPHS ONE ON TOP OF THE OTHER ON EACH PAGE
- 
-par(mfrow = c(1, 2), cex=1.5)
-# NOW PLOT THE PMF. type="h" MEANS THAT THE PLOT IS VERTICAL LINES.
-# points ADDS CIRCLES. abline ADDS AXES.
-
-param.in.entropy <- c(round(toy.support.vec %*% uniform.pmf.v, digits=2))
-entropy <- round(entropy.eval.fn(uniform.pmf.v), digits=2)
-
-# Thanks to http://stackoverflow.com/questions/4423130/use-a-variable-within-a-plotmath-expression
-
-plot(toy.support.vec, uniform.pmf.v, type="h",col="blue",
-  main=bquote(atop(hat(epsilon)== .(param.in.entropy),
-    "Entropy" == .(entropy))),
-  xlab=expression(bold(v)), ylab="",
-  xlim=c(min(toy.support.vec)*1.5, max(toy.support.vec)*1.5),
-  ylim=c(0, 1.1*max(c(skewed.pmf.v, uniform.pmf.v))),
-  lwd=5,
-  xaxs="i", yaxs="i")
-mtext(expression(bold(w)), side=2, las=1, line=2.5)
-points(toy.support.vec, uniform.pmf.v, col="blue", pch=20 )
+barplot(as.matrix(censored.df), beside=TRUE, col=terrain.colors(num.of.top.crops),
+  main="Proportion of uncensored observations")
 
 
-param.in.entropy <- c(round(toy.support.vec %*% skewed.pmf.v, digits=2))
-entropy <- round(entropy.eval.fn(skewed.pmf.v), digits=2)
+top.crops.english <- top.crops
+top.crops.english[top.crops.english=="Papa (patatas) "] <- "Potatoes"
+top.crops.english[top.crops.english=="Maiz combined"] <- "Maize"
+top.crops.english[top.crops.english=="Cebada combined" ] <- "Barley"
+top.crops.english[top.crops.english=="Trigo          "] <- "Wheat"
+top.crops.english[top.crops.english=="Haba (verde)    "] <- "Fava beans"
 
-plot(toy.support.vec, skewed.pmf.v, type="h",col="blue",
-  main=bquote(atop(hat(epsilon)== .(param.in.entropy),
-    "Entropy" == .(entropy))),
-  xlab=expression(bold(v)), ylab="",
-  xlim=c(min(toy.support.vec)*1.5, max(toy.support.vec)*1.5),
-  ylim=c(0, 1.1*max(c(skewed.pmf.v, uniform.pmf.v))),
-  lwd=5,
-  xaxs="i", yaxs="i")
-mtext(expression(bold(w)), side=2, las=1, line=2.5)
-points(toy.support.vec, skewed.pmf.v, col="blue", pch=20)
-
-par(mfrow = c(1, 1))
+legend("top", top.crops.english[1:num.of.top.crops], cex=1, 
+       fill=terrain.colors(num.of.top.crops))
 
 
 
+```
+
+
+***
+
+```{r echo = F, results = 'asis', comment = NA}
+
+library("stargazer")
+
+load("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/Rdata results files/2008 summary stats.Rdata")
+
+
+fert.region.use.tab$prop.firms.use.fert <- round(fert.region.use.tab$prop.firms.use.fert *100)
+
+throwaway <- capture.output(table.captured <- stargazer(
+  fert.region.use.tab , 
+  summary=FALSE, type="html", out.header = FALSE,  
+  rownames=TRUE,
+  title="Percentage of farms that use fertilizer by agroproductive zone", align=TRUE))
+
+#  notes="Drive time in hours. Rainfall in meters.  Remittances in hundreds of Bolivianos."))
+
+
+
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+table.captured <- gsub("style=\".+?\"", "", table.captured)
+# for some reason it wants me to do it twice
+table.captured <- gsub("<table >", "<table class=mytable>", table.captured)
+
+#source("/Users/travismcarthur/git/misc/authored-functions/authored-R-fns.R")
+
+#replacement.var.names <- read.csv("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/tex building/MECOVI var name replacements.csv", stringsAsFactors=FALSE)
+
+#table.captured <- replace.vars.string(replacement.matrix=replacement.var.names, 
+#  input.table=table.captured, html=TRUE, table.only=FALSE )
+
+cat(table.captured, sep="\n")
 
 
 ```
@@ -1005,21 +1165,66 @@ par(mfrow = c(1, 1))
 
 
 
----
-
-## Fantastic Ordered List
+***
 
 
----
 
+<div><div style='width:1000px; height:700px; overflow: scroll;'><embed src="Bolivia-agroproductiva.png"></div>
+
+***
+
+
+
+<div><div style='width:1000px; height:700px; overflow: scroll;'><embed src="Bolivia-elevation.png"></div>
+
+***
+
+
+
+<div><div style='width:1000px; height:700px; overflow: scroll;'><embed src="Bolivia-aridity.png"></div>
+
+
+
+
+
+
+
+--- &vertical
+
+
+### Results
+
+
+--- 
 
 
 ```{r echo = F, comment = NA, fig.width=12, fig.height=9}
 
+#Above trick is from https://support.rstudio.com/hc/en-us/articles/200488468-R-Markdown
+
 load("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/Rdata results files/thetas cost and share.Rdata")
 
 
+load("/Users/travismcarthur/Desktop/Metrics (637)/Final paper/Rdata results files/2008 summary stats.Rdata")
 
+#number.obs.ls
+
+number.obs.ls.english <- number.obs.ls
+names(number.obs.ls.english)[names(number.obs.ls.english)=="Papa (patatas) "] <- "Potatoes"
+names(number.obs.ls.english)[names(number.obs.ls.english)=="Maiz combined"] <- "Maize"
+names(number.obs.ls.english)[names(number.obs.ls.english)=="Cebada combined" ] <- "Barley"
+names(number.obs.ls.english)[names(number.obs.ls.english)=="Trigo          "] <- "Wheat"
+names(number.obs.ls.english)[names(number.obs.ls.english)=="Haba (verde)    "] <- "Fava beans"
+
+#names(number.obs.ls.english)[2]
+
+theta.ci.df.final$crop <- as.character(theta.ci.df.final$crop)
+
+theta.ci.df.final$crop[theta.ci.df.final$crop=="Maiz"] <- "Maize"
+theta.ci.df.final$crop[theta.ci.df.final$crop=="Haba"] <- "Fava Beans"
+theta.ci.df.final$crop[theta.ci.df.final$crop=="Trigo"] <- "Wheat"
+
+theta.ci.df.final$crop <- factor(theta.ci.df.final$crop)
 
 
 ggplot(theta.ci.df.final[nrow(theta.ci.df.final):1,], aes(x = Input)) +
@@ -1027,12 +1232,21 @@ ggplot(theta.ci.df.final[nrow(theta.ci.df.final):1,], aes(x = Input)) +
   geom_errorbar(aes(ymax = Upper, ymin = Lower, size=alpha, width=0, colour=alpha)) +  # as.factor(size)
   geom_hline(yintercept=1, colour="red") +
   coord_trans(y="log2") +
-  scale_y_continuous(breaks=c( 1,5,10,15))  +
+  scale_y_continuous(breaks=c( 1,5,10,30))  +
   facet_grid(crop ~ . ) + # facet_grid(. ~ crop ) +
-  ggtitle(bquote(paste("Bootstrap CI's of ", over(theta[fertilizer], theta[j])))) +
-  theme(text = element_text(size = 20))
+  ggtitle(bquote(paste(atop( paste(BC[a], " Bootstrap CI's of  ", over(theta[fertilizer], theta[j]), "     (Log scale)"), paste(
+    N[Maize] == .(number.obs.ls.english[["Maize"]]), ", ",
+    N[Wheat] == .(number.obs.ls.english[["Wheat"]]), ", ",
+    N[Fava] == .(number.obs.ls.english[["Fava beans"]])
+    ))))) +
+  theme(text = element_text(size = 25), 
+    panel.background = element_rect(colour="black")) 
+
 # Thanks to http://stackoverflow.com/questions/15297814/include-text-control-characters-in-plotmath-expressions
 # Ah, I see: it's putting the inputs in alphabetical order
+# Also thanks to http://stackoverflow.com/questions/9694452/how-to-place-divisions-between-facet-grid-lines
+
+# N[.(names(number.obs.ls.english)[2])]==.(number.obs.ls.english[2]),
 
 
 
@@ -1049,7 +1263,7 @@ ggplot(theta.ci.df.final[nrow(theta.ci.df.final):1,], aes(x = Input)) +
 ---
 
 
-## Fantastic Ordered List
+## 
 
 
 ```{r echo = F, results = 'asis', comment = NA}

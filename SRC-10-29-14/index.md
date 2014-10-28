@@ -1,6 +1,6 @@
 ---
-title: Checking Reveal.js
-author: Ramnath Vaidyanathan
+title: Efficiency in Bolivian Agriculture
+author: Travis McArthur
 width: 1920
 height: 1080
 mode : selfcontained
@@ -122,7 +122,44 @@ Try it out! You can swipe through the slides and pinch your way to the overview.
 
 ---
 
-## “Reduced Form” Determinants of Fertilizer Use: $$$$ Double Hurdle Model
+## Marvolous Unordered List
+
+- No order here
+- Or here
+- Or here
+- Or here
+
+---
+
+## Marvolous Unordered List
+
+- No order here
+- Or here
+- Or here
+- Or here
+
+---
+
+## Marvolous Unordered List
+
+- No order here
+- Or here
+- Or here
+- Or here
+
+---
+
+## 
+
+
+![plot of chunk unnamed-chunk-1](assets/fig/unnamed-chunk-1.png) 
+
+
+
+---
+
+
+## “Reduced Form” Determinants of Fertilizer Use: <br><br> Double Hurdle Model
 
 
 
@@ -223,50 +260,12 @@ $$\vphantom{}$$
 
 --- &vertical
 
-## Marvolous Unordered List
+## “Structural Model”: <br><br>Allocative Inefficiency
 
-- No order here
-- Or here
-- Or here
-- Or here
+
 
 ---
 
-## Marvolous Unordered List
-
-- No order here
-- Or here
-- Or here
-- Or here
-
----
-
-## Marvolous Unordered List
-
-- No order here
-- Or here
-- Or here
-- Or here
-
----
-
-## Marvolous Unordered List
-
-- No order here
-- Or here
-- Or here
-- Or here
-
----
-
-## Marvolous Unordered List
-
-- No order here
-- Or here
-- Or here
-- Or here
-
----
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
@@ -353,12 +352,6 @@ $\theta_{i}>1$ $\implies$ too little $x_{i}$ is used relative to $x_{j}$
 
 ## Shadow Price Illustration
 
-![plot of chunk unnamed-chunk-3](assets/fig/unnamed-chunk-3.png) 
-
----
-
-## Shadow Price Illustration
-
 ![plot of chunk unnamed-chunk-4](assets/fig/unnamed-chunk-4.png) 
 
 ---
@@ -366,6 +359,12 @@ $\theta_{i}>1$ $\implies$ too little $x_{i}$ is used relative to $x_{j}$
 ## Shadow Price Illustration
 
 ![plot of chunk unnamed-chunk-5](assets/fig/unnamed-chunk-5.png) 
+
+---
+
+## Shadow Price Illustration
+
+![plot of chunk unnamed-chunk-6](assets/fig/unnamed-chunk-6.png) 
 
 ---
 
@@ -387,7 +386,7 @@ Equivalent to a second-order Taylor series approximation around the point where 
 
 
 
---- &vertical
+--- 
 
 ## Variables
 
@@ -407,6 +406,236 @@ Equivalent to a second-order Taylor series approximation around the point where 
      - Land
      - Family labor
      - Irrigation (yes or no)
+
+
+
+
+
+--- &vertical
+
+
+## Translog Cost Function
+___
+___
+
+$$\vphantom{}$$
+
+$$\tiny\ln\left(c\right)=\beta_{0}+\alpha_{1}\ln\left(y\right)+\sum_{n}^{N}\beta_{n}\ln\left(w_{n}\right)+\dfrac{1}{2}\alpha_{11}\left(\ln\left(y\right)\right)^{2}+\dfrac{1}{2}\sum_{n}^{N}\sum_{k}^{N}\beta_{nk}\ln\left(w_{n}\right)\ln\left(w_{k}\right)+\\\tiny\qquad\sum_{n}^{N}\gamma_{1n}\ln\left(y\right)\ln\left(w_{n}\right)+\sum_{j}^{J}\zeta_{j}\ln\left(q_{j}\right)+\dfrac{1}{2}\sum_{j}^{J}\sum_{h}^{J}\zeta_{jh}\ln\left(q_{j}\right)\ln\left(q_{h}\right)+\\\tiny\qquad\qquad\sum_{j}^{J}\sum_{n}^{N}\kappa_{jn}\ln\left(q_{j}\right)\ln\left(w_{n}\right)+\sum_{j}^{J}\delta_{1j}\ln\left(y\right)\ln\left(q_{j}\right)$$
+
+***
+
+$$\vphantom{}$$
+
+- Symmetry in input prices and fixed inputs requires that $\beta_{nk}=\beta_{kn}$ and $\zeta_{jh}=\zeta_{hj}$
+  
+$$\vphantom{}$$
+
+- Homogeneity of degree 1 in input prices requires that: 
+    1. $\sum_{k}\beta_{nk}=0$ for $n=1,...,N$
+    2. $\sum_{n}\beta_{n}=1$
+    3. $\sum_{n}\gamma_{1n}=0$
+ 
+ 
+
+
+--- &vertical
+
+
+## Adding shadow prices
+___
+___
+
+$$\vphantom{}$$
+
+Wherever $w_{n}$ appears, replace it with $w_{n}\theta_{n}$. Call this $\Lambda$.
+
+$$\vphantom{}$$
+
+Then the cost function that permits allocative inefficiency is:
+
+$$\vphantom{}$$
+
+$$\tiny\ln\left(c\right)=\Lambda+\ln\left(\sum_{n}^{N}\theta_{n}^{-1}\cdot\left[\beta_{n}+\sum_{k}^{N}\beta_{nk}\ln\left(w_{k}\theta_{k}\right)+\gamma_{1n}\ln\left(y\right)+\sum_{j}^{J}\kappa_{jn}\ln\left(q_{j}\right)\right]\right)-\sum_{g}^{G}\Delta_{g}D_{g}$$
+
+---
+
+## How to estimate?
+___
+___
+
+$$\vphantom{}$$
+
+- Nonlinear Least Squares (NLS) using cost function
+$$\vphantom{}$$
+    - Consistent
+$$\vphantom{}$$
+    - Inefficient
+$$\vphantom{}$$
+    - Biased
+
+--- &vertical
+
+## Cost Share Equations
+
+$$\vphantom{}$$
+
+- Shepard's Lemma yields 6 more equations to boost statistical efficiency:
+
+$$\vphantom{}$$
+$$\dfrac{\partial\ln c}{\partial\ln w_{n}}=\dfrac{w_{n}}{c}\cdot\dfrac{\partial c}{\partial w_{n}}=\dfrac{x_{n}w_{n}}{c}$$
+
+***
+
+$$\tiny S_{n}=\beta_{n}+\sum_{k}^{N}\beta_{nk}\ln\left(w_{k}\right)+\gamma_{1n}\ln\left(y\right)+\sum_{j}^{J}\kappa_{jn}\ln\left(q_{j}\right)$$
+
+$$\vphantom{}$$
+
+$$\tiny S_{n}=\dfrac{\theta_{n}^{-1}\cdot\left[\beta_{n}+\sum_{k}^{N}\beta_{nk}\ln\left(w_{k}\theta_{k}\right)+\gamma_{1n}\ln\left(y\right)+\sum_{j}^{J}\kappa_{jn}\ln\left(q_{j}\right)\right]}{\sum_{r}^{N}\theta_{r}^{-1}\cdot\left[\beta_{r}+\sum_{k}^{N}\beta_{rk}\ln\left(w_{k}\theta_{k}\right)+\gamma_{1r}\ln\left(y\right)+\sum_{j}^{J}\kappa_{jr}\ln\left(q_{j}\right)\right]}$$
+
+$$\vphantom{}$$
+
+where $\tiny S_{n}=\dfrac{x_{n}\cdot w_{n}}{c}$
+ 
+
+
+--- &vertical
+
+## How to estimate?
+___
+___
+$$\vphantom{}$$
+
+- Iterated Nonlinear Seemingly Unrelated Regressions (ITSUR)
+$$\vphantom{}$$
+    - Efficient
+    $$\vphantom{}$$
+    - Biased
+    $$\vphantom{}$$
+- Cost share equations are badly censored
+$$\vphantom{}$$
+    - $\implies$ ITSUR is inconsistent
+
+---
+
+
+
+## Generalized Maximum Entropy
+___
+___
+$$\vphantom{}$$
+- Consistent
+- Efficient
+- Biased
+$$\vphantom{}$$
+- General framework: Golan, Judge, & Miller (1996)
+$$\vphantom{}$$
+- Censored system of nonlinear equations: Golan, Perloff, & Shen (2001)
+
+
+
+---
+
+
+
+## Generalized Maximum Entropy
+___
+___
+
+  Support space vector: 
+  
+  
+  $\mathbf{z}=\left[z_{1},z_{2},\ldots,z_{D}\right]$
+  
+  $$\vphantom{}$$
+  
+  Unknown weights: 
+  
+  
+  $\mathbf{q}=\left[q_{1},q_{2},\ldots,q_{D}\right]\;$   s.t.   $\;\underset{d}{\sum}q_{d}=1$
+  
+  $$\vphantom{}$$
+  
+  and
+  
+  
+  $\mathbf{z}\cdot\mathbf{q}=\hat{\beta}$
+ 
+
+
+---
+
+## Generalized Maximum Entropy
+___
+___
+
+Same thing with error terms:
+
+
+$\mathbf{v}=\left[v_{1},v_{2},\ldots,v_{H}\right]$
+$$\vphantom{}$$
+
+
+$\mathbf{w}=\left[w_{1},w_{2},\ldots,w_{H}\right]\;$   s.t.   $\;\underset{h}{\sum}w_{h}=1$
+
+$$\vphantom{}$$
+
+$\mathbf{v}\cdot\mathbf{w}=\hat{\epsilon}$
+
+
+---
+
+## Generalized Maximum Entropy
+___
+___
+
+Constraint that estimates be consistent with the data:
+
+$$\vphantom{}$$
+
+$y_{i}=f(x_{i},\hat{\beta})+\hat{\epsilon_{i}}\;$   for   $\;y_{i}>0$
+
+$$\vphantom{}$$
+
+$0>f(x_{i},\hat{\beta})+\hat{\epsilon_{i}}\;$   for   $\;y_{i}=0$
+
+---
+
+## Generalized Maximum Entropy
+___
+___
+
+$$\vphantom{}$$
+
+Objective function:
+
+$$\vphantom{}$$
+
+$$\underset{\mathbf{q},\mathbf{w}}{\max}\left\{ -\underset{d}{\sum}q_{d}\cdot\ln q_{d}-\underset{h}{\sum}w_{h}\cdot\ln w_{h}\right\}$$
+
+---
+
+## 
+
+Entropy Illustration
+
+![plot of chunk unnamed-chunk-7](assets/fig/unnamed-chunk-7.png) 
+
+
+
+
+--- &vertical
+
+## Data
+
+
+
+$$\vphantom{}$$
+- 2008 nationally representative agricultural survey
+$$\vphantom{}$$
+- 7,487 farmers
+$$\vphantom{}$$
+- 26,536 plots
+
 
 
 ***
@@ -550,196 +779,77 @@ Equivalent to a second-order Taylor series approximation around the point where 
 --- &vertical
 
 
-
-
-
-
-
-
-## Translog Cost Function
-___
-___
-
-$$\vphantom{}$$
-
-$$\tiny\ln\left(c\right)=\beta_{0}+\alpha_{1}\ln\left(y\right)+\sum_{n}^{N}\beta_{n}\ln\left(w_{n}\right)+\dfrac{1}{2}\alpha_{11}\left(\ln\left(y\right)\right)^{2}+\dfrac{1}{2}\sum_{n}^{N}\sum_{k}^{N}\beta_{nk}\ln\left(w_{n}\right)\ln\left(w_{k}\right)+\\\tiny\qquad\sum_{n}^{N}\gamma_{1n}\ln\left(y\right)\ln\left(w_{n}\right)+\sum_{j}^{J}\zeta_{j}\ln\left(q_{j}\right)+\dfrac{1}{2}\sum_{j}^{J}\sum_{h}^{J}\zeta_{jh}\ln\left(q_{j}\right)\ln\left(q_{h}\right)+\\\tiny\qquad\qquad\sum_{j}^{J}\sum_{n}^{N}\kappa_{jn}\ln\left(q_{j}\right)\ln\left(w_{n}\right)+\sum_{j}^{J}\delta_{1j}\ln\left(y\right)\ln\left(q_{j}\right)$$
-
----
-
-
-## Adding shadow prices
-___
-___
-
-$$\vphantom{}$$
-
-Wherever $w_{n}$ appears, replace it with $w_{n}\theta_{n}$. Call this $\Lambda$.
-
-$$\vphantom{}$$
-
-Then the cost function that permits allocative inefficiency is:
-
-$$\vphantom{}$$
-
-$$\tiny\ln\left(c\right)=\Lambda+\ln\left(\sum_{n}^{N}\theta_{n}^{-1}\cdot\left[\beta_{n}+\sum_{k}^{N}\beta_{nk}\ln\left(w_{k}\theta_{k}\right)+\gamma_{1n}\ln\left(y\right)+\sum_{j}^{J}\kappa_{jn}\ln\left(q_{j}\right)\right]\right)-\sum_{g}^{G}\Delta_{g}D_{g}$$
-
----
-
-## How to estimate?
-
-$$\vphantom{}$$
-
-- Nonlinear Least Squares (NLS) using cost function
-
-
-    - Consistent
-    
-    
-    - Inefficient
-    
-    
-    - Biased
-
----
-
-## Cost Share Equations
-
-$$\vphantom{}$$
-
-- Shepard's Lemma yields 6 more equations to boost statistical efficiency:
-
-$$\vphantom{}$$
-$$\dfrac{\partial\ln c}{\partial\ln w_{n}}=\dfrac{w_{n}}{c}\cdot\dfrac{\partial c}{\partial w_{n}}=\dfrac{x_{n}w_{n}}{c}$$
-
----
-
-## How to estimate?
-___
-___
-$$\vphantom{}$$
-
-- Iterated Seemingly Unrelated Nonlinear Regressions (ITSUR)
-$$\vphantom{}$$
-    - Efficient
-    $$\vphantom{}$$
-    - Biased
-    $$\vphantom{}$$
-- Cost share equations are badly censored
-$$\vphantom{}$$
-    - $\implies$ ITSUR is inconsistent
-
----
-
-## Marvolous Unordered List
-
-- No order here
-- Or here
-- Or here
-- Or here
-
----
-
-## Marvolous Unordered List
-
-- No order here
-- Or here
-- Or here
-- Or here
-
----
-
-
-
-## Generalized Maximum Entropy
-___
-___
-
-  Support space vector: 
-  
-  
-  $\mathbf{z}=\left[z_{1},z_{2},\ldots,z_{D}\right]$
-  
-  
-  Unknown weights: 
-  
-  
-  $\mathbf{q}=\left[q_{1},q_{2},\ldots,q_{D}\right]\;$   s.t.   $\;\underset{d}{\sum}q_{d}=1$
-  
-  
-  and
-  
-  
-  $\mathbf{z}\cdot\mathbf{q}=\hat{\beta}$
- 
-
-
----
-
-## Generalized Maximum Entropy
-___
-___
-
-Same thing with error terms:
-
-
-$\mathbf{v}=\left[v_{1},v_{2},\ldots,v_{H}\right]$
-
-
-$\mathbf{w}=\left[w_{1},w_{2},\ldots,w_{H}\right]\;$   s.t.   $\;\underset{h}{\sum}w_{h}=1$
-
-
-$\mathbf{v}\cdot\mathbf{w}=\hat{\epsilon}$
-
-
----
-
-## Generalized Maximum Entropy
-___
-___
-
-Constraint that estimates be consistent with the data:
-
-$y_{i}=f(x_{i},\hat{\beta})+\hat{\epsilon_{i}}\;$   for   $\;y_{i}>0$
-
-$0>f(x_{i},\hat{\beta})+\hat{\epsilon_{i}}\;$   for   $\;y_{i}=0$
-
----
-
-## Generalized Maximum Entropy
-___
-___
-
-Objective function:
-
-$$\underset{\mathbf{q},\mathbf{w}}{\max}\left\{ -\underset{d}{\sum}q_{d}\cdot\ln q_{d}-\underset{h}{\sum}w_{h}\cdot\ln w_{h}\right\}$$
-
----
-
 ## 
 
-Entropy Illustration
 
-![plot of chunk unnamed-chunk-11](assets/fig/unnamed-chunk-11.png) 
+![plot of chunk unnamed-chunk-14](assets/fig/unnamed-chunk-14.png) 
 
 
+***
+
+
+<table class=mytable><caption><strong>Percentage of farms that use fertilizer by agroproductive zone</strong></caption>
+<tr><td colspan="3" ></td></tr><tr><td></td><td>prop.firms.use.fert</td><td>num.firms</td></tr>
+<tr><td colspan="3" ></td></tr><tr><td>ALTIPLANO.CENTRAL</td><td>9</td><td>1,374</td></tr>
+<tr><td>ALTIPLANO.NORTE</td><td>19</td><td>727</td></tr>
+<tr><td>ALTIPLANO.SUR</td><td>0</td><td>110</td></tr>
+<tr><td>AMAZÓNICA</td><td>5</td><td>111</td></tr>
+<tr><td>CHACO.HUMEDO</td><td>11</td><td>125</td></tr>
+<tr><td>CHACO.SECO</td><td>11</td><td>160</td></tr>
+<tr><td>GUARAYO...CHIQUITANA</td><td>9</td><td>240</td></tr>
+<tr><td>LLANOS.DE.SANTA.CRUZ</td><td>10</td><td>281</td></tr>
+<tr><td>PAMPAS.DE.MOXOS</td><td>1</td><td>182</td></tr>
+<tr><td>VALLES.CENTRALES</td><td>30</td><td>530</td></tr>
+<tr><td>VALLES.CERRADOS</td><td>30</td><td>880</td></tr>
+<tr><td>VALLES.DEL.NORTE</td><td>28</td><td>1,075</td></tr>
+<tr><td>VALLES.DEL.SUR</td><td>34</td><td>722</td></tr>
+<tr><td>YUNGAS.DEL.NORTE</td><td>9</td><td>345</td></tr>
+<tr><td>YUNGAS.DEL.SUR</td><td>19</td><td>307</td></tr>
+<tr><td colspan="3" ></td></tr></table>
+
+
+
+
+***
+
+
+
+<div><div style='width:1000px; height:700px; overflow: scroll;'><embed src="Bolivia-agroproductiva.png"></div>
+
+***
+
+
+
+<div><div style='width:1000px; height:700px; overflow: scroll;'><embed src="Bolivia-elevation.png"></div>
+
+***
+
+
+
+<div><div style='width:1000px; height:700px; overflow: scroll;'><embed src="Bolivia-aridity.png"></div>
+
+
+
+
+
+
+
+--- &vertical
+
+
+### Results
+
+
+--- 
+
+
+![plot of chunk unnamed-chunk-16](assets/fig/unnamed-chunk-16.png) 
 
 
 ---
 
-## Fantastic Ordered List
 
-
----
-
-
-
-![plot of chunk unnamed-chunk-12](assets/fig/unnamed-chunk-12.png) 
-
-
----
-
-
-## Fantastic Ordered List
+## 
 
 
 
@@ -785,7 +895,7 @@ You can select from different transitions, like:
 
 ## test
 <!-- html table generated in R 3.1.1 by xtable 1.7-4 package -->
-<!-- Sat Oct 25 19:33:11 2014 -->
+<!-- Mon Oct 27 21:35:23 2014 -->
 <table class=mytable>
 <tr> <th>  </th> <th> a </th> <th> b </th>  </tr>
   <tr> <td align="right"> 1 </td> <td> a </td> <td align="right">   1 </td> </tr>
@@ -1016,7 +1126,7 @@ library(ggplot2)
 qplot(wt, mpg, data = mtcars)
 ```
 
-![plot of chunk unnamed-chunk-17](assets/fig/unnamed-chunk-17.png) 
+![plot of chunk unnamed-chunk-21](assets/fig/unnamed-chunk-21.png) 
 
 --- &vertical ds:soothe
 
