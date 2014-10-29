@@ -99,6 +99,18 @@ $$\vphantom{}$$
 
 ---
 
+## Research Question
+___
+___
+$$\vphantom{}$$
+- Goal of fertilizer plant is to "increase agricultural productivity and contribute to food security with sovereignty."
+$$\vphantom{}$$
+- Q: Is an implicit or explicit fertilizer subsidy a good use of resources for accomplishing this goal?
+
+
+
+---
+
 
 ## Broader context
 ___
@@ -842,7 +854,7 @@ $$\vphantom{}$$
 
 
 
----
+--- &vertical
 
 
 ## Discussion: Causes
@@ -860,8 +872,26 @@ $$\vphantom{}$$
 - Risk aversion
 $$\vphantom{}$$
 
+***
 
----
+## Shadow Price Approach
+___
+___
+$$\vphantom{}$$
+
+We can restore equality between the two quantities by inserting a “shadow price” coefficient $\theta_{i}$:
+
+$$\vphantom{}$$
+
+$$\dfrac{\bfrac{\partial f}{\partial x_{i}}}{\bfrac{\partial f}{\partial x_{j}}}=\dfrac{w_{i}\theta_{i}}{w_{j}}$$
+
+***
+
+## Shadow Price Illustration
+
+![plot of chunk unnamed-chunk-18](assets/fig/unnamed-chunk-18.png) 
+
+--- &vertical
 
 ## Questions/Comments
 
