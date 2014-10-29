@@ -16,147 +16,105 @@ bootstrap:
   theme: default
 ---
 
-# Reveal.js
-### HTML PRESENTATIONS MADE EASY
+## Allocative Efficiency in <br>Bolivian Agriculture 
+___
+___
+$$\vphantom{}$$
+### Travis McArthur
 
-<small> Created by [Hakim El Hattab](http://hakim.se) / [@hakimel](http://twitter.com/hakimel) </small>
+<small> 10/29/2014 </small>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-*** =pnotes
+<style>
+table.mytable {
+  border: solid;
+  border-width: 1px 0;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 20px;
+  line-height: 22px;
 
-Some notes on the first slide
-
----
-
-## Heads Up
-
-reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with support for CSS 3D transforms to see it in its full glory.
-
-<section>
-
----
-
-## Slide 1
-
----
-
-## Slide 2
-
-</section>
-
---- &vertical
-
-## Vertical Slides
-
-Slides can be nested inside of other slides, try pressing <a href="#" class="navigate-down">down</a>
-
-<a href="#" class="image navigate-down">
-  <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-</a>
-
-***
-
-## Basement Level 1
-
-Press down or up to navigate.
-
-***
-
-## Basement Level 2
-
-Cornify
-
-<a class="test" href="http://cornify.com">
- <img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-</a>
-
-***
-
-## Basement Level 3
-
-That's it, time to go back up.
-
-<a href="#/2" class="image">
-  <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-</a>
-
---- &vertical
-
-## Vertical Slides
-
-Slides can be nested inside of other slides, try pressing
-
-***
-
-## Basement Level 1
-
-Press down or up to navigate.
-
---- &vertical
-
-## Point of View
-
-Press ESC to enter the slide overview. Hold down alt and click on any element to zoom in on it using [zoom.js](http://lab.hakim.se/zoom-js). Alt + click anywhere to zoom back out.
+}
+ 
+table.mytable tr {
+  border: solid;
+  border-width: 1px 0;
+}
+</style>
 
 ---
 
-## RVL.IO
 
-If you don't like writing slides in HTML you can use the online editor [rvl.io](http://rvl.io).
-
----
-
-## Works in Mobile Safari
-
-Try it out! You can swipe through the slides and pinch your way to the overview.
+## Motivation
 
 ---
 
-## Marvolous Unordered List
 
-- No order here
-- Or here
-- Or here
-- Or here
-
----
-
-## Marvolous Unordered List
-
-- No order here
-- Or here
-- Or here
-- Or here
-
----
-
-## Marvolous Unordered List
-
-- No order here
-- Or here
-- Or here
-- Or here
-
----
-
-## Marvolous Unordered List
-
-- No order here
-- Or here
-- Or here
-- Or here
-
----
 
 ## 
 
 
 ![plot of chunk unnamed-chunk-1](assets/fig/unnamed-chunk-1.png) 
 
+---
+
+## 2012: State-Owned Nitrogen <br>Fertilizer Plant
+$$\vphantom{}$$
+- ~3% of GDP invested
+$$\vphantom{}$$
+- Planned capacity: 30 times greater than current domestic consumption
+$$\vphantom{}$$
+- An explicit or implicit subsidy is likely
+
+---
+
+## What's at stake?
+___
+___
+$$\vphantom{}$$
+- 27% of children under 5 years old are stunted due to malnutrition
+$$\vphantom{}$$
+    - 3rd highest in Latin America
+$$\vphantom{}$$
+- Affect this through:
+$$\vphantom{}$$
+    - Food price or supply channel
+$$\vphantom{}$$
+    - Farm income channel
+    
+
 
 
 ---
+
+## What's at stake?
+___
+___
+$$\vphantom{}$$
+- Hsieh & Klenow (2009) estimate 40-60% TFP gain from reducing allocative inefficiency in Indian manufacturing to U.S. levels
+    
+
+
+
+---
+
+
+## Broader context
+___
+___
+$$\vphantom{}$$
+- Interest in a "Green Revolution" in African countries
+$$\vphantom{}$$
+- Studies on subsidy programs in Niger, Malawi, Ethiopia, Zambia
+
+
+
+---
+
+
+
+
 
 
 ## “Reduced Form” Determinants of Fertilizer Use: <br><br> Double Hurdle Model
@@ -288,7 +246,7 @@ MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
 </script>
 
 
-## Shadow Price Approach
+## Shadow Price Approach <br><br> Kumbhakar & Lovell (2000)
 ___
 ___
 $$\vphantom{}$$
@@ -476,7 +434,8 @@ $$\vphantom{}$$
 --- &vertical
 
 ## Cost Share Equations
-
+___
+___
 $$\vphantom{}$$
 
 - Shepard's Lemma yields 6 more equations to boost statistical efficiency:
@@ -818,15 +777,19 @@ $$\vphantom{}$$
 
 ***
 
-
-
-<div><div style='width:1000px; height:700px; overflow: scroll;'><embed src="Bolivia-elevation.png"></div>
+<div><div style='width:1000px; height:700px; overflow: scroll;'><embed src="Bolivia-agroproductiva-detailed.png" ></div>
 
 ***
 
 
-
 <div><div style='width:1000px; height:700px; overflow: scroll;'><embed src="Bolivia-aridity.png"></div>
+
+
+***
+
+
+<div><div style='width:1000px; height:700px; overflow: scroll;'><embed src="Bolivia-elevation.png"></div>
+
 
 
 
@@ -849,13 +812,15 @@ $$\vphantom{}$$
 ---
 
 
-## 
+## Optimal Fertilizer Cost Share<br><br>
 
 
 
-<table class=mytable><tr><td colspan="3" ></td></tr><tr><td></td><td>Lower 95% CI</td><td>Upper 95% CI</td></tr>
-<tr><td colspan="3" ></td></tr><tr><td>Maiz</td><td>0.036</td><td>0.169</td></tr>
-<tr><td>Haba</td><td>0.042</td><td>0.506</td></tr>
+<table class=mytable><caption><strong>Fertilizer cost share w/o allocative inefficiency minus share w/ inefficiency, <br>in percentage points (evaluated at median farm)<br><br></strong></caption>
+<tr><td colspan="3" ></td></tr><tr><td></td><td>Lower 95% CI</td><td>Upper 95% CI</td></tr>
+<tr><td colspan="3" ></td></tr><tr><td>Maize</td><td>3</td><td>16</td></tr>
+<tr><td>Wheat</td><td>-43</td><td>17</td></tr>
+<tr><td>Fava Beans</td><td>5</td><td>50</td></tr>
 <tr><td colspan="3" ></td></tr></table>
 
 
@@ -864,285 +829,42 @@ $$\vphantom{}$$
 ---
 
 
-## Fantastic Ordered List
+### Increase in Cost from Inefficiency<br><br>
+
+- Non-concave cost function $\implies$ nonsensical results
 
 
 ---
 
 
-## Fantastic Ordered List
+## Discussion: Causes
+
+
 
 
 ---
 
 
-
-## Fantastic Ordered List
-
-
---- #transitions
-
-## TRANSITION STYLES
-You can select from different transitions, like: 
-
-[Cube](?transition=cube#/transitions) - [Page](?transition=page#/transitions) - [Concave](?transition=concave#/transitions) - [Zoom](?transition=zoom#/transitions) - [Linear](?transition=linear#/transitions) - [Fade](?transition=fade#/transitions) - [None](?transition=none#/transitions) - [Default](?transition=default#/transitions)
-
-
-
---- #test
-
-
-
-## test
-<!-- html table generated in R 3.1.1 by xtable 1.7-4 package -->
-<!-- Mon Oct 27 21:35:23 2014 -->
-<table class=mytable>
-<tr> <th>  </th> <th> a </th> <th> b </th>  </tr>
-  <tr> <td align="right"> 1 </td> <td> a </td> <td align="right">   1 </td> </tr>
-  <tr> <td align="right"> 2 </td> <td> b </td> <td align="right">   2 </td> </tr>
-  <tr> <td align="right"> 3 </td> <td> c </td> <td align="right">   3 </td> </tr>
-  <tr> <td align="right"> 4 </td> <td> d </td> <td align="right">   4 </td> </tr>
-  <tr> <td align="right"> 5 </td> <td> e </td> <td align="right">   5 </td> </tr>
-  <tr> <td align="right"> 6 </td> <td> f </td> <td align="right">   6 </td> </tr>
-  <tr> <td align="right"> 7 </td> <td> g </td> <td align="right">   7 </td> </tr>
-  <tr> <td align="right"> 8 </td> <td> h </td> <td align="right">   8 </td> </tr>
-  <tr> <td align="right"> 9 </td> <td> i </td> <td align="right">   9 </td> </tr>
-  <tr> <td align="right"> 10 </td> <td> j </td> <td align="right">  10 </td> </tr>
-  <tr> <td align="right"> 11 </td> <td> k </td> <td align="right">  11 </td> </tr>
-  <tr> <td align="right"> 12 </td> <td> l </td> <td align="right">  12 </td> </tr>
-  <tr> <td align="right"> 13 </td> <td> m </td> <td align="right">  13 </td> </tr>
-  <tr> <td align="right"> 14 </td> <td> n </td> <td align="right">  14 </td> </tr>
-  <tr> <td align="right"> 15 </td> <td> o </td> <td align="right">  15 </td> </tr>
-  <tr> <td align="right"> 16 </td> <td> p </td> <td align="right">  16 </td> </tr>
-  <tr> <td align="right"> 17 </td> <td> q </td> <td align="right">  17 </td> </tr>
-  <tr> <td align="right"> 18 </td> <td> r </td> <td align="right">  18 </td> </tr>
-  <tr> <td align="right"> 19 </td> <td> s </td> <td align="right">  19 </td> </tr>
-  <tr> <td align="right"> 20 </td> <td> t </td> <td align="right">  20 </td> </tr>
-   </table>
- 
-<style>
-table.mytable {
-  border: solid;
-  border-width: 1px 0;
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 20px;
-  line-height: 22px;
-
-}
- 
-table.mytable tr {
-  border: solid;
-  border-width: 1px 0;
-}
-</style>
-
-
-
-
-
-
---- #themes
-
-## Themes
-
-Reveal.js comes with a few themes built in: 
-
-[Sky](?theme=sky#/themes) - [Beige](?theme=beige#/themes) - [Simple](?theme=simple#/themes) - [Serif](?theme=serif#/themes) - [Night](?theme=night#/themes) - [Default](?theme=default#/themes) - [Solarized](?theme=solarized#/themes) - [Moon](?theme=moon#/themes)
-
-<small>* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the `<head>` using a `<link>`.</small>
-
---- ds:alert &vertical
-
-## Global State
-Set `data-state="something"` on a slide and "something" will be added as a class to the document element when the slide is open. This lets you apply broader style changes, like switching the background.
-
-<a href="#" class="image navigate-down">
-  <img width="178" height="238" 
-    src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-</a>
-
-*** ds:blackout
-
-## Blackout
-
-<a href="#" class="image navigate-down">
-  <img width="178" height="238" 
-    src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-</a>
-
-*** ds:soothe
-
-## Soothe
-
-<a href="#" class="image navigate-next">
-  <img width="178" height="238" alt="Up arrow" style="-webkit-transform: rotate(-90deg);"
-    src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" >
-</a>
-
---- ds:red &vertical
-
-## Custom Soothe Styles
-
-*** ds:orange
-
-## Orange
-
-*** ds:yellow
-
-## Yellow
-
-*** ds:green
-
-## Green
-
-*** ds:blue
-
-## Blue
-
-*** ds:indigo
-
-## Indigo
-
-*** ds:violet
-
-## Violet
-
-*** ds:brown
-
-## Brown
-
----
-
-## Custom Events
-
-Additionally custom events can be triggered on a per slide basis by binding to the data-state name.
-
-```
-Reveal.addEventListener( 'customevent', function() {
-  console.log( '"customevent" has fired' );
-} );
-```
-
----
-
-## Clever Quotes
-
-These guys come in two forms, inline:  <q>The nice thing about standards is that there are so many to choose from and block:</q>
-
-> For years there has been a theory that millions of monkeys typing at random on millions of typewriters would reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
-
----
-
-## Pretty Code
-
-```
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i < len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
-}
-```
-
-Courtesy of [highlight.js](http://softwaremaniacs.org/soft/highlight/en/description/)
-
----
-
-## Intergalactic Interconnections
-
-You can link between slides internally, [like this](#/2/3).
-
----
-
-## Fragmented Views
-
-Hit the next arrow...
-
-.fragment ... to step through ...
-
-> - any type
-> - of view
-> - __fragments__
-
----
-
-## Take a Moment
-
-Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen during a presentation.
+## Discussion: Causes
+___
+___
+$$\vphantom{}$$
+- Credit/liquidity constraints
+$$\vphantom{}$$
+- Lack of technical knowledge
+$$\vphantom{}$$
+- Thin markets
+$$\vphantom{}$$
+- Cognitive biases (Duflo, Kremer, Robinson 2011)
+$$\vphantom{}$$
+- Risk aversion
+$$\vphantom{}$$
 
 
 ---
 
-## Incremental Paragraphs
-
-.fragment This is paragraph 1 and should appear on first click.
-
-.fragment This is paragraph 2 and should appear on second click.
-
-.small [Back to the Beginning](#/0)
+## Questions/Comments
 
 
----
 
-## Title
-
-This is a slide
-
-- point 1
-- point 2
-- point 3
-
----
-
-## Incremental Reveal
-
-These points should be animated
-
-> - Point 1
-> - .highlight-red Point 2
-> - .grow Point 3
-
-<script>
-$('ul.incremental li').addClass('fragment')
-</script>
-
-
----
-
-## Code with slide
-
-
-```r
-library(ggplot2)
-qplot(wt, mpg, data = mtcars)
-```
-
-![plot of chunk unnamed-chunk-21](assets/fig/unnamed-chunk-21.png) 
-
---- &vertical ds:soothe
-
-## Vertical Slides
-
-The next set of slides will be vertical slides.
-
-***
-
-## Slide 1
-
-This is slide 1
-
-***
-
-## Slide 2
-
-<iframe src='http://www.statdistributions.com' width = '960px' height = '600px'></iframe>
 
