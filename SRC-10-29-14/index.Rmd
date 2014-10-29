@@ -1197,7 +1197,7 @@ ggplot(theta.ci.df.final[nrow(theta.ci.df.final):1,], aes(x = Input)) +
   geom_errorbar(aes(ymax = Upper, ymin = Lower, size=alpha, width=0, colour=alpha)) +  # as.factor(size)
   geom_hline(yintercept=1, colour="red") +
   coord_trans(y="log2") +
-  scale_y_continuous(breaks=c( 1,5,10,30))  +
+  scale_y_continuous(breaks=c( .1, .5, 1, 5, 10, 30))  +
   facet_grid(. ~ crop ) + # facet_grid(crop ~ . ) + # 
   ggtitle(bquote(paste(atop( paste(BC[a], " Bootstrap CI's of  ", over(theta[fertilizer], theta[j]), "     (Log scale)"), paste(
     N[Fava] == .(number.obs.ls.english[["Fava beans"]]), ", ",
