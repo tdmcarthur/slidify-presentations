@@ -123,6 +123,18 @@ $$\vphantom{}$$
 
 ---
 
+## Research Question
+___
+___
+$$\vphantom{}$$
+- Goal of fertilizer plant is to "increase agricultural productivity and contribute to food security with sovereignty."
+$$\vphantom{}$$
+- Q: Is an implicit or explicit fertilizer subsidy a good use of resources for accomplishing this goal?
+
+
+
+---
+
 
 ## Broader context
 ___
@@ -1281,7 +1293,7 @@ cat(table.captured, sep="\n")
 
 
 
----
+--- &vertical
 
 
 ## Discussion: Causes
@@ -1299,8 +1311,72 @@ $$\vphantom{}$$
 - Risk aversion
 $$\vphantom{}$$
 
+***
 
----
+## Shadow Price Approach
+___
+___
+$$\vphantom{}$$
+
+We can restore equality between the two quantities by inserting a “shadow price” coefficient $\theta_{i}$:
+
+$$\vphantom{}$$
+
+$$\dfrac{\bfrac{\partial f}{\partial x_{i}}}{\bfrac{\partial f}{\partial x_{j}}}=\dfrac{w_{i}\theta_{i}}{w_{j}}$$
+
+***
+
+## Shadow Price Illustration
+
+```{r echo = F, comment = NA, fig.width=8, fig.height=8}
+
+intended.cex <- 2
+
+par(cex=intended.cex)
+
+cobb.douglas.MRTS.x2 <- function(y, alpha, x1) {
+ (y/x1^alpha)^(1-alpha)
+}
+
+par(mar=c(1.5, 1.5, 1.5, 1.5) + 0.1)
+
+plot(seq(.1, 2, by=.01), y=cobb.douglas.MRTS.x2(20, .8, seq(.1, 2, by=.01)), type="l", yaxt="n", xaxt="n", lwd=2*intended.cex, ylab=expression(x[2]), xlab=expression(x[1]))
+#  , ylim=c(0, max(cobb.douglas.MRTS.x2(20, .8, seq(.1, 4, by=.01)))))
+
+mtext(expression(x[1]), side=1, las=1, line=0.5, cex=intended.cex)
+mtext(expression(x[2]), side=2, las=1, line=0.5, cex=intended.cex)
+
+points(x=0.6110329, y=1.962491, pch=20, cex=3, col="darkgreen", lwd=3)
+text(x=0.6110329+.16, y=1.962491+.06, labels=expression(list(x[1]^0, x[2]^0)))
+
+text(x=1.65, y=1.815,  labels=expression(f *phantom() *group("(", list(x[1], x[2]), ")") == bar(y)), col="black")
+#############################
+
+my.intercept <- 3
+abline(a=my.intercept, b= (1.959660 - my.intercept)/0.6221856, col="red", lwd=2*intended.cex)
+
+
+text(x=0.52, y=2.5,  labels=expression(-Delta == frac(w[1], w[2])), col="red")
+
+#############################
+
+w2 <- 8
+w1 <- 4
+cost <- (w2 + w1)*1.515
+
+abline(a=cost/w2, b= -w1/w2, col="blue", lwd=2*intended.cex)
+
+# Take out phantom(0) for no space
+
+text(x=0.25, y=1.95,  labels=expression(-Delta == frac(w[1]*theta[1], w[2])), col="blue")
+
+
+
+
+
+```
+
+--- &vertical
 
 ## Questions/Comments
 
