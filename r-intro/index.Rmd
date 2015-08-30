@@ -150,7 +150,7 @@ library(knitr)
 ### setting hooks and options - can change options obviously 
 #knit_hooks$set(webgl = hook_split_webgl)
 #opts_chunk$set(echo=FALSE, prompt=FALSE, messages=FALSE, warning=FALSE)
-knit_hooks$set(webgl = hook_webgl)
+#knit_hooks$set(webgl = hook_webgl)
 
 
 ### writeWebGL_split - has add on for splitting triangles to maximum number of vertices
@@ -166,6 +166,8 @@ knit_hooks$set(webgl = hook_webgl)
 #qplot(wt, mpg, data = mtcars)
 # results='hide',
 
+# install.packages("alphashape3d")
+# install.packages("rgl")
 library("alphashape3d")
 library("rgl")
 
