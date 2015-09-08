@@ -91,7 +91,7 @@ mat.input.v
 # We can use the ":" operator to create a vector of all the integers
 # that exist between two integers, inclusive.
 
-one.hundred.v<-1:100
+one.hundred.v <- 1:100
 
 one.hundred.v
 
@@ -99,7 +99,7 @@ one.hundred.v
 # The read.csv() function is going to be your primary way to get
 # a dataset into your R workspace
 
-net.worth.df<-read.csv("http://www.opensecrets.org/db2dl/?q=PFDsWorth&cycle=2008&output=CSV", stringsAsFactors=FALSE)
+net.worth.df <- read.csv("http://www.opensecrets.org/db2dl/?q=PFDsWorth&cycle=2008&output=CSV", stringsAsFactors=FALSE)
 # We have just created a "data frame" containing data on the net worth of
 # Congresspeople, Supreme Court Justices, and certain executive branch officials
 
@@ -119,7 +119,7 @@ str(net.worth.df)
 # What if we want to just extract one column and make it into a vector?
 # There are two ways to do this. One way is:
 
-congress.ppl.names.v<-net.worth.df$Name
+congress.ppl.names.v <- net.worth.df$Name
 
 # str() is indispensible when working your way through a data project.
 # It can be used on any type of object, including a vector
@@ -128,7 +128,7 @@ str(congress.ppl.names.v)
 
 # Another way to extract the column is:
 
-congress.ppl.names.v<-net.worth.df[, "Name"]
+congress.ppl.names.v <- net.worth.df[, "Name"]
 
 # If we are unsure if two operations produce the exact same object,
 # we can use identical()
@@ -147,7 +147,7 @@ identical(net.worth.df$Name, net.worth.df[, "Name"])
 # one column from a dataframe, although this makes a dataframe
 # rather than just a vector
 
-name.and.chamber.df<-net.worth.df[, c("Name", "chamber")]
+name.and.chamber.df <- net.worth.df[, c("Name", "chamber")]
 	
 str(name.and.chamber.df)
 
@@ -162,13 +162,13 @@ net.worth.df[ -(1:640), c("Name", "AvgValue")]
 
 # Only get those observations/records where the net worth is
 # greater than 100,000,000
-net.worth.df[net.worth.df$AvgValue>100000000, c("Name", "AvgValue")]
+net.worth.df[net.worth.df$AvgValue > 100000000, c("Name", "AvgValue")]
 
-net.worth.df[net.worth.df$AvgValue>100000000, ]
+net.worth.df[net.worth.df$AvgValue > 100000000, ]
 
 # What is going on here? First a logical vector is produced and then 
 # it is fed into the subscript 
-net.worth.df$AvgValue>100000000
+net.worth.df$AvgValue > 100000000
 
 net.worth.df[net.worth.df$chamber %in% c("E", "J"), ]
 # Only get the people who are in the executive or judicial branches
@@ -202,7 +202,7 @@ net.worth.df[net.worth.df$chamber=="S", "chamber"] <- "Senate"
 
 # We can name everything
 
-greeks.v<- 1:5
+greeks.v <- 1:5
 greeks.v
 names(greeks.v) <- c("alpha", "beta", "gamma", "delta", "epsilon")
 greeks.v
@@ -229,9 +229,9 @@ rep("test", times=round(nrow(net.worth.df)/100))
 # Building up the operation one step at a time
 
 
-tt<-nrow(net.worth.df)
-mm<-tt/100
-bb<-round(mm)
+tt <- nrow(net.worth.df)
+mm <- tt/100
+bb <- round(mm)
 rep("test", times=bb)
 
 # My personal style is more the first example - everything evaluated
@@ -321,7 +321,7 @@ for ( i in 1:nrow(net.worth.df)) {
 #   last line is the output
 # }  γ 
 
-VV.line.fn<-function(rho, sigma, n, alpha) {
+VV.line.fn <- function(rho, sigma, n, alpha) {
   A <- ifelse(n <= 1, alpha, 1-alpha)
   A/(rho*sigma*n)
 }
@@ -368,7 +368,7 @@ kitchen.sink.ls[1:2]
 # In R, we would pack our results into a list
 
 summary_stats <- function(x) {
-  ret<-list()
+  ret <- list()
   # Initiate a list object (create an empty list)
   ret$average <- mean(x)
   ret$st_dev <- sd(x)
@@ -388,9 +388,9 @@ summary_stats(rnorm(500))
 
 # EXAMPLE ANALYSIS
 
-co2.df<-read.csv("http://tdmcarthur.github.io/slidify-presentations/r-intro/worldbank.csv", stringsAsFactors=FALSE)
+co2.df <- read.csv("http://tdmcarthur.github.io/slidify-presentations/r-intro/worldbank.csv", stringsAsFactors=FALSE)
 
-colnames(co2.df)<-c("country", "year", "co2.emissions.per.cap", "electric.consumption", "total.energy.use", "fertility", "gdp.per.cap", "internet.users", "life.exp", "military.exp.perc.gdp", "population", "hiv.rate")
+colnames(co2.df) <- c("country", "year", "co2.emissions.per.cap", "electric.consumption", "total.energy.use", "fertility", "gdp.per.cap", "internet.users", "life.exp", "military.exp.perc.gdp", "population", "hiv.rate")
 # Rename column names to make them shorter
 
 lm(co2.emissions.per.cap ~ gdp.per.cap + log(gdp.per.cap) + military.exp.perc.gdp + internet.users,  data=co2.df)
@@ -454,7 +454,7 @@ imputed.co2.ls <- by(co2.df,  INDICES=co2.df$country, FUN=function(x) {
   # If all life expectancy data is missing, we cannot interpolate, so
   # we return the original data frame
   
-  x.lm<-lm( log(life.exp) ~ year, data=x)
+  x.lm <- lm( log(life.exp) ~ year, data=x)
   # Fit a regression, with the logarithm of life expectancy predicted by year
   
   missing.years.df <- data.frame( year = x$year[is.na(x$life.exp)] )
@@ -464,8 +464,9 @@ imputed.co2.ls <- by(co2.df,  INDICES=co2.df$country, FUN=function(x) {
   x.pred <- predict(x.lm, newdata=missing.years.df) 
   # Predict the missing values based on the regression model
   
-  x$life.exp[is.na(x$life.exp)]  <- exp(x.pred)
+  x$life.exp[is.na(x$life.exp)] <- exp(x.pred)
   # Turn the predicted life expectancy, which is in logarithm, back to actual years
+  # (yes, we probably run into Jensen's inequality here, but let's ignore that for now)
   
   x
   # Return the modified data frame
