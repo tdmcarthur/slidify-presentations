@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2014 Travis McArthur
+# Copyright (c) 2015 Travis McArthur
 #   
 # Permission is hereby granted, free of charge, to any person obtaining a copy of 
 # this software and associated documentation files (the "Software"), to deal in 
@@ -533,7 +533,7 @@ save(co2.df, file="CO2 imputed.RData")
 # http://www.statmethods.net/
 
 # UCLA has good mini-tutorials:
-# http://www.ats.ucla.edu/stat/r/faq/
+# http://www.ats.ucla.edu/stat/r/
 
 # To ask a question about R:
 # http://stackoverflow.com/questions/tagged/r
@@ -554,20 +554,23 @@ save(co2.df, file="CO2 imputed.RData")
 # http://www.econ.uiuc.edu/~roger/courses/LSE/outline/yaRfaq.pdf
 
 # List of books:
-# http://stackoverflow.com/questions/192369/books-for-learning-the-r-language/2270793#2270793
+# http://stackoverflow.com/questions/420296/what-are-some-good-books-web-resources-and-projects-for-learning-r
 
 # Guide to econometrics with R
 # http://cran.r-project.org/doc/contrib/Farnsworth-EconometricsInR.pdf
 
+# Intro to Programming Econometrics with R:
+# http://www.brodrigues.co/2015/05/03/update-introduction-r-programming/
+
 # Stata-to-R help
 # http://dss.princeton.edu/training/RStata.pdf
-# Downlodable PDF of R for Stata Users: http://madcat.library.wisc.edu/cgi-bin/Pwebrecon.cgi?BBID=8698344
+# Downlodable PDF of R for Stata Users: https://search.library.wisc.edu/catalog/9911066138702121
 
 # MATLAB-to-R help 
 # http://www.math.umaine.edu/~hiebeler/comp/matlabR.pdf
 
 # Huge list of R resources:  
-# http://www.computerworld.com/s/article/9239799/60_R_resources_to_improve_your_data_skills
+# http://www.computerworld.com/article/2497464/business-intelligence/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
 # A formal intro to R manual:
 # http://cran.r-project.org/doc/manuals/R-intro.pdf
@@ -579,7 +582,7 @@ save(co2.df, file="CO2 imputed.RData")
 # http://www.burns-stat.com/pages/Tutor/R_inferno.pdf
 
 # Debugging tools in RStudio:
-# http://www.rstudio.com/ide/docs/debugging/overview
+# https://support.rstudio.com/hc/en-us/articles/205612627-Debugging-with-RStudio
 
 
 
