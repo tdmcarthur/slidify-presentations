@@ -45,6 +45,21 @@
 # If you get lost, Command + Option + B (Mac) or Ctrl + Alt + B (Windows/Linux) 
 # will get you back on track since it runs code from start of the file to the current line.
 
+# If at any time you are running this code and see a bunch of 
+# stacked plusses when you repeatedly press "return" like this:
+
+# > ( 
+# + 
+# + 
+# + 
+# + 
+# + 
+# + 
+
+# it means that R is waiting for you to close a parenthesis or 
+# quotation. Just press "Esc" and re-enter your command.
+
+
 mat.input.v <- c(9, 56, 72, 4, 862, 263, 93, 49, 152)
 
 c(9, 56, 72, 4, 862, 263, 93, 49, 152)
@@ -195,7 +210,7 @@ net.worth.df$chamber[net.worth.df$chamber=="H"] <- "House"
 # This says, "For all elements of the chamber column such that the value
 # of chamber is 'S', replace those elements with 'Senate'"
 
-# This is an equilivalent operation:
+# This is an equivalent operation:
 net.worth.df[net.worth.df$chamber=="S", "chamber"] <- "Senate"
 # Why? Be precise.
 
@@ -291,7 +306,7 @@ as.numeric(c("2", "4", "90", "junk", "24"))
 # be a different data type
 
 
-# Flow control features
+# Control flow features
 
 if (nrow(net.worth.df) > 400) {
   cat("yup")
@@ -309,7 +324,7 @@ for ( i in 1:nrow(net.worth.df)) {
   cat("Print this", i, "\n")
 }
 
-# R has a full suite of flow control features like while, break, next, etc.
+# R has a full suite of control flow features like while, break, next, etc.
 
 
 # Constructing functions
@@ -319,7 +334,7 @@ for ( i in 1:nrow(net.worth.df)) {
 # function name <- function( argument names ) {
 #   do stuff
 #   last line is the output
-# }  γ 
+# } 
 
 VV.line.fn <- function(rho, sigma, n, alpha) {
   A <- ifelse(n <= 1, alpha, 1-alpha)
@@ -424,7 +439,7 @@ coeftest(co2.lm, vcov=vcovHC(co2.lm))
 table(co2.df$year)
 
 # Since our data is continuous, it's hard to have sensible cross tabulations.
-# Let's just tabulate the number of countries with GDP per capita > 3000 by country.
+# Let's just tabulate the number of countries with GDP per capita > 3000 by year
 table(co2.df$year, co2.df$gdp.per.cap > 3000)
 
 aggregate(co2.emissions.per.cap ~ year, data=co2.df, FUN=sum, na.rm=TRUE)
@@ -508,6 +523,9 @@ save(co2.df, file="CO2 imputed.RData")
 # Use the "foreign" package to read data from Stata, MATLAB, and SPSS formats
 
 # To get data from an xls, just save it as a csv in Excel
+
+# If you use Windows, you must double the back slashes when writing a filepath.
+# Example: "Desktop\\Data project\\My data.csv"
 
 # Do not use attach(), even though many intro manuals ask you to use it
 
