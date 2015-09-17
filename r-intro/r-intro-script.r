@@ -305,6 +305,13 @@ as.numeric(c("2", "4", "90", "junk", "24"))
 # character, logical), while each column of a data frame can
 # be a different data type
 
+# 8. If you're using RStudio, the upper right panel lists the 
+# objects you've created in your workspace, along with a 
+# summary of their contents. To easily view the names of
+# your workspace objects in your console, type:
+ls()
+
+
 
 # Control flow features
 
@@ -505,8 +512,6 @@ imputed.co2.df <- do.call(rbind, imputed.co2.ls)
 getwd()
 
 setwd()
-
-ls()
 
 # At the console, press the up arrow to get commands previously entered.
 
