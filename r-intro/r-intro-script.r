@@ -310,6 +310,7 @@ as.numeric(c("2", "4", "90", "junk", "24"))
 # summary of their contents. To easily view the names of
 # your workspace objects in your console, type:
 ls()
+# It works whether you are using RStudio or not.
 
 
 
