@@ -21,25 +21,7 @@
 # SOFTWARE.
 
 
-
-# CONCEPTUAL FRAMEWORK OF R
-
-# There are two types of things in R:
-# 1. Objects
-# 2. Functions
-
-# Functions are used to operate on objects, usually to create a new object
-# or transform the original object.
-
-# Let's make a matrix to demonstrate how to use a function.
-# The function c() is a basic function that groups together numbers 
-# or character strings. 
-
-# The "<-" sign ("less than" sign, minus sign) will assign our group
-# of numbers to an object name. An object name is used to 
-# succinctly refer to data. We'll call this "mat.input.v"
-
-# NOTE: To run a single line in RStudio, put cursor on that line and press 
+# PRELIMINARIES: To run a single line in RStudio, put cursor on that line and press 
 # Command + Enter (Mac) or Ctrl + Enter (Windows/Linux). To run multiple lines, 
 # highlight the lines and press Command + Enter (Mac) or Ctrl + Enter (Windows/Linux).
 # If you get lost, Command + Option + B (Mac) or Ctrl + Alt + B (Windows/Linux) 
@@ -58,6 +40,24 @@
 
 # it means that R is waiting for you to close a parenthesis or 
 # quotation. Just press "Esc" and re-enter your command.
+
+
+# CONCEPTUAL FRAMEWORK OF R
+
+# There are two types of things in R:
+# 1. Objects
+# 2. Functions
+
+# Functions are used to operate on objects, usually to create a new object
+# or transform the original object.
+
+# Let's make a matrix to demonstrate how to use a function.
+# The function c() is a basic function that groups together numbers 
+# or character strings. 
+
+# The "<-" sign ("less than" sign, minus sign) will assign our group
+# of numbers to an object name. An object name is used to 
+# succinctly refer to data. We'll call this "mat.input.v"
 
 
 mat.input.v <- c(9, 56, 72, 4, 862, 263, 93, 49, 152)
