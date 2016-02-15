@@ -1,14 +1,14 @@
 # The MIT License (MIT)
-#
-# Copyright (c) 2015 Travis McArthur
-#   
+# 
+# Copyright (c) 2016 Travis McArthur
+# 
 # Permission is hereby granted, free of charge, to any person obtaining a copy of 
 # this software and associated documentation files (the "Software"), to deal in 
 # the Software without restriction, including without limitation the rights to 
 # use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
 # of the Software, and to permit persons to whom the Software is furnished to do 
 # so, subject to the following conditions:
-# 	
+# 
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
 # 
@@ -86,7 +86,11 @@ sample.data.mat
 # You can set arguments by name (what we just did) or by 
 # the order in which they appear
 
-matrix(mat.input.v, 3)
+matrix(mat.input.v, 3, 3, TRUE)
+
+# The most common way to alter an object is to just overwrite it
+
+sample.data.mat <- t(sample.data.mat)
 
 
 # TYPES OF OBJECTS
@@ -332,7 +336,8 @@ for ( i in 1:nrow(net.worth.df)) {
   cat("Print this", i, "\n")
 }
 
-# R has a full suite of control flow features like while, break, next, etc.
+# R has a full suite of control flow features like while, 
+# break, next, switch, etc.
 
 
 # Constructing functions
@@ -471,6 +476,10 @@ text(log(co2.df[co2.df$year==2000, "gdp.per.cap"]),
 
 # Let's show off some of the power of R's syntax.
 
+# We are missing a lot of life expectancy data
+
+summary(co2.df)
+
 # Interpolating missing data for life expectancy by country:
 imputed.co2.ls <- by(co2.df,  INDICES=co2.df$country, FUN=function(x) {
   if (sum(is.na(x$life.exp))==6) {return(x)}
@@ -546,8 +555,10 @@ save(co2.df, file="CO2 imputed.RData")
 # reshape2
 # stringr
 # plyr
+# dplyr
 # ggplot2
 # RColorBrewer
+# stargazer
 
 # Further resources:
 
@@ -557,8 +568,11 @@ save(co2.df, file="CO2 imputed.RData")
 # Good for "How do I do X?" basics:
 # http://www.statmethods.net/
 
-# UCLA has good mini-tutorials:
-# http://www.ats.ucla.edu/stat/r/
+# Professional, modular R tutorials:
+# https://www.datacamp.com/
+
+# Interactive R tutorial:
+# http://swirlstats.com/
 
 # To ask a question about R:
 # http://stackoverflow.com/questions/tagged/r
@@ -578,18 +592,26 @@ save(co2.df, file="CO2 imputed.RData")
 # 4-page R FAQ:
 # http://www.econ.uiuc.edu/~roger/courses/LSE/outline/yaRfaq.pdf
 
+# Short quiz that tests your knowledge of R programming:
+# http://shiny.rstudio.com/tutorial/quiz/
+
+# UCLA has good mini-tutorials:
+# http://www.ats.ucla.edu/stat/r/
+
 # List of books:
 # http://stackoverflow.com/questions/420296/what-are-some-good-books-web-resources-and-projects-for-learning-r
 
-# Guide to econometrics with R
-# http://cran.r-project.org/doc/contrib/Farnsworth-EconometricsInR.pdf
+# Book (hardcopy and free electronic version) on econometrics with R:
+# http://www.urfie.net/
 
 # Intro to Programming Econometrics with R:
 # http://www.brodrigues.co/2015/05/03/update-introduction-r-programming/
 
 # Stata-to-R help
 # http://dss.princeton.edu/training/RStata.pdf
-# Downlodable PDF of R for Stata Users: https://search.library.wisc.edu/catalog/9911066138702121
+
+# Electronic access to R for Stata Users: 
+# https://search.library.wisc.edu/catalog/991022085798802122
 
 # MATLAB-to-R help 
 # http://www.math.umaine.edu/~hiebeler/comp/matlabR.pdf
