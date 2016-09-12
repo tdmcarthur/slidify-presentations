@@ -631,7 +631,7 @@ save(co2.df, file = "CO2 imputed.RData")
 # Professional, modular R tutorials:
 # https://www.datacamp.com/
 
-# R for Data Science online free book. Focuses on use of Hadley Wickham's tools
+# R for Data Science online free book. Focuses on use of Hadley Wickham's tools:
 # http://r4ds.had.co.nz/
 
 # Interactive R tutorial:
@@ -668,9 +668,6 @@ save(co2.df, file = "CO2 imputed.RData")
 # Book (hardcopy and free electronic version) on econometrics with R:
 # http://www.urfie.net/
 
-# Intro to Programming Econometrics with R:
-# http://www.brodrigues.co/2015/05/03/update-introduction-r-programming/
-
 # Computational economics (simulations & dynamic programming) with R:
 # http://www.econr.org/Intro.html
 
@@ -684,13 +681,19 @@ save(co2.df, file = "CO2 imputed.RData")
 # http://cran.r-project.org/doc/manuals/R-intro.pdf
 
 # Google's R code style guide:
-# http://google-styleguide.googlecode.com/svn/trunk/Rguide.xml
+# https://google.github.io/styleguide/Rguide.xml
 
 # Code running slow? Take a look at:
 # http://www.burns-stat.com/pages/Tutor/R_inferno.pdf
 
 # Debugging tools in RStudio:
 # https://support.rstudio.com/hc/en-us/articles/205612627-Debugging-with-RStudio
+
+# Reviews of books on R:
+# http://dirk.eddelbuettel.com/papers/devries_meys_dummies.pdf
+# http://dirk.eddelbuettel.com/papers/kabacoff_action.pdf
+# http://dirk.eddelbuettel.com/papers/adler_nutshell.pdf
+
 
 ######
 ###### For Stata users:
