@@ -20,12 +20,17 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+# Any parts of this file that cannot be considered software is hereby licensed
+# under a Creative Commons Attribution 4.0 International License
+# https://creativecommons.org/licenses/by/4.0/
 
-# PRELIMINARIES: To run a single line in RStudio, put cursor on that line and press 
-# Command + Enter (Mac) or Ctrl + Enter (Windows/Linux). To run multiple lines, 
-# highlight the lines and press Command + Enter (Mac) or Ctrl + Enter (Windows/Linux).
-# If you get lost, Command + Option + B (Mac) or Ctrl + Alt + B (Windows/Linux) 
-# will get you back on track since it runs code from start of the file to the current line.
+
+# PRELIMINARIES: To run a single line in RStudio, put cursor on that line and
+# press Command + Enter (Mac) or Ctrl + Enter (Windows/Linux). To run multiple
+# lines, highlight the lines and press Command + Enter (Mac) or Ctrl + Enter 
+# (Windows/Linux). If you get lost, Command + Option + B (Mac) or Ctrl + Alt + B
+# (Windows/Linux) will get you back on track since it runs code from start of 
+# the file to the current line.
 
 # If at any time you are running this code and see a bunch of 
 # stacked plusses when you repeatedly press "return" like this:
@@ -71,7 +76,7 @@ mat.input.v
 ?matrix
 
 
-sample.data.mat <- matrix(data=mat.input.v, nrow=3)
+sample.data.mat <- matrix(data = mat.input.v, nrow = 3)
 
 # In RStudio, press tab after matrix(  to get arguments
 
@@ -79,7 +84,7 @@ sample.data.mat
 
 # Let's change the default argument for "byrow"
 
-sample.data.mat <- matrix(data=mat.input.v, nrow=3, byrow=TRUE)
+sample.data.mat <- matrix(data = mat.input.v, nrow = 3, byrow = TRUE)
 
 sample.data.mat
 
@@ -118,7 +123,8 @@ one.hundred.v
 # The read.csv() function is going to be your primary way to get
 # a dataset into your R workspace
 
-net.worth.df <- read.csv("http://www.opensecrets.org/db2dl/?q=PFDsWorth&cycle=2008&output=CSV", stringsAsFactors=FALSE)
+net.worth.df <- read.csv("http://www.opensecrets.org/db2dl/?q=PFDsWorth&cycle=2008&output=CSV", 
+                         stringsAsFactors = FALSE)
 # We have just created a "data frame" containing data on the net worth of
 # Congresspeople, Supreme Court Justices, and certain executive branch officials
 
@@ -209,13 +215,13 @@ net.worth.df[order(net.worth.df$Name), c("Name", "AvgValue")]
 # Until now, we have assigned stuff to new objects
 # We can also assign stuff to parts of already-existing objects
 
-net.worth.df$chamber[net.worth.df$chamber=="S"] <- "Senate"
-net.worth.df$chamber[net.worth.df$chamber=="H"] <- "House"
+net.worth.df$chamber[net.worth.df$chamber == "S"] <- "Senate"
+net.worth.df$chamber[net.worth.df$chamber == "H"] <- "House"
 # This says, "For all elements of the chamber column such that the value
 # of chamber is 'S', replace those elements with 'Senate'"
 
 # This is an equivalent operation:
-net.worth.df[net.worth.df$chamber=="S", "chamber"] <- "Senate"
+net.worth.df[net.worth.df$chamber == "S", "chamber"] <- "Senate"
 # Why? Be precise.
 
 
@@ -244,14 +250,14 @@ sample.data.mat["b", "pop"]
 nrow(net.worth.df)
 nrow(net.worth.df)/100
 round(nrow(net.worth.df)/100)
-rep("test", times=round(nrow(net.worth.df)/100))
+rep("test", times = round(nrow(net.worth.df)/100))
 # Building up the operation one step at a time
 
 
 tt <- nrow(net.worth.df)
 mm <- tt/100
 bb <- round(mm)
-rep("test", times=bb)
+rep("test", times = bb)
 
 # My personal style is more the first example - everything evaluated
 # at once on one line, within reason.
@@ -274,9 +280,9 @@ One.Hundred.V
 # 4. Spaces between object names and operators are ignored. Spaces
 # are useful for making your code clear and readable to others and yourself.
 
-matrix(data=mat.input.v, nrow=3)
+matrix(data = mat.input.v, nrow = 3)
 # is the same as
-matrix(  data=mat.input.v  , nrow =  3)
+matrix(  data = mat.input.v  , nrow =  3)
 
 # You can even do this
 chambers.mat <- matrix  (net.worth.df$   chamber)
@@ -285,8 +291,8 @@ chambers.mat <- matrix  (net.worth.df$   chamber)
 
 # 5. If R thinks that a statement continues on the next line,
 # it will interpret it the same as one statement on one line
-matrix(data=mat.input.v, 
-  nrow=3)
+matrix(data = mat.input.v, 
+  nrow = 3)
 
 TRUE & TRUE & FALSE & 
 	FALSE
@@ -315,6 +321,24 @@ as.numeric(c("2", "4", "90", "junk", "24"))
 # your workspace objects in your console, type:
 ls()
 # It works whether you are using RStudio or not.
+
+# 9. Putting quotation marks around a "word" is completely 
+# different from letting the "word" stand alone
+fibonacci.numbers <- c(1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89)
+fibonacci.numbers
+"fibonacci.numbers"
+identical(fibonacci.numbers, "fibonacci.numbers")
+
+
+# 10. Once a column has been separated from a dataframe by making
+# it into a new object, any changes to the object do _not_
+# affect the data.frame
+AvgValue <- net.worth.df$AvgValue
+AvgValue <- (AvgValue - mean(AvgValue))/sd(AvgValue)
+AvgValue[1:10]
+net.worth.df$AvgValue[1:10]
+# Given this, it is best to keep all your data within a data.frame
+# rather than splitting off columns as separate objects
 
 
 
@@ -357,11 +381,11 @@ VV.line.fn <- function(rho, sigma, n, alpha) {
 # This function is basically just an arithmetic operation, but
 # keep in mind that you can get much more creative with writing functions
 
-n.sequence <- seq(0, 6, length.out=6*30)
+n.sequence <- seq(0, 6, length.out = 6*30)
 
-VV.line <- VV.line.fn(rho=.95, sigma=3.2, n=n.sequence,  alpha=.14)
+VV.line <- VV.line.fn(rho = .95, sigma = 3.2, n = n.sequence, alpha = .14)
 
-plot(n.sequence, VV.line, type="l", col="red", ylim=c(0,.4))
+plot(n.sequence, VV.line, type = "l", col = "red", ylim = c(0,.4))
   
 
 
@@ -416,18 +440,26 @@ summary_stats(rnorm(500))
 
 # EXAMPLE ANALYSIS
 
-co2.df <- read.csv("http://tdmcarthur.github.io/slidify-presentations/r-intro/worldbank.csv", stringsAsFactors=FALSE)
+co2.df <- read.csv("http://tdmcarthur.github.io/slidify-presentations/r-intro/worldbank.csv", 
+                   stringsAsFactors = FALSE)
 
-colnames(co2.df) <- c("country", "year", "co2.emissions.per.cap", "electric.consumption", "total.energy.use", "fertility", "gdp.per.cap", "internet.users", "life.exp", "military.exp.perc.gdp", "population", "hiv.rate")
+colnames(co2.df) <- c("country", "year", "co2.emissions.per.cap", 
+                      "electric.consumption", "total.energy.use", 
+                      "fertility", "gdp.per.cap", "internet.users", 
+                      "life.exp", "military.exp.perc.gdp", "population", 
+                      "hiv.rate")
 # Rename column names to make them shorter
 
-lm(co2.emissions.per.cap ~ gdp.per.cap + log(gdp.per.cap) + military.exp.perc.gdp + internet.users,  data=co2.df)
+lm(co2.emissions.per.cap ~ gdp.per.cap + log(gdp.per.cap) + 
+     military.exp.perc.gdp + internet.users, data = co2.df)
 
 # Is that all R knows about this model?
 
-summary( lm(co2.emissions.per.cap ~ gdp.per.cap + log(gdp.per.cap) + military.exp.perc.gdp + internet.users,  data=co2.df))
+summary( lm(co2.emissions.per.cap ~ gdp.per.cap + log(gdp.per.cap) + 
+              military.exp.perc.gdp + internet.users,  data = co2.df))
 
-co2.lm <- lm(co2.emissions.per.cap ~ gdp.per.cap + log(gdp.per.cap) + military.exp.perc.gdp + internet.users,  data=co2.df)
+co2.lm <- lm(co2.emissions.per.cap ~ gdp.per.cap + log(gdp.per.cap) + 
+               military.exp.perc.gdp + internet.users, data = co2.df)
 
 # The co2.lm object is a list
 
@@ -444,7 +476,7 @@ if ( !require("sandwich") ) { install.packages("sandwich") }
 library("lmtest")
 library("sandwich")
 
-coeftest(co2.lm, vcov=vcovHC(co2.lm))
+coeftest(co2.lm, vcov = vcovHC(co2.lm))
 # Heteroskedasticity correction
 
 
@@ -455,24 +487,32 @@ table(co2.df$year)
 # Let's just tabulate the number of countries with GDP per capita > 3000 by year
 table(co2.df$year, co2.df$gdp.per.cap > 3000)
 
-aggregate(co2.emissions.per.cap ~ year, data=co2.df, FUN=sum, na.rm=TRUE)
+aggregate(gdp.per.cap ~ year, data = co2.df, FUN = mean)
 
-# Why do we write na.rm=TRUE when aggregate() has no such argument named na.rm?
+# aggregate() is actually quite general, and any function, 
+# not just mean(), can be applied to a group of observations
 
-aggregate( cbind(co2.emissions.per.cap, gdp.per.cap) ~ year + round(fertility) , data=co2.df, FUN=sum, na.rm=TRUE)
+if ( !require("ineq") ) { install.packages("ineq") }
+library("ineq")
 
-# aggregate() is actually quite general, and any function, not just sum(), can be applied to a group of observations
+aggregate(gdp.per.cap ~ year, data = co2.df, FUN = Gini, corr = TRUE)
 
-plot(log(co2.df[co2.df$year==2000, "gdp.per.cap"]), 
-  log(co2.df[co2.df$year==2000, "co2.emissions.per.cap"]), 
-  col="transparent")
+# Why do we have corr = TRUE when aggregate() has no such argument named corr?
+
+aggregate( cbind(co2.emissions.per.cap, gdp.per.cap) ~ year + round(fertility), 
+           data = co2.df, FUN = mean)
+
+
+plot(log(co2.df[co2.df$year == 2000, "gdp.per.cap"]), 
+     log(co2.df[co2.df$year == 2000, "co2.emissions.per.cap"]), 
+     col = "transparent")
 # No points are actually plotted here, since color is set to "transparent".
 # This just sets up the plot area.
 
-text(log(co2.df[co2.df$year==2000, "gdp.per.cap"]), 
-  log(co2.df[co2.df$year==2000, "co2.emissions.per.cap"]), 
-  labels=substr(co2.df[co2.df$year==2000, "country"], 1, 2), 
-  cex=.7)
+text(log(co2.df[co2.df$year == 2000, "gdp.per.cap"]), 
+     log(co2.df[co2.df$year == 2000, "co2.emissions.per.cap"]), 
+     labels = substr(co2.df[co2.df$year == 2000, "country"], 1, 2), 
+     cex = .7)
 
 # Let's show off some of the power of R's syntax.
 
@@ -481,24 +521,25 @@ text(log(co2.df[co2.df$year==2000, "gdp.per.cap"]),
 summary(co2.df)
 
 # Interpolating missing data for life expectancy by country:
-imputed.co2.ls <- by(co2.df,  INDICES=co2.df$country, FUN=function(x) {
-  if (sum(is.na(x$life.exp))==6) {return(x)}
+imputed.co2.ls <- by(co2.df, INDICES = co2.df$country, FUN = function(x) {
+  if (sum(is.na(x$life.exp)) == 6) {return(x)}
   # If all life expectancy data is missing, we cannot interpolate, so
   # we return the original data frame
   
-  x.lm <- lm( log(life.exp) ~ year, data=x)
+  x.lm <- lm( log(life.exp) ~ year, data = x)
   # Fit a regression, with the logarithm of life expectancy predicted by year
   
   missing.years.df <- data.frame( year = x$year[is.na(x$life.exp)] )
   # Create a new data frame with the year variable being the missing years
   # of the original data frame.
   
-  x.pred <- predict(x.lm, newdata=missing.years.df) 
+  x.pred <- predict(x.lm, newdata = missing.years.df) 
   # Predict the missing values based on the regression model
   
   x$life.exp[is.na(x$life.exp)] <- exp(x.pred)
-  # Turn the predicted life expectancy, which is in logarithm, back to actual years
-  # (yes, we probably run into Jensen's inequality here, but let's ignore that for now)
+  # Turn the predicted life expectancy, which is in logarithm, back to 
+  # actual years. (yes, we probably run into Jensen's inequality here, but 
+  # let's ignore that for now)
   
   x
   # Return the modified data frame
@@ -512,7 +553,8 @@ str(imputed.co2.ls)
 imputed.co2.ls[["Belarus"]]
 
 imputed.co2.df <- do.call(rbind, imputed.co2.ls)
-# NOTE: rbindlist() from the data.table package is much faster if you have lots of data
+# NOTE: rbindlist() from the data.table package is much faster if you have 
+# lots of data
 
 
 # Last things:
@@ -525,15 +567,27 @@ setwd()
 
 # At the console, press the up arrow to get commands previously entered.
 
-# Unlike in Matlab, * is element-by-element multiplication, corresponding to .* in Matlab.
+# Unlike in Matlab, * is element-by-element multiplication, corresponding 
+# to .* in Matlab.
 # In R, %*% is standard matrix multiplication.
 
 with(co2.df, fertility + life.exp * internet.users / log(gdp.per.cap))
 # Easier-to-read syntax if you have lots of operations with a single data frame
 
+# If the standard data.frame syntax is to inelegant for you, the data.table and 
+# dplyr packages have alternative syntaxes.
+# Typical syntax:
+# co2.df[co2.df$country == "United States" &, c("co2.emissions.per.cap", "gdp.per.cap")]
+# data.table syntax:
+# co2.df[country == "United States", .(co2.emissions.per.cap, gdp.per.cap)]
+# dplyr syntax:
+# co2.df %>% filter(country == "United States") %>% select(co2.emissions.per.cap, gdp.per.cap)
+
+
+
 write.csv(co2.df, "CO2 imputed.csv")
 
-save(co2.df, file="CO2 imputed.RData")
+save(co2.df, file = "CO2 imputed.RData")
 
 # Use the "foreign" package to read data from Stata, MATLAB, and SPSS formats
 
@@ -554,11 +608,17 @@ save(co2.df, file="CO2 imputed.RData")
 
 # reshape2
 # stringr
-# plyr
 # dplyr
+# data.table
 # ggplot2
 # RColorBrewer
 # stargazer
+
+# Extensive lists of R packages to try:
+# https://github.com/rstudio/RStartHere
+# https://github.com/qinwf/awesome-R
+
+
 
 # Further resources:
 
@@ -571,6 +631,9 @@ save(co2.df, file="CO2 imputed.RData")
 # Professional, modular R tutorials:
 # https://www.datacamp.com/
 
+# R for Data Science online free book. Focuses on use of Hadley Wickham's tools
+# http://r4ds.had.co.nz/
+
 # Interactive R tutorial:
 # http://swirlstats.com/
 
@@ -580,7 +643,8 @@ save(co2.df, file="CO2 imputed.RData")
 # Frequently used functions on a few reference cards:
 # http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf
 
-# Google's video R intros (not much that we didn't cover today, but may be a good review from a different perspective): 
+# Google's video R intros (not much that we didn't cover today, but may 
+# be a good review from a different perspective): 
 # http://www.youtube.com/watch?v=iffR3fWv4xw&list=PLOU2XLYxmsIK9qQfztXeybpHvru-TrqAP
 
 # Data Manipulation with R
@@ -607,11 +671,8 @@ save(co2.df, file="CO2 imputed.RData")
 # Intro to Programming Econometrics with R:
 # http://www.brodrigues.co/2015/05/03/update-introduction-r-programming/
 
-# Stata-to-R help
-# http://dss.princeton.edu/training/RStata.pdf
-
-# Electronic access to R for Stata Users: 
-# https://search.library.wisc.edu/catalog/991022085798802122
+# Computational economics (simulations & dynamic programming) with R:
+# http://www.econr.org/Intro.html
 
 # MATLAB-to-R help 
 # http://www.math.umaine.edu/~hiebeler/comp/matlabR.pdf
@@ -630,6 +691,25 @@ save(co2.df, file="CO2 imputed.RData")
 
 # Debugging tools in RStudio:
 # https://support.rstudio.com/hc/en-us/articles/205612627-Debugging-with-RStudio
+
+######
+###### For Stata users:
+######
+
+# Stata-to-R help:
+# http://dss.princeton.edu/training/RStata.pdf
+
+# A set of tools inspired by Stata to explore dataframes:
+# https://cran.r-project.org/web/packages/statar/index.html
+
+# Easier way to get het-robust standard errors:
+# https://economictheoryblog.com/2016/08/08/robust-standard-errors-in-r/
+
+# Calculation of marginal effects:
+# https://github.com/leeper/margins#requirements-and-installation
+
+# Basic Stata operations in R:
+# http://www.princeton.edu/~mattg/statar/
 
 
 
