@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 # 
-# Copyright (c) 2016 Travis McArthur
+# Copyright (c) 2012-2020 Travis McArthur
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy of 
 # this software and associated documentation files (the "Software"), to deal in 
@@ -123,8 +123,8 @@ one.hundred.v
 # The read.csv() function is going to be your primary way to get
 # a dataset into your R workspace
 
-net.worth.df <- read.csv("http://www.opensecrets.org/db2dl/?q=PFDsWorth&cycle=2008&output=CSV", 
-                         stringsAsFactors = FALSE)
+net.worth.df <- read.csv("http://tdmcarthur.github.io/slidify-presentations/r-intro/open-secrets.csv", 
+                   stringsAsFactors = FALSE)
 # We have just created a "data frame" containing data on the net worth of
 # Congresspeople, Supreme Court Justices, and certain executive branch officials
 
